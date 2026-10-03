@@ -1,0 +1,44 @@
+{
+ "benchmarks": {
+  "primary": "equal-weight PIT universe, same engine and costs, same dates",
+  "secondary": "NIFTYBEES bought at the first fill and held"
+ },
+ "capital": 1000000.0,
+ "cash_rate": 0.06,
+ "code_hashes": {
+  "execution/costs.py": "bd04dd5396ce8c8d7fcfe58feffd4d39e1c746a77d82a322ac598cee3155184e",
+  "forward.rev1.month_end_status": "43af169268cd628c54af156ae2fd57ecdd8693b1516a91c157e9b4ea1e1aff57",
+  "forward.rev1.replay": "e0b289430409e4260b2b8c7affe7b49ef6d0ffdc2cd00525c7c05f7491f99fd1",
+  "forward.rev1.rev1_decision": "65a6feb2aad510f3f8a5e4cbff6b8a66d68be1e8abaf1ea0f632fa9baa2ca377",
+  "forward.rev1.summarize": "d91949a95bf6d4ffa89adf56fb720bb0c87dafbe52d0fb0018ed07cef40ef981",
+  "lab.engine._profile_arrays": "4c2558a4ed2cedd0344055af54675143089f7b4f277c63536c879186b2ce7c1c",
+  "lab.engine.run": "526deb4519cea0d66318d14a014800244db6a312e2276b55af98665bfa1a760c",
+  "lab.factors.price_scores": "cd631d0a571adedae4bec5657368b1382106f719690928dbaa14ecf8407f8795",
+  "lab.factors.stock_universe": "31242f181a41b81aea0ebaa3b6248083de967edf80d6c25b820d310778ba43ac",
+  "lab.factors.tercile_targets": "7264a227b354364217abf6747e73b58c190d0e82435b896d93edb9a6e6ec47c9"
+ },
+ "cost_model": "india_zerodha_2026_09",
+ "decision_rules": {
+  "KEEP_OBSERVING": "otherwise; never promoted to capital on forward evidence alone (IR too low)",
+  "REJECT": "from the 2027-10 month-end: z = (excess - 2.25%*yrs) / (8.7%*sqrt(yrs)) < -2, or realized turnover > 1.5 x 16.84/yr",
+  "VOID": "frozen code or spec changed, ledger chain broken, or a decision differs from a recomputation on identical inputs and pipeline"
+ },
+ "first_decision": "2026-09-30",
+ "first_fill": "next NSE session open (1 Oct 2026)",
+ "first_review_month": "2027-10",
+ "historical_expectation": {
+  "info_ratio": 0.26,
+  "net_excess_per_year": 0.02245,
+  "source": "reports/v0.4-r1_20261003T102305Z",
+  "tracking_error_per_year": 0.087,
+  "turnover_per_year": 16.84
+ },
+ "max_wait_sessions": 5,
+ "min_coverage": 0.9,
+ "panel_start": "2024-06-01",
+ "preregistration": "research/preregistration_v0.5.md",
+ "preregistration_sha256": "4c7e8ca15ca46b0fdc5883ad4d8c06aec0415b8cafa1c61ed6a89234431d47af",
+ "strategy": "REV1 top tercile, equal weight, monthly (frozen v0.4 definition)",
+ "transforms_version": "ca_2026_10_03_exchange_anchored",
+ "universe": "point-in-time NIFTY 50 (lab.factors.stock_universe)"
+}

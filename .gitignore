@@ -32,3 +32,6 @@ reports/
 .idea/
 .DS_Store
 Thumbs.db
+
+# forward paper-test ledgers are the audit trail: always tracked
+!forward/**/ledger.jsonl
