@@ -1,0 +1,100 @@
+{
+ "source": "NSE /api/corporates-pit (SEBI PIT Reg 7(2))",
+ "fetched": "2026-10-03",
+ "files": 1056,
+ "rows": 155906,
+ "by_year": {
+  "2016": {
+   "rows": 30767,
+   "symbols": 69
+  },
+  "2017": {
+   "rows": 37656,
+   "symbols": 67
+  },
+  "2018": {
+   "rows": 34723,
+   "symbols": 69
+  },
+  "2019": {
+   "rows": 16627,
+   "symbols": 69
+  },
+  "2020": {
+   "rows": 10849,
+   "symbols": 67
+  },
+  "2021": {
+   "rows": 11775,
+   "symbols": 67
+  },
+  "2022": {
+   "rows": 4514,
+   "symbols": 51
+  },
+  "2023": {
+   "rows": 3851,
+   "symbols": 41
+  },
+  "2024": {
+   "rows": 3081,
+   "symbols": 38
+  },
+  "2025": {
+   "rows": 1730,
+   "symbols": 26
+  },
+  "2026": {
+   "rows": 333,
+   "symbols": 14
+  }
+ },
+ "insider_open_market_by_year": {
+  "2016": {
+   "insider_open_market": 894,
+   "symbols": 50
+  },
+  "2017": {
+   "insider_open_market": 879,
+   "symbols": 44
+  },
+  "2018": {
+   "insider_open_market": 866,
+   "symbols": 52
+  },
+  "2019": {
+   "insider_open_market": 739,
+   "symbols": 49
+  },
+  "2020": {
+   "insider_open_market": 759,
+   "symbols": 55
+  },
+  "2021": {
+   "insider_open_market": 395,
+   "symbols": 37
+  },
+  "2022": {
+   "insider_open_market": 225,
+   "symbols": 30
+  },
+  "2023": {
+   "insider_open_market": 129,
+   "symbols": 19
+  },
+  "2024": {
+   "insider_open_market": 124,
+   "symbols": 12
+  },
+  "2025": {
+   "insider_open_market": 54,
+   "symbols": 10
+  },
+  "2026": {
+   "insider_open_market": 39,
+   "symbols": 5
+  }
+ },
+ "finding": "Coverage collapses from 2022 (e.g. ADANIPORTS 86 rows in 2021, 3 in 2022) and the latest dissemination is 2026-04-30: promoter trades moved to system-driven disclosures that this endpoint does not return. A 2016-2026 study on this source would confuse a disclosure-system change with a signal.",
+ "decision": "Family deferred until a complete source (system-driven disclosures) is obtained and reconciled."
+}
