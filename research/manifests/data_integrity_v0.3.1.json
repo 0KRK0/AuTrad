@@ -1,0 +1,2860 @@
+{
+ "manifest_version": 1,
+ "label": "v0.3.1",
+ "created_at": "2026-10-03T10:28:54+00:00",
+ "purpose": "Exactly which data, sources, corrections and code produced the AuTrad conclusions recorded under this label.",
+ "dataset": {
+  "vendor_snapshot": "snap_20261001",
+  "vendor_manifest_hash": "b62973333fbbd998",
+  "instruments": 98,
+  "exchange_cross_checked": 91,
+  "assets": {
+   "ACC": {
+    "ticker": "ACC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "9fe7ae1ade6e2b4728ea897ca670b528ab6e1966b6a368efd23034b19b80f44b",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ADANIENT": {
+    "ticker": "ADANIENT.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "29573c61faaef21dc19e3db567a8482ed1002c6dbe7a8e0f6fb7421f74f5bd16",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ADANIPORTS": {
+    "ticker": "ADANIPORTS.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "942ff116f148854d1a91bd17b687ad1ba09d712e0fa9893e3fd3810b108e9dfd",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "AMBUJACEM": {
+    "ticker": "AMBUJACEM.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "9cb50a3377cb5302a114379aece412ed7e059aa77a526ef626b86097a7186ee6",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "APOLLOHOSP": {
+    "ticker": "APOLLOHOSP.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "3d28435e4ab57b1b2d3a2a80532b5d4a5cb86510b22bee24f94703fa5afde644",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ASHOKLEY": {
+    "ticker": "ASHOKLEY.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:21+00:00",
+    "sha256": "7e5d867efee1f1c92b8e302afaf83d757254449cd0b7b21afdc48b5f8984dc5c",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ASIANPAINT": {
+    "ticker": "ASIANPAINT.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "f7d9d8c25fe65d33c9fc667c2714aa9819698c7c92eb906aa8a5329198d7bb27",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "AUROPHARMA": {
+    "ticker": "AUROPHARMA.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "4f1af13a3d0377e039e0d9f5dc3d6d9ba233e8b5241b1e658bc55936bcc03ecb",
+    "rows": 2903,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "AXISBANK": {
+    "ticker": "AXISBANK.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:20+00:00",
+    "sha256": "e9992e50ee2ebf11022ac5bd53e2f0792b295654f5deb3eea7c9ad2c5d02d453",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BAJAJ-AUTO": {
+    "ticker": "BAJAJ-AUTO.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "db23bf1a09658ff99609376c1e0c137217fff00dabb9a77e804505072fd26ce7",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BAJAJFINSV": {
+    "ticker": "BAJAJFINSV.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:24+00:00",
+    "sha256": "7be0b52d0ce10f6ab75994e32ba11d6b2547ff38789ddc705da5fdaa6f85fb8d",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BAJFINANCE": {
+    "ticker": "BAJFINANCE.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:20+00:00",
+    "sha256": "ea54e7c7d368fdb83d940cc1304903fe0a7c7aa0c6284615995dca2a19c72211",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BANKBARODA": {
+    "ticker": "BANKBARODA.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:25+00:00",
+    "sha256": "d083dad4dd981f7307c41295830c57d90c1c82e5e0b558eaff9205916bdf6f22",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BANKBEES": {
+    "ticker": "BANKBEES.NS",
+    "source": "yahoo",
+    "asset_class": "etf",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "a6ec7566d6bb2ef22975ac90e9c40609e3e318dbfc5564ffac10cedf41ef0fe6",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BEL": {
+    "ticker": "BEL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:25+00:00",
+    "sha256": "7e7a17f38cbd68f3cc9fd4cbb1a9424ba145dea983123fd39ca7587115ba23a6",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BHARATFORG": {
+    "ticker": "BHARATFORG.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:21+00:00",
+    "sha256": "c264eee0c4c650984494cb650b379c3297ad9255ec15042b58049b0152065615",
+    "rows": 2903,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BHARTIARTL": {
+    "ticker": "BHARTIARTL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:19+00:00",
+    "sha256": "af790f3f01123446277124f8f12f24226a47142e2bd60fbfc4520f5e547c576d",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BHEL": {
+    "ticker": "BHEL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:25+00:00",
+    "sha256": "e229ed7ebc02b1d26f73d17d081309f3323c4cd3e337905cbce431221d6f2127",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BOSCHLTD": {
+    "ticker": "BOSCHLTD.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:25+00:00",
+    "sha256": "af5d6ec38b3d61494d37e3c80bcf5d822eadca878f587ac7999fb362e631833d",
+    "rows": 2902,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BPCL": {
+    "ticker": "BPCL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:25+00:00",
+    "sha256": "fa59dcf4a3789be79454b7c5c3bf264a3f7deed707a0869a5f4b5e129f23682a",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BRITANNIA": {
+    "ticker": "BRITANNIA.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:25+00:00",
+    "sha256": "60fb84e9884f301fa1d6ae7aa758dd2ba5bb6df46962e702dbbfcd6d81fce12d",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "BTCINR": {
+    "ticker": "BTC-INR",
+    "source": "yahoo",
+    "asset_class": "crypto",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "d21962387a980e0b890450e8597d73a7b446ba5f1a324a8cab00b5bf589f35ed",
+    "rows": 4291,
+    "first": "2015-01-01",
+    "last": "2026-09-30"
+   },
+   "CANFINHOME": {
+    "ticker": "CANFINHOME.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "91c45bf56c9e2236dba2d78d5308ef3d3bbeab355f92dc1286d3bf375ddef162",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "CESC": {
+    "ticker": "CESC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "cfbd3db00f379a957e365e00151245f77e1439c7fa0c55f57b42801ff7b8a93e",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "CIPLA": {
+    "ticker": "CIPLA.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:26+00:00",
+    "sha256": "b0dc1721d77edae592b79ca6ef5f8570781194773ea9a3c50520391777eec2d5",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "COALINDIA": {
+    "ticker": "COALINDIA.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:26+00:00",
+    "sha256": "f7a8636e6ea5f7974c2854b92e25abaa4e2976d7ca43701782c38d859fbf82cd",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "CUMMINSIND": {
+    "ticker": "CUMMINSIND.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:21+00:00",
+    "sha256": "a228e29a5069fb3a26b9ddf380c05f7f28c5e70ec47c069ac687797aedb3a83c",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "DIVISLAB": {
+    "ticker": "DIVISLAB.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:26+00:00",
+    "sha256": "0c8c4cbb4d7de2f9c7772f6cc6c0c631f5ac7f5d8310fb6bc010644345e34936",
+    "rows": 2903,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "DRREDDY": {
+    "ticker": "DRREDDY.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:26+00:00",
+    "sha256": "acfbd2af2f45f997c333b4d5a6faef2fb7d13047fadce293866ddcb8535f2cbf",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "EICHERMOT": {
+    "ticker": "EICHERMOT.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:26+00:00",
+    "sha256": "b697abcc0070c87a243bb298cd35aecfb0f712e06754048fde9737b6ff1fac22",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ETERNAL": {
+    "ticker": "ETERNAL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:26+00:00",
+    "sha256": "e6bda48fbe78741d6092aa8b8dea32e0356834a8fa23495a018a28e7ce91489f",
+    "rows": 1287,
+    "first": "2021-07-23",
+    "last": "2026-09-29"
+   },
+   "ETHINR": {
+    "ticker": "ETH-INR",
+    "source": "yahoo",
+    "asset_class": "crypto",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "d69095131cc327387ff472784cc2f81ac2a18df421c259b4111d8ca13ab0b8b7",
+    "rows": 3246,
+    "first": "2017-11-11",
+    "last": "2026-09-30"
+   },
+   "EURINR": {
+    "ticker": "EURINR=X",
+    "source": "yahoo",
+    "asset_class": "fx",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "5d30e7fbff913f379a1265dfef76d3fb188578f1987fd5d69cc5a50f5cf33794",
+    "rows": 3058,
+    "first": "2015-01-01",
+    "last": "2026-09-30"
+   },
+   "FEDERALBNK": {
+    "ticker": "FEDERALBNK.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:21+00:00",
+    "sha256": "ba840adb5ea59e4124f9ddbf76bbcf2215ca3ec0cfd082cafd75d7abfc595691",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "GAIL": {
+    "ticker": "GAIL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:26+00:00",
+    "sha256": "cacfcf304d6f48d8fa9784cc931bbadbf2a93a0795b176b8fb83754767b9589a",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "GBPINR": {
+    "ticker": "GBPINR=X",
+    "source": "yahoo",
+    "asset_class": "fx",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "e8611996b4511eeeff452f9640e84c1b37a6e88456abbeba2213c71fcd323493",
+    "rows": 3058,
+    "first": "2015-01-01",
+    "last": "2026-09-30"
+   },
+   "GOLDBEES": {
+    "ticker": "GOLDBEES.NS",
+    "source": "yahoo",
+    "asset_class": "etf",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "c145cd26e620eba16c827419fae75b5399bace91787c628a8d43730c7c354804",
+    "rows": 2903,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "GRASIM": {
+    "ticker": "GRASIM.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:27+00:00",
+    "sha256": "314f910731af79e2dee8c5a24ee6cef1739195a9bff96d11470cc68e1029b373",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "HCLTECH": {
+    "ticker": "HCLTECH.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:27+00:00",
+    "sha256": "0bd807ee15470546bf9bb3bd2182bf9102f616bb8e875f2c837b687961f88072",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "HDFCBANK": {
+    "ticker": "HDFCBANK.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:19+00:00",
+    "sha256": "02997ace9e4fb29d31a87d2a4d9dc6f85922e811f53dc42e618a00484af23ca3",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "HDFCLIFE": {
+    "ticker": "HDFCLIFE.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:27+00:00",
+    "sha256": "c3ed4a349aaaf60b78209ad8d1b015b141beaa1057b1f74044b593813c0815a4",
+    "rows": 2194,
+    "first": "2017-11-17",
+    "last": "2026-09-29"
+   },
+   "HEROMOTOCO": {
+    "ticker": "HEROMOTOCO.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:27+00:00",
+    "sha256": "f7545ccda5e29df8314a2ff400873c79607473c154e8397d2cf6f540afe28422",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "HINDALCO": {
+    "ticker": "HINDALCO.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:27+00:00",
+    "sha256": "f8cd47c98058049e754f1a9fbf2d4f3f175cd4a897a7a8155122b462e8d7d1b7",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "HINDPETRO": {
+    "ticker": "HINDPETRO.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:27+00:00",
+    "sha256": "2571ac8d425857a0d36242a436ff465f4dddc18ef568eace3ac0e1cba6d895f7",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "HINDUNILVR": {
+    "ticker": "HINDUNILVR.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:20+00:00",
+    "sha256": "8870a4ef7cbe27a752c5a5d980d2f98b4a2d35c9f8fe48340bc4e325ff7312e7",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ICICIBANK": {
+    "ticker": "ICICIBANK.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:19+00:00",
+    "sha256": "053ed949d33e487dc05414f230c6f3acfb5f6531ab8bec3d9f7fb73d699439ba",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "IDEA": {
+    "ticker": "IDEA.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:27+00:00",
+    "sha256": "b38cf9956cb9d6b0176ecd9fbcf40bc37a734c08d93ddf142c1e50d03851e85e",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "INDHOTEL": {
+    "ticker": "INDHOTEL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:21+00:00",
+    "sha256": "b7e29a8c3773ae9295940edafc763deaebace46c13711c9f182c661a87e50564",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "INDIGO": {
+    "ticker": "INDIGO.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "7420e01c6aeb686f43d2456714aa6d4a3fde1dfbe622ad33545365ae4a0c45bd",
+    "rows": 2691,
+    "first": "2015-11-10",
+    "last": "2026-09-29"
+   },
+   "INDUSINDBK": {
+    "ticker": "INDUSINDBK.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "a3188843eae7901ba28b2b0d595e48800a41b700519b235eb0668f2f6fca86a6",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "INDUSTOWER": {
+    "ticker": "INDUSTOWER.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "71f7f5db42eed26a652982f68e58b3a203e68594f6d5438f23193b618e5bf9e5",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "INFY": {
+    "ticker": "INFY.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:19+00:00",
+    "sha256": "af1aa3a3a3dd4094d049b309fa93b47c893a1210eb5fa52480d21b131c0ccd60",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "IOC": {
+    "ticker": "IOC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "b6073b090c6024039dd12304547acb121d7dd536c307acbacefab41dcbdda848",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ITC": {
+    "ticker": "ITC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:19+00:00",
+    "sha256": "07d9f6ece2755f0988f71a168ae117c98c9511b11788fe3bc0fdcdb92183232a",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "JIOFIN": {
+    "ticker": "JIOFIN.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "8c152c9c0202cc98113925a36629fd9c8b2adfe03d20c3c6ecca490b48ad1c23",
+    "rows": 772,
+    "first": "2023-08-21",
+    "last": "2026-09-29"
+   },
+   "JSWSTEEL": {
+    "ticker": "JSWSTEEL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "93819bef22337ccf72e7fb7b9719d816fdd01e594e7bbb9691faceb49b19e8b9",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "KEC": {
+    "ticker": "KEC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "b7d163a424c4eb2d1bcc729db86eccb903b482aa2f7007b93fa358d937804575",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "KOTAKBANK": {
+    "ticker": "KOTAKBANK.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:20+00:00",
+    "sha256": "ce87950273a5b7251cea19f1b99f331993872c3e7d822431b86eabb4288f05a6",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "LT": {
+    "ticker": "LT.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:19+00:00",
+    "sha256": "4ebe3cd6743fa6dfe3edefe12432510da0d388ba6f8651ad8144214e543e7b94",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "LTM": {
+    "ticker": "LTM.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "7a7e3e3906b1b15cb9a45c89788341441a8b258cb12deb49523096c1a7e39827",
+    "rows": 2522,
+    "first": "2016-07-21",
+    "last": "2026-09-29"
+   },
+   "LUPIN": {
+    "ticker": "LUPIN.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:28+00:00",
+    "sha256": "07bdb895977d58bfe1885b9a3dd6c922a3a68bca48d442c76694b44420edb98d",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "M&M": {
+    "ticker": "M&M.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "506e46f2f8d49bdda32890ddceb8daae06cf89724e41edef2afb3de4650ce766",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "MARUTI": {
+    "ticker": "MARUTI.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:20+00:00",
+    "sha256": "94ca9f224dd14f59ff4aa76a533cf3c357cefbf00b0fd8e53b6f898f72d58082",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "MAXHEALTH": {
+    "ticker": "MAXHEALTH.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "07168d2c7e981cb9527bce64990f4b6381a74d7b8a1b629cd9ef8fe2ab19ee14",
+    "rows": 1516,
+    "first": "2020-08-21",
+    "last": "2026-09-29"
+   },
+   "MPHASIS": {
+    "ticker": "MPHASIS.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:21+00:00",
+    "sha256": "775e6dd0b3e5eb33bfbb75c9dd8dc592744c188fd641114519e680915306aa65",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "NCC": {
+    "ticker": "NCC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "b262b1bb0c5d8cdd5d8150ca357e0bab43122a0c2084d51f1dea531aedf1e04c",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "NESTLEIND": {
+    "ticker": "NESTLEIND.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "f57268a2ed444d7dd678f2bf947baeff15d3693a5a08f5bc823cb5804aa8a665",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "NIFTY50": {
+    "ticker": "^NSEI",
+    "source": "yahoo",
+    "asset_class": "index",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "3e25d26dce60f5f9748d4e6756131b297fa5b4aad17df4b6fa0981e4e0981f20",
+    "rows": 2891,
+    "first": "2015-01-02",
+    "last": "2026-09-29"
+   },
+   "NIFTYBEES": {
+    "ticker": "NIFTYBEES.NS",
+    "source": "yahoo",
+    "asset_class": "etf",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "fbd56342f24803b6556dfc5ad69d063ed64e0299035b25e9357d1469d818ab58",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "NIFTYMID50": {
+    "ticker": "^NSEMDCP50",
+    "source": "yahoo",
+    "asset_class": "index",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "3055522ef86908d5dba56868f401a980e3da4031b53c2ad674133de285771cb6",
+    "rows": 2863,
+    "first": "2015-01-02",
+    "last": "2026-09-29"
+   },
+   "NTPC": {
+    "ticker": "NTPC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "3d2bddfa72984d523fa4687db70052adc19fb9a5670ee336863c0344dfac9fd1",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ONGC": {
+    "ticker": "ONGC.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "1ee50104047f5725becd1554add812d986ade1b1e0a856eddedb50a2150db99f",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "PAGEIND": {
+    "ticker": "PAGEIND.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "64815d2e50945a6890b547dd73a24c05e9da3524d85bb2167a8b8868c25b34e1",
+    "rows": 2902,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "POWERGRID": {
+    "ticker": "POWERGRID.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "acb3bc3b34e1180251ab7720c82c8365a29817880c96794f901d120ece9a82c0",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "RELIANCE": {
+    "ticker": "RELIANCE.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:18+00:00",
+    "sha256": "9035492be590f5d0ce4514068825ea45b546b10c24feef81aa6800347af92801",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "SAMMAANCAP": {
+    "ticker": "SAMMAANCAP.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "a2ced0642a22dec4c3867343f2dd6ac0153f61ae355f97bcc195fde94ca83954",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "SBILIFE": {
+    "ticker": "SBILIFE.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:29+00:00",
+    "sha256": "13e95705a6a59f6d750c0528d83a53b34922e336682a53b069f0b1dc6de90a72",
+    "rows": 2226,
+    "first": "2017-10-03",
+    "last": "2026-09-29"
+   },
+   "SBIN": {
+    "ticker": "SBIN.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:19+00:00",
+    "sha256": "20a7a8f6dfdc87f6caf75065bf33210d9742ba5ff609b8aadb76267399ee5a89",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "SHREECEM": {
+    "ticker": "SHREECEM.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:30+00:00",
+    "sha256": "a365554baec9070b4c6c91328caf4f2648eb24955322c1862e11a6205f937d76",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "SHRIRAMFIN": {
+    "ticker": "SHRIRAMFIN.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:30+00:00",
+    "sha256": "91c5d4e5c267afe30ed918d16762fffc5cd9fd33b3c4a4fea41924f6a8080f94",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "SILVERBEES": {
+    "ticker": "SILVERBEES.NS",
+    "source": "yahoo",
+    "asset_class": "etf",
+    "fetched_at": "2026-09-30T23:01:22+00:00",
+    "sha256": "e18bf145636adc2847131174472d9db680ed2804f17a5b462503069aaee5c083",
+    "rows": 1152,
+    "first": "2022-02-04",
+    "last": "2026-09-29"
+   },
+   "SUNPHARMA": {
+    "ticker": "SUNPHARMA.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:20+00:00",
+    "sha256": "1f30536191909f3a93084c69d915504fdd33edc97f6f75562016d17ba60fb880",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TATACONSUM": {
+    "ticker": "TATACONSUM.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:30+00:00",
+    "sha256": "7bd4349ad69506c3057ce1b6bc69a7393ddd1492ed45e773b03263119e934730",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TATAPOWER": {
+    "ticker": "TATAPOWER.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:30+00:00",
+    "sha256": "230d0a56f233a50d62f5e84c02d53619640de77aff4e0b804556598004ad6010",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TATASTEEL": {
+    "ticker": "TATASTEEL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:30+00:00",
+    "sha256": "ce98b39b684b1f3ba1e8f2eda6f32ff3b52832a9279e34890c1d66f1fc7c97cb",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TCS": {
+    "ticker": "TCS.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:18+00:00",
+    "sha256": "02d6573048a2e6fa0659ff88ba971eecabb0292ab09465da052e84d9be154bf7",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TECHM": {
+    "ticker": "TECHM.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "807e81700956e3fac270fa10c68e870a08a08ac00dfafc7b0f08867416389b68",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TITAN": {
+    "ticker": "TITAN.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "d634027e683c4dcc1e39e66a0b4e7f4d10f12619979ba4637a3a77e4699a1776",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TMPV": {
+    "ticker": "TMPV.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "872d1422ab2fd9560515fb4fb137bbe5e2d12a6b3a8489f132280ab2e62bebe1",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "TRENT": {
+    "ticker": "TRENT.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "02759779244c609b9a59e3fd4771470d7afcf347e456203daf46fdc9f5c9e787",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ULTRACEMCO": {
+    "ticker": "ULTRACEMCO.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "b574199b77e3fdd122ab9a2964062558fb2f484cd3ff1f138008352458c2a11d",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "UPL": {
+    "ticker": "UPL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "804c467e285f156cc6da6efee0dc32b1f96fc2144e6febc6a1fdfcf6cf8f6928",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "USDINR": {
+    "ticker": "INR=X",
+    "source": "yahoo",
+    "asset_class": "fx",
+    "fetched_at": "2026-09-30T23:01:23+00:00",
+    "sha256": "c859e20a373e306afec6d99c65b2671888201920e68b32c89057d38ad40ec81f",
+    "rows": 3057,
+    "first": "2015-01-01",
+    "last": "2026-09-30"
+   },
+   "VEDL": {
+    "ticker": "VEDL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "6e02d46bad46e4da7561b55e1fcbd3af50c934465ee380fe7e9b52dbeb731640",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "VOLTAS": {
+    "ticker": "VOLTAS.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:21+00:00",
+    "sha256": "103ca96aa5d50777fe7e560077edbb6a8a6a0948ced7d11c6babb432130d560b",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "WIPRO": {
+    "ticker": "WIPRO.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:31+00:00",
+    "sha256": "254b6a3e70edd05a99385c2c7f81c35f5910b4b2d48f07e728799b71cfdffd7b",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "YESBANK": {
+    "ticker": "YESBANK.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:32+00:00",
+    "sha256": "5d2c8019e1d09b4b0b62fffbbaac99c7309df4555e03e722cde63f28c6bc4f2e",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   },
+   "ZEEL": {
+    "ticker": "ZEEL.NS",
+    "source": "yahoo",
+    "asset_class": "equity",
+    "fetched_at": "2026-09-30T23:01:32+00:00",
+    "sha256": "3380aef35cf63aba32c5ac01a018ef835f7d8fce297b9276c4e5df83889fa0cb",
+    "rows": 2904,
+    "first": "2015-01-01",
+    "last": "2026-09-29"
+   }
+  }
+ },
+ "sources": {
+  "vendor": "Yahoo Finance daily OHLCV (NSE listings), fetched per asset at the fetched_at times above",
+  "exchange": {
+   "name": "BSE daily equity bhavcopy (official, unadjusted)",
+   "url": "https://www.bseindia.com/download/BhavCopy/Equity/",
+   "sessions": 2925,
+   "first_session": "2014-12-01",
+   "last_session": "2026-09-30",
+   "file_sha256": {
+    "2014.csv.gz": "5f8d1a1602b7e192cf71eb3fc83d9f891eb320e78d1840159b927b17da523581",
+    "2015.csv.gz": "db91e52c0ab7bd3a78d9b3aeae5607bb6c9d00c209d3e4b1cdef02d2d4666477",
+    "2016.csv.gz": "417ac9e240cf50a74bbb45c165c07bdbaa423ae160eb7407c66be1d941f3c60d",
+    "2017.csv.gz": "7b4ed245473e57b6e816697edc535c699ac251966e3c1241bad71744535e7237",
+    "2018.csv.gz": "17c6efb435a7706e82fa8c0485260d0cf8dd7c2050667be486db8496a3819e7c",
+    "2019.csv.gz": "c32f4c120e77b0a42ae0664df2046dd89d39317233e68afc22c354d9ea66822a",
+    "2020.csv.gz": "7af946220985913da70aa7255df683112b5280476d044477343f86d189a4c7a9",
+    "2021.csv.gz": "bf7366654373060e2ce6e5633313c7753e12b7e52076ab868ede4bc613cf8724",
+    "2022.csv.gz": "974d05e4eeca17131c69b65d1978794ba3b0b413fc93e00429695a723594a6ac",
+    "2023.csv.gz": "72098c924a763b7a7c1eefbc0f5ba894d44e01a7a8a7ea651422b5a7153a7f4c",
+    "2024.csv.gz": "7c161d92137ac3e1de5990f1b5a0f7d33db2bf066cf4b4e651c7873184ec5053",
+    "2025.csv.gz": "54d4f5033ffb159f36e4d357a04e4aec97d9b577bce05a6979ad722bf1fb419f",
+    "2026.csv.gz": "85dad637cc10249dffd1e2ef8dfea3c29ddb5f36e79b02f07b3001d1e60103ab"
+   },
+   "cache_hash": "e08b0d3741fd0442",
+   "missing_sessions_vs_nse": [
+    "2021-12-29"
+   ]
+  },
+  "corporate_action_registry": "marketdata/reference/corporate_actions.csv (each row cites a public source)",
+  "fundamentals": {
+   "name": "NSE financial-results filings (XBRL), legacy + Integrated Filing",
+   "manifest": {
+    "created_at": "2026-10-03T10:19:01+00:00",
+    "symbols": 87,
+    "filings": 2752,
+    "facts_sha256": "854fa9925d2682605a32628ed776c325e47495ff612bf18c32bc5569493663c3",
+    "rebuilt_from_raw": true
+   },
+   "facts_sha256": "854fa9925d2682605a32628ed776c325e47495ff612bf18c32bc5569493663c3"
+  }
+ },
+ "reference_files": {
+  "marketdata/reference/corporate_actions.csv": {
+   "sha256": "04731f5d76199ca70c2e2a463793e60edd3f0c384d4dc208bd47ee2513a4769e",
+   "rows": 18
+  },
+  "marketdata/reference/bse_codes.csv": {
+   "sha256": "3038693bccffed244284621070f21a168937bd22673d610ecb048267dd39322a",
+   "rows": 91
+  },
+  "marketdata/reference/verified_real_moves.csv": {
+   "sha256": "6243b1349b8ad6dea5cb6ef5f7910c5d0e8393abf466b836b1374e22e335ce76",
+   "rows": 1
+  },
+  "marketdata/reference/nifty50_pit_snapshots.csv": {
+   "sha256": "b4e4967c9b5d418eb69fb399d71dee98be278a32da1821b23b66184b54483c5d",
+   "rows": 1103
+  }
+ },
+ "corrections": {
+  "transforms_version": "ca_2026_10_03_exchange_anchored",
+  "events_applied": {
+   "total": 1122,
+   "by_kind": {
+    "dividend": 1005,
+    "ratio_event": 61,
+    "vendor_event": 39,
+    "demerger": 8,
+    "rights": 5,
+    "split": 3,
+    "bonus": 1
+   },
+   "by_method": {
+    "vendor": 1043,
+    "ratio": 65,
+    "discovery": 7,
+    "terp": 5,
+    "close_mkt": 1,
+    "dividend": 1
+   }
+  },
+  "non_dividend_events": [
+   {
+    "symbol": "ADANIENT",
+    "date": "2015-06-03",
+    "kind": "demerger",
+    "method": "close_mkt",
+    "factor": 0.174151,
+    "vendor_factor": 0.281376,
+    "source": "https://premium.capitalmind.in/2015/06/adani-enterprises-has-not-crashed-80-its-been-demerged/"
+   },
+   {
+    "symbol": "ADANIENT",
+    "date": "2018-04-05",
+    "kind": "demerger",
+    "method": "discovery",
+    "factor": 0.866908,
+    "vendor_factor": 0.84849,
+    "source": "https://www.business-standard.com/article/markets/adani-enterprises-trades-ex-date-to-spin-off-its-renewable-energy-biz-118040500237_1.html"
+   },
+   {
+    "symbol": "ADANIENT",
+    "date": "2018-09-06",
+    "kind": "demerger",
+    "method": "discovery",
+    "factor": 0.708765,
+    "vendor_factor": 0.63942,
+    "source": "https://www.business-standard.com/amp/article/markets/adani-enterprises-trade-ex-date-for-spin-off-rebounds-15-from-day-s-low-118090600280_1.html"
+   },
+   {
+    "symbol": "ADANIENT",
+    "date": "2025-11-17",
+    "kind": "rights",
+    "method": "terp",
+    "factor": 0.969484,
+    "vendor_factor": 1.0,
+    "source": "https://tradingqna.com/t/everything-you-need-to-know-about-adani-enterprises-limited-rights-issue-2025/188683"
+   },
+   {
+    "symbol": "AMBUJACEM",
+    "date": "2020-11-05",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.93252,
+    "vendor_factor": 0.93252,
+    "source": ""
+   },
+   {
+    "symbol": "ASHOKLEY",
+    "date": "2025-07-16",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.500021,
+    "source": ""
+   },
+   {
+    "symbol": "AUROPHARMA",
+    "date": "2015-07-20",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.493237,
+    "source": ""
+   },
+   {
+    "symbol": "BAJAJFINSV",
+    "date": "2022-09-13",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.099828,
+    "source": ""
+   },
+   {
+    "symbol": "BAJFINANCE",
+    "date": "2016-09-08",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.099868,
+    "source": ""
+   },
+   {
+    "symbol": "BAJFINANCE",
+    "date": "2025-06-16",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.099996,
+    "source": ""
+   },
+   {
+    "symbol": "BANKBARODA",
+    "date": "2015-01-22",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.2,
+    "vendor_factor": 0.200183,
+    "source": ""
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2019-12-19",
+    "kind": "split",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.10001,
+    "source": "BSE bhavcopy 2019-12-18/19"
+   },
+   {
+    "symbol": "BEL",
+    "date": "2015-09-14",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.333333,
+    "vendor_factor": 0.332803,
+    "source": ""
+   },
+   {
+    "symbol": "BEL",
+    "date": "2017-03-16",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.099839,
+    "source": ""
+   },
+   {
+    "symbol": "BEL",
+    "date": "2017-09-28",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.909588,
+    "vendor_factor": 0.909588,
+    "source": ""
+   },
+   {
+    "symbol": "BEL",
+    "date": "2022-09-15",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.333333,
+    "vendor_factor": 0.333281,
+    "source": ""
+   },
+   {
+    "symbol": "BHARATFORG",
+    "date": "2017-09-28",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.495726,
+    "source": ""
+   },
+   {
+    "symbol": "BHARTIARTL",
+    "date": "2019-04-23",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.917269,
+    "vendor_factor": 0.917269,
+    "source": ""
+   },
+   {
+    "symbol": "BHEL",
+    "date": "2017-09-28",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.665903,
+    "source": ""
+   },
+   {
+    "symbol": "BPCL",
+    "date": "2016-07-13",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.49999,
+    "source": ""
+   },
+   {
+    "symbol": "BPCL",
+    "date": "2017-07-13",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.666221,
+    "source": ""
+   },
+   {
+    "symbol": "BPCL",
+    "date": "2020-03-23",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.94827,
+    "vendor_factor": 0.94827,
+    "source": ""
+   },
+   {
+    "symbol": "BPCL",
+    "date": "2024-06-21",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.500041,
+    "source": ""
+   },
+   {
+    "symbol": "BRITANNIA",
+    "date": "2018-11-29",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.498482,
+    "source": ""
+   },
+   {
+    "symbol": "CANFINHOME",
+    "date": "2015-01-23",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.918647,
+    "vendor_factor": 0.918647,
+    "source": ""
+   },
+   {
+    "symbol": "CANFINHOME",
+    "date": "2017-10-12",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.2,
+    "vendor_factor": 0.199751,
+    "source": ""
+   },
+   {
+    "symbol": "CESC",
+    "date": "2018-10-30",
+    "kind": "demerger",
+    "method": "discovery",
+    "factor": 0.775009,
+    "vendor_factor": 0.897587,
+    "source": "https://www.business-standard.com/amp/article/markets/cesc-trades-ex-date-for-demerger-stock-gain-5-118103000507_1.html"
+   },
+   {
+    "symbol": "CESC",
+    "date": "2021-01-22",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.936462,
+    "vendor_factor": 0.936462,
+    "source": ""
+   },
+   {
+    "symbol": "CESC",
+    "date": "2021-09-17",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.100018,
+    "source": ""
+   },
+   {
+    "symbol": "CESC",
+    "date": "2022-01-24",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.950468,
+    "vendor_factor": 0.950468,
+    "source": ""
+   },
+   {
+    "symbol": "CESC",
+    "date": "2023-02-24",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.941935,
+    "vendor_factor": 0.941935,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2015-03-03",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.947421,
+    "vendor_factor": 0.947421,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2016-03-14",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.91435,
+    "vendor_factor": 0.91435,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2017-03-14",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.940752,
+    "vendor_factor": 0.940752,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2018-03-16",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.943813,
+    "vendor_factor": 0.943813,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2020-03-19",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.91727,
+    "vendor_factor": 0.91727,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2020-11-19",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.94152,
+    "vendor_factor": 0.94152,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2021-12-06",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.943662,
+    "vendor_factor": 0.943662,
+    "source": ""
+   },
+   {
+    "symbol": "COALINDIA",
+    "date": "2022-11-15",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.939509,
+    "vendor_factor": 0.939509,
+    "source": ""
+   },
+   {
+    "symbol": "DIVISLAB",
+    "date": "2015-09-23",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499361,
+    "source": ""
+   },
+   {
+    "symbol": "DRREDDY",
+    "date": "2024-10-28",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.2,
+    "vendor_factor": 0.20001,
+    "source": ""
+   },
+   {
+    "symbol": "EICHERMOT",
+    "date": "2020-08-24",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.100006,
+    "source": ""
+   },
+   {
+    "symbol": "FEDERALBNK",
+    "date": "2015-07-08",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.5,
+    "source": ""
+   },
+   {
+    "symbol": "GAIL",
+    "date": "2017-03-09",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.75,
+    "vendor_factor": 0.749828,
+    "source": ""
+   },
+   {
+    "symbol": "GAIL",
+    "date": "2018-03-27",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.75,
+    "vendor_factor": 0.748605,
+    "source": ""
+   },
+   {
+    "symbol": "GAIL",
+    "date": "2019-07-09",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.500036,
+    "source": ""
+   },
+   {
+    "symbol": "GAIL",
+    "date": "2020-02-17",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.947776,
+    "vendor_factor": 0.947776,
+    "source": ""
+   },
+   {
+    "symbol": "GAIL",
+    "date": "2022-09-06",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.666667,
+    "source": ""
+   },
+   {
+    "symbol": "GOLDBEES",
+    "date": "2019-12-19",
+    "kind": "split",
+    "method": "ratio",
+    "factor": 0.01,
+    "vendor_factor": 0.010002,
+    "source": "BSE bhavcopy 2019-12-18/19"
+   },
+   {
+    "symbol": "GRASIM",
+    "date": "2016-10-06",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.2,
+    "vendor_factor": 0.199973,
+    "source": ""
+   },
+   {
+    "symbol": "GRASIM",
+    "date": "2017-07-19",
+    "kind": "demerger",
+    "method": "discovery",
+    "factor": 0.835471,
+    "vendor_factor": 0.773679,
+    "source": "https://www.business-standard.com/amp/article/markets/grasim-industries-trades-ex-date-for-spin-off-117071900238_1.html"
+   },
+   {
+    "symbol": "HCLTECH",
+    "date": "2015-03-19",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.497873,
+    "source": ""
+   },
+   {
+    "symbol": "HCLTECH",
+    "date": "2019-12-05",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.493483,
+    "source": ""
+   },
+   {
+    "symbol": "HDFCBANK",
+    "date": "2019-09-19",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.49966,
+    "source": ""
+   },
+   {
+    "symbol": "HDFCBANK",
+    "date": "2025-08-26",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499802,
+    "source": ""
+   },
+   {
+    "symbol": "HINDPETRO",
+    "date": "2016-09-14",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.333333,
+    "vendor_factor": 0.333315,
+    "source": ""
+   },
+   {
+    "symbol": "HINDPETRO",
+    "date": "2017-07-11",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.665346,
+    "source": ""
+   },
+   {
+    "symbol": "HINDPETRO",
+    "date": "2021-07-08",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.925738,
+    "vendor_factor": 0.925738,
+    "source": ""
+   },
+   {
+    "symbol": "HINDPETRO",
+    "date": "2022-08-22",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.946909,
+    "vendor_factor": 0.946909,
+    "source": ""
+   },
+   {
+    "symbol": "HINDPETRO",
+    "date": "2024-06-21",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.666641,
+    "source": ""
+   },
+   {
+    "symbol": "HINDPETRO",
+    "date": "2026-08-14",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.950595,
+    "vendor_factor": 0.950595,
+    "source": ""
+   },
+   {
+    "symbol": "ICICIBANK",
+    "date": "2017-06-20",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.901856,
+    "vendor_factor": 0.901856,
+    "source": ""
+   },
+   {
+    "symbol": "IDEA",
+    "date": "2019-03-29",
+    "kind": "rights",
+    "method": "terp",
+    "factor": 0.604,
+    "vendor_factor": 0.603911,
+    "source": "https://premium.capitalmind.in/2019/03/the-voda-idea-rights-issue-a-25000-cr-offer-you-might-still-want-to-think-about/"
+   },
+   {
+    "symbol": "INDHOTEL",
+    "date": "2017-10-04",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.935056,
+    "vendor_factor": 0.935056,
+    "source": ""
+   },
+   {
+    "symbol": "INDUSTOWER",
+    "date": "2021-02-08",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.930038,
+    "vendor_factor": 0.930038,
+    "source": ""
+   },
+   {
+    "symbol": "INDUSTOWER",
+    "date": "2022-05-13",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.945423,
+    "vendor_factor": 0.945423,
+    "source": ""
+   },
+   {
+    "symbol": "INFY",
+    "date": "2015-06-15",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.492538,
+    "source": ""
+   },
+   {
+    "symbol": "INFY",
+    "date": "2018-09-04",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499975,
+    "source": ""
+   },
+   {
+    "symbol": "IOC",
+    "date": "2016-10-18",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.500014,
+    "source": ""
+   },
+   {
+    "symbol": "IOC",
+    "date": "2018-03-15",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499737,
+    "source": ""
+   },
+   {
+    "symbol": "IOC",
+    "date": "2021-02-09",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.927954,
+    "vendor_factor": 0.927954,
+    "source": ""
+   },
+   {
+    "symbol": "IOC",
+    "date": "2022-06-30",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.666667,
+    "source": ""
+   },
+   {
+    "symbol": "ITC",
+    "date": "2016-07-01",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.6665,
+    "source": ""
+   },
+   {
+    "symbol": "ITC",
+    "date": "2020-07-06",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.949213,
+    "vendor_factor": 0.949213,
+    "source": ""
+   },
+   {
+    "symbol": "JSWSTEEL",
+    "date": "2017-01-04",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.100018,
+    "source": ""
+   },
+   {
+    "symbol": "KOTAKBANK",
+    "date": "2015-07-08",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.498394,
+    "source": ""
+   },
+   {
+    "symbol": "KOTAKBANK",
+    "date": "2026-01-14",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.2,
+    "vendor_factor": 0.199208,
+    "source": ""
+   },
+   {
+    "symbol": "LT",
+    "date": "2017-07-13",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.658642,
+    "source": ""
+   },
+   {
+    "symbol": "M&M",
+    "date": "2017-12-21",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499925,
+    "source": ""
+   },
+   {
+    "symbol": "NESTLEIND",
+    "date": "2024-01-05",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.099744,
+    "source": ""
+   },
+   {
+    "symbol": "NESTLEIND",
+    "date": "2025-08-08",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499865,
+    "source": ""
+   },
+   {
+    "symbol": "NIFTYBEES",
+    "date": "2019-12-19",
+    "kind": "split",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.100019,
+    "source": "https://www.roic.ai/quote/NIFTYBEES.NS/stock-splits"
+   },
+   {
+    "symbol": "NTPC",
+    "date": "2019-03-19",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.833333,
+    "vendor_factor": 0.833333,
+    "source": ""
+   },
+   {
+    "symbol": "ONGC",
+    "date": "2016-12-15",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.666667,
+    "source": ""
+   },
+   {
+    "symbol": "ONGC",
+    "date": "2020-03-23",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.930892,
+    "vendor_factor": 0.930892,
+    "source": ""
+   },
+   {
+    "symbol": "POWERGRID",
+    "date": "2021-07-29",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.75,
+    "vendor_factor": 0.75,
+    "source": ""
+   },
+   {
+    "symbol": "POWERGRID",
+    "date": "2023-09-12",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.75,
+    "vendor_factor": 0.75,
+    "source": ""
+   },
+   {
+    "symbol": "RELIANCE",
+    "date": "2017-09-07",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499884,
+    "source": ""
+   },
+   {
+    "symbol": "RELIANCE",
+    "date": "2023-07-20",
+    "kind": "demerger",
+    "method": "discovery",
+    "factor": 0.91162,
+    "vendor_factor": 0.916693,
+    "source": "https://www.business-standard.com/amp/markets/news/nse-to-hold-special-pre-open-session-for-ril-on-july-20-amid-its-demerger-123071701034_1.html"
+   },
+   {
+    "symbol": "RELIANCE",
+    "date": "2024-10-28",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.498376,
+    "source": ""
+   },
+   {
+    "symbol": "SAMMAANCAP",
+    "date": "2024-02-01",
+    "kind": "rights",
+    "method": "terp",
+    "factor": 0.891943,
+    "vendor_factor": 0.891386,
+    "source": "https://tradingqna.com/t/everything-you-need-to-know-about-indiabulls-housing-finance-rights-issue/159886"
+   },
+   {
+    "symbol": "SHRIRAMFIN",
+    "date": "2025-01-10",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.2,
+    "vendor_factor": 0.200033,
+    "source": ""
+   },
+   {
+    "symbol": "TATACONSUM",
+    "date": "2024-07-26",
+    "kind": "rights",
+    "method": "terp",
+    "factor": 0.987722,
+    "vendor_factor": 1.0,
+    "source": "https://tradingqna.com/t/everything-you-need-to-know-about-tata-consumer-products-rights-issue/170770"
+   },
+   {
+    "symbol": "TATASTEEL",
+    "date": "2022-06-15",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.94887,
+    "vendor_factor": 0.94887,
+    "source": ""
+   },
+   {
+    "symbol": "TATASTEEL",
+    "date": "2022-07-28",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.1,
+    "source": ""
+   },
+   {
+    "symbol": "TCS",
+    "date": "2018-05-31",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.493595,
+    "source": ""
+   },
+   {
+    "symbol": "TECHM",
+    "date": "2015-03-19",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.25,
+    "vendor_factor": 0.250024,
+    "source": ""
+   },
+   {
+    "symbol": "TMPV",
+    "date": "2025-10-14",
+    "kind": "demerger",
+    "method": "discovery",
+    "factor": 0.603722,
+    "vendor_factor": 1.0,
+    "source": "https://www.plindia.com/blogs/tata-motors-demerger-share-price-adjusts-40-percent-ahead-of-tmlcv-listing/"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2016-09-12",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.1,
+    "vendor_factor": 0.100073,
+    "source": ""
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2026-06-04",
+    "kind": "bonus",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.66569,
+    "source": "https://tradingqna.com/t/everything-you-need-to-know-about-the-trent-ltd-trent-bonus-issue-2026/194697"
+   },
+   {
+    "symbol": "UPL",
+    "date": "2019-07-02",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.666667,
+    "vendor_factor": 0.666758,
+    "source": ""
+   },
+   {
+    "symbol": "UPL",
+    "date": "2024-11-26",
+    "kind": "rights",
+    "method": "terp",
+    "factor": 0.959181,
+    "vendor_factor": 1.0,
+    "source": "https://tradingqna.com/t/everything-you-need-to-know-about-upl-limited-rights-issue/176377"
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2017-04-11",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.93489,
+    "vendor_factor": 0.93489,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2018-03-20",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.931305,
+    "vendor_factor": 0.931305,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2018-11-06",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.923578,
+    "vendor_factor": 0.923578,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2020-10-28",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.907317,
+    "vendor_factor": 0.907317,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2021-09-08",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.940831,
+    "vendor_factor": 0.940831,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2022-05-06",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.922314,
+    "vendor_factor": 0.922314,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2022-07-26",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.924419,
+    "vendor_factor": 0.924419,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2022-11-29",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.943648,
+    "vendor_factor": 0.943648,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2023-04-06",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.928384,
+    "vendor_factor": 0.928384,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2023-05-30",
+    "kind": "vendor_event",
+    "method": "vendor",
+    "factor": 0.938405,
+    "vendor_factor": 0.938405,
+    "source": ""
+   },
+   {
+    "symbol": "VEDL",
+    "date": "2026-04-30",
+    "kind": "demerger",
+    "method": "discovery",
+    "factor": 0.375687,
+    "vendor_factor": 1.0,
+    "source": "https://tradingqna.com/t/everything-you-need-to-know-about-the-vedanta-limited-vedl-demerger/193500"
+   },
+   {
+    "symbol": "WIPRO",
+    "date": "2017-06-13",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.499141,
+    "source": ""
+   },
+   {
+    "symbol": "WIPRO",
+    "date": "2019-03-06",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.75,
+    "vendor_factor": 0.747199,
+    "source": ""
+   },
+   {
+    "symbol": "WIPRO",
+    "date": "2024-12-03",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.5,
+    "vendor_factor": 0.498917,
+    "source": ""
+   },
+   {
+    "symbol": "YESBANK",
+    "date": "2017-09-21",
+    "kind": "ratio_event",
+    "method": "ratio",
+    "factor": 0.2,
+    "vendor_factor": 0.200001,
+    "source": ""
+   }
+  ],
+  "vendor_artifacts_removed": [
+   {
+    "symbol": "ADANIENT",
+    "date": "2025-11-10",
+    "vendor_step": -0.0296,
+    "exchange_move": -0.0037,
+    "vendor_move": -0.0337,
+    "reason": "vendor window: undone by the step on 2025-11-17"
+   },
+   {
+    "symbol": "ASHOKLEY",
+    "date": "2020-03-19",
+    "vendor_step": 0.0078,
+    "exchange_move": -0.2665,
+    "vendor_move": -0.2582,
+    "reason": "step on a day the exchange did not move accordingly"
+   },
+   {
+    "symbol": "ASIANPAINT",
+    "date": "2026-08-03",
+    "vendor_step": 0.0154,
+    "exchange_move": -0.0135,
+    "vendor_move": 0.0067,
+    "reason": "vendor window: undone by the step on 2026-08-05"
+   },
+   {
+    "symbol": "ASIANPAINT",
+    "date": "2026-08-05",
+    "vendor_step": -0.0147,
+    "exchange_move": 0.0037,
+    "vendor_move": -0.0058,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "BAJAJ-AUTO",
+    "date": "2026-08-03",
+    "vendor_step": 0.0297,
+    "exchange_move": -0.0169,
+    "vendor_move": 0.0128,
+    "reason": "vendor window: undone by the step on 2026-08-04"
+   },
+   {
+    "symbol": "BAJAJ-AUTO",
+    "date": "2026-08-04",
+    "vendor_step": -0.0275,
+    "exchange_move": 0.0102,
+    "vendor_move": -0.0154,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "BANKBARODA",
+    "date": "2018-07-16",
+    "vendor_step": -0.0047,
+    "exchange_move": -0.0246,
+    "vendor_move": -0.0303,
+    "reason": "vendor window: undone by the step on 2018-07-23"
+   },
+   {
+    "symbol": "BANKBARODA",
+    "date": "2018-07-23",
+    "vendor_step": 0.0046,
+    "exchange_move": 0.0361,
+    "vendor_move": 0.0423,
+    "reason": "vendor window: undone by the step on 2018-07-16"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-01-12",
+    "vendor_step": 0.0043,
+    "exchange_move": -0.0028,
+    "vendor_move": 0.0058,
+    "reason": "vendor window: undone by the step on 2015-01-27"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-01-27",
+    "vendor_step": -0.0058,
+    "exchange_move": 0.025,
+    "vendor_move": 0.0122,
+    "reason": "vendor window: undone by the step on 2015-02-23"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-02-13",
+    "vendor_step": -0.0044,
+    "exchange_move": 0.0135,
+    "vendor_move": 0.0029,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-02-23",
+    "vendor_step": 0.0081,
+    "exchange_move": -0.0087,
+    "vendor_move": 0.0004,
+    "reason": "vendor window: undone by the step on 2015-01-27"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-03-30",
+    "vendor_step": -0.0044,
+    "exchange_move": 0.0167,
+    "vendor_move": -0.0059,
+    "reason": "vendor window: undone by the step on 2015-04-09"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-04-09",
+    "vendor_step": 0.0054,
+    "exchange_move": -0.0025,
+    "vendor_move": 0.0151,
+    "reason": "vendor window: undone by the step on 2015-03-30"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-05-18",
+    "vendor_step": -0.0059,
+    "exchange_move": 0.0099,
+    "vendor_move": -0.0032,
+    "reason": "vendor window: undone by the step on 2015-06-08"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-06-08",
+    "vendor_step": 0.0056,
+    "exchange_move": -0.0056,
+    "vendor_move": 0.0048,
+    "reason": "vendor window: undone by the step on 2015-06-15"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-06-15",
+    "vendor_step": -0.0059,
+    "exchange_move": 0.0024,
+    "vendor_move": -0.0074,
+    "reason": "vendor window: undone by the step on 2015-06-08"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-07-01",
+    "vendor_step": -0.016,
+    "exchange_move": 0.0239,
+    "vendor_move": 0.0002,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2015-08-14",
+    "vendor_step": -0.0053,
+    "exchange_move": -0.0111,
+    "vendor_move": 0.0126,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2016-01-06",
+    "vendor_step": -0.0057,
+    "exchange_move": 0.0035,
+    "vendor_move": -0.0046,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2016-03-04",
+    "vendor_step": 0.013,
+    "exchange_move": -0.0013,
+    "vendor_move": 0.0123,
+    "reason": "vendor window: undone by the step on 2016-03-08"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2016-03-08",
+    "vendor_step": -0.0111,
+    "exchange_move": 0.0081,
+    "vendor_move": -0.0139,
+    "reason": "vendor window: undone by the step on 2016-03-04"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2018-07-23",
+    "vendor_step": -0.0062,
+    "exchange_move": 0.0022,
+    "vendor_move": -0.0077,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2018-12-17",
+    "vendor_step": -0.0042,
+    "exchange_move": 0.0035,
+    "vendor_move": -0.005,
+    "reason": "vendor window: undone by the step on 2018-12-20"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2018-12-20",
+    "vendor_step": 0.0049,
+    "exchange_move": 0.0056,
+    "vendor_move": -0.0011,
+    "reason": "vendor window: undone by the step on 2018-12-17"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2020-03-18",
+    "vendor_step": -0.0069,
+    "exchange_move": -0.0066,
+    "vendor_move": -0.0172,
+    "reason": "vendor window: undone by the step on 2020-03-23"
+   },
+   {
+    "symbol": "BANKBEES",
+    "date": "2020-03-23",
+    "vendor_step": 0.0067,
+    "exchange_move": -0.0042,
+    "vendor_move": -0.0168,
+    "reason": "vendor window: undone by the step on 2020-03-18"
+   },
+   {
+    "symbol": "BHEL",
+    "date": "2026-08-06",
+    "vendor_step": -0.0086,
+    "exchange_move": 0.001,
+    "vendor_move": -0.0108,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "DIVISLAB",
+    "date": "2026-07-24",
+    "vendor_step": 0.0042,
+    "exchange_move": -0.0034,
+    "vendor_move": 0.0006,
+    "reason": "vendor window: undone by the step on 2026-08-13"
+   },
+   {
+    "symbol": "DIVISLAB",
+    "date": "2026-08-05",
+    "vendor_step": 0.0046,
+    "exchange_move": -0.0029,
+    "vendor_move": 0.0008,
+    "reason": "vendor window: undone by the step on 2026-08-13"
+   },
+   {
+    "symbol": "DIVISLAB",
+    "date": "2026-08-13",
+    "vendor_step": -0.0056,
+    "exchange_move": -0.0036,
+    "vendor_move": -0.0101,
+    "reason": "vendor window: undone by the step on 2026-08-05"
+   },
+   {
+    "symbol": "GAIL",
+    "date": "2026-08-05",
+    "vendor_step": 0.0061,
+    "exchange_move": -0.0007,
+    "vendor_move": 0.0107,
+    "reason": "vendor window: undone by the step on 2026-08-13"
+   },
+   {
+    "symbol": "GAIL",
+    "date": "2026-08-13",
+    "vendor_step": -0.0053,
+    "exchange_move": 0.0091,
+    "vendor_move": -0.0099,
+    "reason": "vendor window: undone by the step on 2026-08-05"
+   },
+   {
+    "symbol": "HCLTECH",
+    "date": "2026-07-17",
+    "vendor_step": 0.0102,
+    "exchange_move": 0.0024,
+    "vendor_move": 0.0132,
+    "reason": "vendor window: undone by the step on 2026-08-06"
+   },
+   {
+    "symbol": "HCLTECH",
+    "date": "2026-08-03",
+    "vendor_step": 0.01,
+    "exchange_move": -0.0044,
+    "vendor_move": 0.0062,
+    "reason": "vendor window: undone by the step on 2026-08-06"
+   },
+   {
+    "symbol": "HCLTECH",
+    "date": "2026-08-06",
+    "vendor_step": -0.0098,
+    "exchange_move": -0.0005,
+    "vendor_move": -0.0116,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "HEROMOTOCO",
+    "date": "2026-07-24",
+    "vendor_step": 0.0153,
+    "exchange_move": -0.0278,
+    "vendor_move": -0.0131,
+    "reason": "vendor window: undone by the step on 2026-08-06"
+   },
+   {
+    "symbol": "HEROMOTOCO",
+    "date": "2026-08-06",
+    "vendor_step": -0.0132,
+    "exchange_move": -0.0074,
+    "vendor_move": -0.0253,
+    "reason": "vendor window: undone by the step on 2026-08-07"
+   },
+   {
+    "symbol": "HEROMOTOCO",
+    "date": "2026-08-07",
+    "vendor_step": 0.0135,
+    "exchange_move": 0.0215,
+    "vendor_move": 0.0336,
+    "reason": "vendor window: undone by the step on 2026-08-06"
+   },
+   {
+    "symbol": "IDEA",
+    "date": "2019-08-23",
+    "vendor_step": -0.0053,
+    "exchange_move": 0.0792,
+    "vendor_move": 0.0733,
+    "reason": "vendor window: undone by the step on 2019-09-06"
+   },
+   {
+    "symbol": "IDEA",
+    "date": "2019-09-06",
+    "vendor_step": 0.0054,
+    "exchange_move": 0.0085,
+    "vendor_move": 0.0007,
+    "reason": "vendor window: undone by the step on 2019-08-23"
+   },
+   {
+    "symbol": "INDHOTEL",
+    "date": "2018-01-29",
+    "vendor_step": -0.0068,
+    "exchange_move": -0.0541,
+    "vendor_move": -0.0594,
+    "reason": "vendor window: undone by the step on 2018-01-30"
+   },
+   {
+    "symbol": "INDHOTEL",
+    "date": "2018-01-30",
+    "vendor_step": 0.0083,
+    "exchange_move": 0.0101,
+    "vendor_move": 0.0213,
+    "reason": "vendor window: undone by the step on 2018-01-29"
+   },
+   {
+    "symbol": "INDHOTEL",
+    "date": "2026-08-03",
+    "vendor_step": 0.0065,
+    "exchange_move": -0.0046,
+    "vendor_move": 0.0022,
+    "reason": "vendor window: undone by the step on 2026-08-10"
+   },
+   {
+    "symbol": "INDHOTEL",
+    "date": "2026-08-10",
+    "vendor_step": -0.0063,
+    "exchange_move": -0.0153,
+    "vendor_move": -0.0037,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "INDUSTOWER",
+    "date": "2015-06-18",
+    "vendor_step": -0.0118,
+    "exchange_move": -0.0356,
+    "vendor_move": -0.0475,
+    "reason": "vendor window: undone by the step on 2015-06-19"
+   },
+   {
+    "symbol": "INDUSTOWER",
+    "date": "2015-06-19",
+    "vendor_step": 0.0122,
+    "exchange_move": 0.0008,
+    "vendor_move": 0.0158,
+    "reason": "vendor window: undone by the step on 2015-06-18"
+   },
+   {
+    "symbol": "JSWSTEEL",
+    "date": "2026-08-03",
+    "vendor_step": 0.0046,
+    "exchange_move": -0.0085,
+    "vendor_move": 0.0015,
+    "reason": "vendor window: undone by the step on 2026-08-31"
+   },
+   {
+    "symbol": "JSWSTEEL",
+    "date": "2026-08-12",
+    "vendor_step": -0.0079,
+    "exchange_move": 0.0015,
+    "vendor_move": -0.0097,
+    "reason": "vendor window: undone by the step on 2026-08-19"
+   },
+   {
+    "symbol": "JSWSTEEL",
+    "date": "2026-08-19",
+    "vendor_step": 0.006,
+    "exchange_move": 0.0042,
+    "vendor_move": 0.0174,
+    "reason": "vendor window: undone by the step on 2026-08-12"
+   },
+   {
+    "symbol": "KEC",
+    "date": "2018-04-24",
+    "vendor_step": -0.0098,
+    "exchange_move": -0.032,
+    "vendor_move": -0.0418,
+    "reason": "vendor window: undone by the step on 2018-04-26"
+   },
+   {
+    "symbol": "KEC",
+    "date": "2018-04-26",
+    "vendor_step": 0.0079,
+    "exchange_move": -0.014,
+    "vendor_move": -0.005,
+    "reason": "vendor window: undone by the step on 2018-04-24"
+   },
+   {
+    "symbol": "KOTAKBANK",
+    "date": "2026-08-03",
+    "vendor_step": 0.0135,
+    "exchange_move": -0.0082,
+    "vendor_move": 0.0024,
+    "reason": "vendor window: undone by the step on 2026-08-05"
+   },
+   {
+    "symbol": "KOTAKBANK",
+    "date": "2026-08-05",
+    "vendor_step": -0.0134,
+    "exchange_move": 0.0122,
+    "vendor_move": 0.0046,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "LTM",
+    "date": "2017-11-22",
+    "vendor_step": -0.0057,
+    "exchange_move": 0.0146,
+    "vendor_move": 0.0075,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "MPHASIS",
+    "date": "2017-01-16",
+    "vendor_step": 0.0043,
+    "exchange_move": -0.0135,
+    "vendor_move": -0.0063,
+    "reason": "vendor window: undone by the step on 2017-01-03"
+   },
+   {
+    "symbol": "MPHASIS",
+    "date": "2018-02-12",
+    "vendor_step": -0.0191,
+    "exchange_move": -0.0332,
+    "vendor_move": -0.0535,
+    "reason": "vendor window: undone by the step on 2018-02-14"
+   },
+   {
+    "symbol": "MPHASIS",
+    "date": "2018-02-14",
+    "vendor_step": 0.0185,
+    "exchange_move": 0.029,
+    "vendor_move": 0.0416,
+    "reason": "vendor window: undone by the step on 2018-02-12"
+   },
+   {
+    "symbol": "NTPC",
+    "date": "2026-08-03",
+    "vendor_step": 0.0052,
+    "exchange_move": -0.0146,
+    "vendor_move": -0.0054,
+    "reason": "vendor window: undone by the step on 2026-08-07"
+   },
+   {
+    "symbol": "NTPC",
+    "date": "2026-08-07",
+    "vendor_step": -0.0053,
+    "exchange_move": 0.0056,
+    "vendor_move": -0.0046,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "PAGEIND",
+    "date": "2016-12-06",
+    "vendor_step": 0.0047,
+    "exchange_move": -0.0058,
+    "vendor_move": -0.0016,
+    "reason": "vendor window: undone by the step on 2016-12-13"
+   },
+   {
+    "symbol": "PAGEIND",
+    "date": "2026-08-13",
+    "vendor_step": -0.0076,
+    "exchange_move": -0.0334,
+    "vendor_move": -0.0458,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "SBILIFE",
+    "date": "2018-05-17",
+    "vendor_step": -0.0042,
+    "exchange_move": 0.0125,
+    "vendor_move": 0.0085,
+    "reason": "vendor window: undone by the step on 2018-05-23"
+   },
+   {
+    "symbol": "SHREECEM",
+    "date": "2015-06-23",
+    "vendor_step": 0.0044,
+    "exchange_move": -0.0174,
+    "vendor_move": -0.0108,
+    "reason": "vendor window: undone by the step on 2015-06-15"
+   },
+   {
+    "symbol": "SHRIRAMFIN",
+    "date": "2026-08-13",
+    "vendor_step": -0.0041,
+    "exchange_move": 0.0055,
+    "vendor_move": 0.0151,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "TATACONSUM",
+    "date": "2024-07-18",
+    "vendor_step": -0.0123,
+    "exchange_move": 0.0069,
+    "vendor_move": -0.0055,
+    "reason": "vendor window: undone by the step on 2024-07-26"
+   },
+   {
+    "symbol": "TATACONSUM",
+    "date": "2026-08-03",
+    "vendor_step": 0.0057,
+    "exchange_move": -0.0008,
+    "vendor_move": 0.0086,
+    "reason": "vendor window: undone by the step on 2026-08-11"
+   },
+   {
+    "symbol": "TATACONSUM",
+    "date": "2026-08-11",
+    "vendor_step": -0.0063,
+    "exchange_move": -0.0083,
+    "vendor_move": -0.0235,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "TMPV",
+    "date": "2026-08-03",
+    "vendor_step": 0.0069,
+    "exchange_move": 0.0036,
+    "vendor_move": 0.0118,
+    "reason": "vendor window: undone by the step on 2026-08-11"
+   },
+   {
+    "symbol": "TMPV",
+    "date": "2026-08-11",
+    "vendor_step": -0.0071,
+    "exchange_move": 0.0132,
+    "vendor_move": 0.006,
+    "reason": "vendor window: undone by the step on 2026-08-03"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2015-04-29",
+    "vendor_step": -0.0049,
+    "exchange_move": -0.0227,
+    "vendor_move": -0.0291,
+    "reason": "vendor window: undone by the step on 2015-05-12"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2015-07-29",
+    "vendor_step": -0.0056,
+    "exchange_move": 0.0038,
+    "vendor_move": -0.0036,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2016-03-23",
+    "vendor_step": -0.0074,
+    "exchange_move": 0.0026,
+    "vendor_move": -0.0125,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2019-03-14",
+    "vendor_step": 0.0087,
+    "exchange_move": 0.0089,
+    "vendor_move": 0.0227,
+    "reason": "vendor window: undone by the step on 2019-03-18"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2019-03-18",
+    "vendor_step": -0.0092,
+    "exchange_move": -0.0109,
+    "vendor_move": -0.0362,
+    "reason": "vendor window: undone by the step on 2019-03-14"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2019-05-20",
+    "vendor_step": 0.0047,
+    "exchange_move": -0.0379,
+    "vendor_move": -0.03,
+    "reason": "vendor window: undone by the step on 2019-05-27"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2019-05-27",
+    "vendor_step": -0.0045,
+    "exchange_move": -0.001,
+    "vendor_move": -0.0111,
+    "reason": "vendor window: undone by the step on 2019-05-20"
+   },
+   {
+    "symbol": "TRENT",
+    "date": "2026-01-01",
+    "vendor_step": -0.4035,
+    "exchange_move": 0.004,
+    "vendor_move": -0.4018,
+    "reason": "negative step: no corporate action raises pre-event prices"
+   },
+   {
+    "symbol": "ULTRACEMCO",
+    "date": "2026-08-10",
+    "vendor_step": -0.0048,
+    "exchange_move": 0.0047,
+    "vendor_move": -0.0061,
+    "reason": "vendor window: undone by the step on 2026-08-17"
+   }
+  ],
+  "closes_or_stale_bars_replaced": 144,
+  "opens_replaced": 623,
+  "suspect_windows_flagged": [
+   [
+    "ASIANPAINT",
+    "2026-08-03"
+   ],
+   [
+    "BAJAJ-AUTO",
+    "2026-08-03"
+   ],
+   [
+    "BANKBEES",
+    "2016-03-04"
+   ],
+   [
+    "HCLTECH",
+    "2026-07-17"
+   ],
+   [
+    "HCLTECH",
+    "2026-08-03"
+   ],
+   [
+    "HEROMOTOCO",
+    "2026-07-24"
+   ],
+   [
+    "INDUSTOWER",
+    "2015-06-19"
+   ],
+   [
+    "KOTAKBANK",
+    "2026-08-03"
+   ]
+  ],
+  "verified_real_moves": "marketdata/reference/verified_real_moves.csv"
+ },
+ "quality": {
+  "asset_days_below_0.5": 87,
+  "asset_days_replaced": 766,
+  "asset_days_unconfirmed": 1061,
+  "mean_score": 0.9964128119412592
+ },
+ "exchange_comparison": {
+  "stock_days": 256132,
+  "checks": {
+   "raw_vendor": {
+    "fake": 68,
+    "exdate": 9,
+    "level": 10659
+   },
+   "v03_hand_fixed": {
+    "fake": 64,
+    "exdate": 3,
+    "level": 2485
+   },
+   "v04_exchange_anchored": {
+    "fake": 4,
+    "exdate": 0,
+    "level": 0
+   }
+  },
+  "exdates_checked": 79,
+  "missed_adjustments": []
+ },
+ "code": {
+  "pipeline_files": {
+   "marketdata/store.py": "4c9382a8c08ebb7827180fe3c4658bc0d0d9ccbb555ea437a9b0b0d64b04775c",
+   "marketdata/exchange.py": "2c647942f525b853196c457533050e38f6964e640139ba270b91e0257517bc9e",
+   "marketdata/corporate_actions.py": "b5dba7e96affd2c60a9bbb4aea91ea78d32cf2dd1d44aee7be8b7ef9519a419d",
+   "marketdata/audit.py": "5c4694311d63a52f1977151d1a274eeaad92d4a556588a891478baacabe9334e",
+   "marketdata/pit.py": "d8705b767287bc1aa1d65030ff3e1c7c1c52d75c69560a2091bdbadb5c65a8a1",
+   "marketdata/universe.py": "6d0a7cdff99e9fdc58fde86f702187fcf7fc5322da75a3ae49e4c511ebb11ac2",
+   "marketdata/nse_filings.py": "30d86e0c6d6c9c994b33d2608ca4c7f045c398cfd4c02595534148a091a9f87e",
+   "marketdata/fundamentals.py": "36764e65ea540e9530be3ad46d8d7518edf07e581972d866c758442cf6832b15",
+   "scripts/fetch_data.py": "92037899ee15816c52271740dc79d60b23603a5a0cdd6632a02a469e3a2abe29",
+   "scripts/fetch_exchange.py": "78e1083af71d25029f3c54bd1c3e043c77c1ba60e5b3085a68ac2438f6302edb",
+   "scripts/fetch_fundamentals.py": "d519e1df396a845e868a0d9432c0a035373eae1149f9b468187614ab53f50e46",
+   "scripts/data_audit.py": "2a97f13af4d36038f1beae13fbb0aad9388dcad5133c3369683b113a352a5ed8",
+   "scripts/data_impact.py": "e7b4357b4d44e14a2940ebfc29d6b609d23970752afd84240b7c6fb25ef291d3",
+   "execution/costs.py": "bd04dd5396ce8c8d7fcfe58feffd4d39e1c746a77d82a322ac598cee3155184e",
+   "lab/panel.py": "e68c9bda6161a904005a925f273d793c036e0c01e8218438b66d37a839fe6b56",
+   "lab/engine.py": "ccccbae71fd3e228a4eaf68d674588470c7713faa9dc6f03207684129ea38c9e"
+  },
+  "git_head": "no commits yet (this manifest is part of the first commit)",
+  "git_branch": "master",
+  "git_dirty_files": 101,
+  "python": "3.10.12",
+  "pandas": "2.3.3"
+ },
+ "tests": {
+  "command": "pytest -q",
+  "result": "101 passed, 1 warning in 32.69s"
+ },
+ "audit_report": "reports/data_integrity_20261003T073813Z"
+}

@@ -1,0 +1,34 @@
+# Secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# Python virtual environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Web build output and dependencies
+web/node_modules/
+web/dist/
+
+# Market data cache and generated reports (reproducible from scripts/fetch_data + manifest hash)
+data/
+reports/
+
+# Runtime data
+*.jsonl
+# the research trial registry is evidence: keep it in git
+!research/trials.jsonl
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

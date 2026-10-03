@@ -1,0 +1,59 @@
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    environment:
+      POSTGRES_DB: autrad
+      POSTGRES_USER: autrad
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U autrad"]
+      interval: 5s
+      retries: 10
+
+  pgbouncer:                       # connection pooling in front of Postgres
+    image: edoburu/pgbouncer:latest
+    environment:
+      DATABASE_URL: postgres://autrad:${POSTGRES_PASSWORD}@db:5432/autrad
+      POOL_MODE: transaction
+      MAX_CLIENT_CONN: 1000
+      DEFAULT_POOL_SIZE: 25
+      AUTH_TYPE: scram-sha-256
+    depends_on:
+      db: { condition: service_healthy }
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--maxmemory", "256mb", "--maxmemory-policy", "allkeys-lru"]
+
+  api:
+    build: .
+    command: ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2", "--proxy-headers"]
+    environment:
+      DATABASE_URL: postgres://autrad:${POSTGRES_PASSWORD}@pgbouncer:5432/autrad
+      REDIS_URL: redis://redis:6379/0
+      API_TOKENS: ${API_TOKENS:?set in .env}
+      AUDIT_PATH: /var/log/autrad/audit.jsonl
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost}
+    volumes:
+      - audit:/var/log/autrad
+    depends_on: [pgbouncer, redis]
+    deploy:
+      replicas: 2                  # nginx load-balances across these
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+
+  web:
+    build:
+      context: ./web
+    ports: ["80:80"]
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on: [api]
+
+volumes:
+  pgdata:
+  audit:
