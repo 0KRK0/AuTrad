@@ -10,3 +10,8 @@ https://www.marketcalls.in/llm-models/how-to-build-survivorship-bias-free-nifty-
   list each press release used.
 - Third-party reconstruction: spot-check against NSE Indices press releases before relying on it for capital.
 - Downloaded 30 Sep 2026. Symbol aliases and exclusions are applied in `marketdata/pit.py`.
+- **Amendment 2026-10-03 (v0.5, forward test):** snapshot `2026-09-30` added by hand from the NSE Indices press release
+  of 10 Aug 2026 (https://niftyindices.com/Press_Release/ind_prs10082026.pdf): BSE Ltd (BSE, ISIN INE118H01025) replaces
+  Wipro (WIPRO) with effect from 30 Sep 2026 (after the close of 29 Sep 2026). The weights are carried over from the
+  30 Aug snapshot, and BSE's weight is blank; weights are not used by any strategy. BSE Ltd is listed only on NSE, so it
+  has no BSE bhavcopy and its prices are vendor-only (quality score 0.9).

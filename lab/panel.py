@@ -66,10 +66,12 @@ def _klass(a: Asset) -> str:
 
 def build_panel(data_dir: str, assets: list[Asset], pit: PITUniverse | None = None, calendar: str = "nse",
                 survivors_only: bool = False, start: str = "2015-01-01", end: str | None = None,
-                profile_override: dict[str, str] | None = None, name: str = "panel") -> Panel:
+                profile_override: dict[str, str] | None = None, name: str = "panel", asof: str | None = None) -> Panel:
     store = DataStore(data_dir)
-    data = store.load([a.symbol for a in assets], start, end)
-    bench_df = store.load(["NIFTY50"], start, end).get("NIFTY50")
+    data = store.load([a.symbol for a in assets], start, end, asof=asof)
+    q = store.quality
+    bench_df = store.load(["NIFTY50"], start, end, asof=asof).get("NIFTY50")
+    store.quality = q
     assets = [a for a in assets if a.symbol in data]
     if calendar == "nse" and bench_df is not None:
         dates = bench_df.index

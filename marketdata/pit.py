@@ -47,7 +47,7 @@ SECTOR = {
     "INDUSTOWER": "telecom", "INFY": "it", "IOC": "energy", "ITC": "fmcg", "JIOFIN": "nbfc", "JSWSTEEL": "metals",
     "KOTAKBANK": "banks", "LT": "industrials", "LTM": "it", "LUPIN": "pharma", "M&M": "auto", "MARUTI": "auto",
     "MAXHEALTH": "healthcare", "NESTLEIND": "fmcg", "NTPC": "power", "ONGC": "energy", "POWERGRID": "power",
-    "RELIANCE": "energy", "SBILIFE": "insurance", "SBIN": "banks", "SHREECEM": "cement", "SHRIRAMFIN": "nbfc",
+    "RELIANCE": "energy", "BSE": "capital_markets", "SBILIFE": "insurance", "SBIN": "banks", "SHREECEM": "cement", "SHRIRAMFIN": "nbfc",
     "SUNPHARMA": "pharma", "TATACONSUM": "fmcg", "TMPV": "auto", "TATAPOWER": "power", "TATASTEEL": "metals",
     "TCS": "it", "TECHM": "it", "TITAN": "consumer", "TRENT": "consumer", "ULTRACEMCO": "cement", "UPL": "chemicals",
     "VEDL": "metals", "WIPRO": "it", "YESBANK": "banks", "ZEEL": "media",

@@ -49,7 +49,10 @@ def _profile_arrays(panel: Panel):
 
 
 def run(panel: Panel, targets: pd.DataFrame, capital: float = 10_00_000.0, cost_mult: float = 1.0,
-        cash_rate: float = 0.06, band: float = 0.0, name: str = "", params: dict | None = None) -> RunResult:
+        cash_rate: float = 0.06, band: float = 0.0, name: str = "", params: dict | None = None,
+        fills: list | None = None) -> RunResult:
+    """fills: optional list that receives one dict per executed order (date index, symbol, weight change, traded
+    value, open price, modelled cost, NAV before the trade). Passing it does not change any result."""
     T, N = panel.C.shape
     pa = _profile_arrays(panel)
     tgt = targets.reindex(columns=panel.symbols).fillna(0.0)
@@ -107,6 +110,10 @@ def run(panel: Panel, targets: pd.DataFrame, capital: float = 10_00_000.0, cost_
                 slip = tv * (pa["half_spread_bps"] / 1e4 + pa["impact_coef"] * vol * np.sqrt(part))
                 cost_i = np.where(tv > 0, (fee + brok + flat + slip) * cost_mult, 0.0)
                 cost = float(cost_i.sum())
+                if fills is not None:
+                    for i in np.nonzero(tv > 0)[0]:
+                        fills.append({"t": t, "symbol": panel.symbols[i], "delta_w": float(delta[i]), "value": float(tv[i]),
+                                      "price": float(o[i]), "cost": float(cost_i[i]), "nav_before": float(nav)})
                 # episodes: open / close / flip
                 new_w = w + delta
                 for i in np.nonzero(tv > 0)[0]:

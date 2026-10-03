@@ -227,3 +227,53 @@ avoid-filter. No short strategy is built in v0.5.
 No new factors, no factor combinations or interactions (they come only after each factor is established
 independently), no machine learning, no parameter grids, no intraday work, and no change to REV1. Live trading stays
 disabled.
+
+---
+
+## Amendment 1 — 2026-10-03, before any forward record or v0.5 result
+
+**Track A integrity rule.** The original text says a decision written after its fill session's close voids the test.
+An end-of-day runner only learns that a session was the last of the month when the next session's bar arrives (or,
+in the usual case, on the evening of the last weekday). So that rule would void months mechanically, including
+months where nothing could have gone wrong. Replacement:
+- The runner **truncates the price panel at the decision close before scoring**, so no later price can enter a
+  decision, whenever it is computed. Every decision record stores a recomputation check.
+- A decision is **ON_TIME** if it is written on the evening of the month-end session. That is possible when the
+  latest session in the data is the last weekday of its month. Otherwise it is **LATE** (written after the next
+  session's bar arrived). The paper fill is at the next session's open in both cases, exactly as in research.
+  LATE is reported, never hidden.
+- **VOID** remains for a changed frozen-code hash, a broken ledger chain, or a recorded decision that differs from a
+  truncated recomputation for any reason other than a logged data revision.
+
+No definition, threshold or test changes. Reason: implementation feasibility, found while building the runner.
+
+## Amendment 2 — 2026-10-03, after an independent code review, before the forward ledger was initialised
+
+No strategy definition, threshold or hypothesis changes. These items make the implementation match the text, or
+remove an ambiguity in it:
+
+1. **No later data at all.** "Truncated" now means the raw vendor and exchange rows after the decision close are
+   dropped *before* the corporate-action correction runs. The correction fits step functions and rolling medians over
+   whole series, so cutting only its output could still let later bars move earlier prices.
+2. **One decision per month, confirmed by the exchange.** A month-end is accepted only once BSE's bhavcopy for that
+   session is published (final data) and BSE shows no later session in the same month that the vendor lacks.
+   Otherwise the runner waits, for at most 5 sessions. After that, a missing vendor month-end is MISSED (previous
+   holdings kept, still counted). Nothing is booked past a month-end whose decision is still pending.
+3. **Re-checks that can actually fail.** Each decision stores a hash of its exact inputs (raw vendor and BSE rows up
+   to the close) and the data-pipeline file hashes. The last three decisions, and all of them after any pipeline
+   change, are recomputed every run. A difference with identical inputs and pipeline is **VOID**. A difference after
+   inputs or pipeline changed is a logged **revision**, and the recorded decision stands. Pipeline changes and runner
+   changes are logged as records.
+4. **More of the definition is hashed:** `lab.engine._profile_arrays` (cost-profile arrays) and the runner functions
+   for month-end status, replay and decision rules. Coverage and wait limits now live in `spec.json`.
+5. **Review timing.** "12 complete months" is the minimum. The first review is after the **October 2027** month-end, as
+   stated (13 months). The turnover REJECT rule is implemented, and the initial purchase is excluded from turnover.
+6. **Data-quality gate bug (pre-existing, found by the review work).** `lab.panel.build_panel` lost the per-day
+   exchange-quality scores when it loaded the benchmark. So since v0.3.1 the rule "no buys on prices the exchange did
+   not confirm (score < 0.5)" was silently off in research runs. It affects 77 stock-days in 6 stocks. Fixed, with a
+   regression test. Impact on the frozen candidate: REV1 net excess goes from +2.245 %/yr to +2.255 %/yr. Tracks B and
+   C are run with the fix.
+7. **Track B/C reporting.** The economic axis uses net excess over the beta-matched benchmark, not the regression
+   alpha; the alpha stays on the statistical axis. C1–C3 report the per-event mean with a CR1 day-clustered t (as
+   C4–C6), and the v0.4-style day-average t is shown beside it. Turnover excludes the pre-start cash period. T1's
+   tradable check uses the 4 pre-registered subperiods.

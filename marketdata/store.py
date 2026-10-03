@@ -147,12 +147,14 @@ class DataStore:
         return reports
 
     def load(self, symbols: list[str], start: str | None = None, end: str | None = None,
-             adjust: bool = True) -> dict[str, pd.DataFrame]:
+             adjust: bool = True, asof: str | None = None) -> dict[str, pd.DataFrame]:
         """adjust=True applies the exchange-anchored corporate-action correction (marketdata.corporate_actions)
         for every asset with a BSE listing when the exchange cache exists (default <root>/../exchange), else
         only the vendor blip repair. Raw files are never modified. After a load:
           self.adjustments[symbol] -> human-readable notes,  self.events[symbol] -> applied corporate actions,
-          self.quality[symbol] -> per-date data-quality score (1 = confirmed by the exchange that day)."""
+          self.quality[symbol] -> per-date data-quality score (1 = confirmed by the exchange that day).
+        asof: cut the raw vendor and exchange data at this date BEFORE any correction, so nothing after it can
+        influence the result (used by forward tests; `end` only trims the corrected output)."""
         from .corporate_actions import apply as apply_blips
         from .corporate_actions import correct_with_exchange, load_registry
 
@@ -169,17 +171,24 @@ class DataStore:
             if s in m and _sha(path) != m[s]["sha256"]:
                 raise ValueError(f"{s}: file changed since fetch (sha256 mismatch); re-run fetch_data")
             frames[s] = pd.read_csv(path, parse_dates=["date"], index_col="date")
+            if asof is not None:
+                frames[s] = frames[s][frames[s].index <= pd.Timestamp(asof)]
         exch = self._exchange() if adjust else None
         bench = None
         if exch is not None:
             bp = self.raw / "NIFTY50.csv"
             bench = pd.read_csv(bp, parse_dates=["date"], index_col="date")["close"] if bp.exists() else None
+            if bench is not None and asof is not None:
+                bench = bench[bench.index <= pd.Timestamp(asof)]
             registry = load_registry()
         for s, df in frames.items():
             if adjust:
                 if exch is not None and s in exch["codes"]:
                     from .exchange import series
-                    c = correct_with_exchange(s, df, series(exch["prices"], exch["codes"][s]), bench, registry)
+                    ex_s = series(exch["prices"], exch["codes"][s])
+                    if asof is not None:
+                        ex_s = ex_s[ex_s.index <= pd.Timestamp(asof)]
+                    c = correct_with_exchange(s, df, ex_s, bench, registry)
                     df, notes = c.df, c.notes
                     self.events[s] = c.events
                     self.quality[s] = c.quality
