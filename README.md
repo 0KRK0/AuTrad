@@ -8,7 +8,7 @@ Enterprise-grade AI trading **research and paper-trading** platform. AI proposes
 
 ```bash
 pip install -r requirements-dev.txt
-pytest -q                                   # 101 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, API
+pytest -q                                   # 118 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, forward test, API
 python -m scripts.fetch_data                # v0.2: real India data (NSE, NIFTY, BTC/ETH INR, USD/GBP/EUR INR, gold/silver ETFs)
 python -m scripts.validate                  # v0.2: walk-forward validation + baselines + random traders + scorecard -> reports/
 python -m scripts.run_backtest              # synthetic data (mechanics only)
@@ -126,6 +126,35 @@ python -m scripts.data_manifest --label v0.3.1 --audit reports/data_integrity_<t
 - **Only REV1 passed** (one-month reversal within the NIFTY 50) of the 17 pre-registered factors. Its signal is robust (IC 0.056, t 3.3), but its after-cost portfolio gain is not significant (+2.3% a year, t 0.9). It is a weak candidate for the forward paper test, not a strategy.
 - **Quality, growth, SUE, low volatility and beta show no premium** in Indian large caps over 2019–26. Value is positive but not significant.
 - **After bad earnings reactions, stocks keep falling** (−103 bps over 20 sessions, t −3.3). Good reactions show no tradable drift.
+
+## v0.5 alpha validation
+
+No new factors. One candidate is tested forward, and two findings are taken apart under frozen rules
+(`research/preregistration_v0.5.md`, hashed before any result).
+
+```bash
+python -m scripts.forward_rev1 --fetch      # every NSE session evening (~18:30 IST+): download, decide at month-ends, mark, re-check
+python -m scripts.v05 A|B|C|report --out reports/v0.5_<ts>     # research side: REV1 cost check, low-vol decomposition, earnings reaction
+```
+
+| Path | What |
+| --- | --- |
+| `forward/rev1.py`, `forward/ledger.py` | Frozen REV1 forward paper test from 1 Oct 2026. Hash-chained ledger; hashed strategy code (any change = VOID). Month-ends are confirmed by the BSE bhavcopy, raw data are cut at the decision close *before* corrections, decisions are re-checked every run, and the production Risk Gate runs in shadow |
+| `forward/rev1/status.md` | Live state: paper NAV vs equal-weight NIFTY 50 and NIFTYBEES, decisions, audit events |
+| `lab/v05.py`, `scripts/v05.py` | Newey–West and cluster-robust OLS, Brinson split, ex-ante beta, regime flags, past-only flags, and a four-axis evidence scorecard (statistical / economic / tradable / forward) |
+
+**Result (`reports/v0.5_<ts>/report.md`, after an independent review):**
+
+- **REV1 is now running forward, untouched.** Research-side it is cost-fragile: +2.3 %/yr net, −0.5 %/yr at double costs, and
+  2 of 4 subperiods positive. At its information ratio a forward test can catch it breaking, but cannot prove it.
+- **Low volatility is mostly market beta.** The "+3.2 % alpha" falls to +2.7 % (t 1.4) once the equal-weight and size tilts
+  are included. All its beta-adjusted edge came in months when NIFTY was below its 200-day average, and it lost in
+  2024–26. Not a candidate.
+- **Bad earnings reactions keep falling** on market-, sector- and absolute-adjusted measures (−92 to −122 bps over 20
+  sessions, Holm p ≤ 0.011). But a stand-alone long-only "avoid" filter earns +0.7 %/yr at normal costs and loses at
+  double costs. Not a candidate on its own.
+- Found and fixed a pre-existing bug: the exchange-quality buy block had been silently off in research since v0.3.1
+  (77 stock-days; REV1 effect +0.01 %/yr).
 
 ## Promotion path
 

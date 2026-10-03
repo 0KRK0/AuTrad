@@ -250,6 +250,32 @@ def track_b(out: Path) -> None:
     print("Track B:", res["decision"], {k: bool(v) for k, v in crit.items()})
 
 
+# =============================================================================== REV1 research-side checks
+def rev1_research(out: Path) -> None:
+    """Scorecard inputs for the frozen REV1 candidate on the research data (with the fixed quality gate): net excess
+    at 1x and 2x costs and by subperiod. Nothing here feeds the forward test."""
+    check_prereg()
+    P = build_panel(DATA, india_equity_assets(), name="india_pit")
+    C, R, m = arrays(P)
+    dates = decision_dates(P)
+    S = pd.DataFrame({P.dates[t]: price_scores(P, t, stock_universe(P, t), C, R, m)["REV1"] for t in dates}).T
+    S = S.reindex(columns=P.symbols).dropna(how="all")
+    tg = tercile_targets(S)
+    st = tg.index[0]
+    nb = engine.run(P, universe_targets(S, P), name="EW").nav
+    nb = nb[nb.index >= st]
+    res = {}
+    for c in (1.0, 2.0):
+        nt = engine.run(P, tg, cost_mult=c, name="REV1").nav
+        nt = nt[nt.index >= st]
+        ex = np.log(nt).diff().dropna() - np.log(nb).diff().reindex(nt.index).dropna()
+        yrs = (nt.index[-1] - st).days / 365.25
+        res[f"{c}x"] = {"net_excess": float((nt.iloc[-1] / nt.iloc[0]) ** (1 / yrs) - (nb.iloc[-1] / nb.iloc[0]) ** (1 / yrs)),
+                        "subperiods": {f"{a}..{b}": float(ex[a:b].sum()) for a, b in V.SUBPERIODS}}
+    (out / "rev1_research.json").write_text(json.dumps(clean(res), indent=1))
+    print("REV1:", {k: round(v["net_excess"], 4) for k, v in res.items()})
+
+
 # =============================================================================== Track C
 def track_c(out: Path) -> None:
     from lab.factors import FactorContext, earnings_events
@@ -412,12 +438,14 @@ def track_c(out: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["B", "C", "report"])
+    ap.add_argument("step", choices=["A", "B", "C", "report"])
     ap.add_argument("--out", default=None)
     a = ap.parse_args()
     out = Path(a.out or f"reports/v0.5_{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}")
     out.mkdir(parents=True, exist_ok=True)
-    if a.step == "B":
+    if a.step == "A":
+        rev1_research(out)
+    elif a.step == "B":
         track_b(out)
     elif a.step == "C":
         track_c(out)
