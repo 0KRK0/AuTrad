@@ -1,0 +1,4 @@
+# Official social channels the Company Intelligence agent may read (via the platform's official API only).
+# Add a row only after a person has checked the account is genuine (verified badge AND linked from the company's
+# investor-relations site or an exchange filing). role = company | ceo | cfo | chair | founder
+symbol,channel,handle,role,verified_by,verified_on

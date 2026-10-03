@@ -1,6 +1,6 @@
 # REV1 forward paper test — status
 
-As of **2026-10-01** · ledger head `949b1c359daf4625` · integrity **OK** · pre-registration `4c7e8ca15ca46b0f` · paper only, never live
+As of **2026-10-01** · ledger head `12dce5cf01d53b41` · integrity **OK** · pre-registration `4c7e8ca15ca46b0f` · paper only, never live
 
 Frozen rule: top third of point-in-time NIFTY 50 members by minus their last-month return, equal weight, rebalanced at each month-end close, filled at the next open with full Indian costs. Nothing may be changed.
 
@@ -23,6 +23,8 @@ Excess vs primary benchmark **-0.26%** (log) · vs NIFTYBEES -0.26% · modelled 
 
 - 2026-10-03 runner_version: forward/ledger.py, forward/rev1.py, scripts/forward_rev1.py
 - 2026-10-03 pipeline_change: lab/panel.py, marketdata/corporate_actions.py, marketdata/exchange.py, marketdata/pit.py, marketdata/reference/bse_codes.csv, marketdata/reference/corporate_actions.csv, marketdata/reference/nifty50_pit_snapshots.csv, marketdata/reference/verified_real_moves.csv, marketdata/store.py, marketdata/universe.py
+- 2026-10-03 pipeline_change: lab/panel.py
+- 2026-10-03 pipeline_change: lab/panel.py
 
 A forward test this short cannot prove REV1: at its historical information ratio (~0.26), forward data would need about 59 years to reach t = 2. It can catch REV1 breaking, and it checks the data, decision and cost pipeline in real time.
 

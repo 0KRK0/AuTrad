@@ -8,7 +8,7 @@ Enterprise-grade AI trading **research and paper-trading** platform. AI proposes
 
 ```bash
 pip install -r requirements-dev.txt
-pytest -q                                   # 118 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, forward test, API
+pytest -q                                   # 136 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, forward test, tax, advisory agents, API
 python -m scripts.fetch_data                # v0.2: real India data (NSE, NIFTY, BTC/ETH INR, USD/GBP/EUR INR, gold/silver ETFs)
 python -m scripts.validate                  # v0.2: walk-forward validation + baselines + random traders + scorecard -> reports/
 python -m scripts.run_backtest              # synthetic data (mechanics only)
@@ -155,6 +155,34 @@ python -m scripts.v05 A|B|C|report --out reports/v0.5_<ts>     # research side: 
   double costs. Not a candidate on its own.
 - Found and fixed a pre-existing bug: the exchange-quality buy block had been silently off in research since v0.3.1
   (77 stock-days; REV1 effect +0.01 %/yr).
+
+## v0.6 execution, tax, earnings veto, and the advisory agents
+
+```bash
+python -m scripts.fetch_nse_bhav --budget 160          # NSE official bhavcopy (on your machine; repeat until todo 0)
+python -m scripts.v06 run --out reports/v0.6_<ts>       # exchange opens, tax, REV1 x bad-earnings veto (pre-registered)
+python -m scripts.agents_v06 calibrate --out <same>     # 10th Man base-rate model, walk-forward Brier skill
+python -m scripts.agents_v06 shadow --news --out <same> # Head + Company Intelligence + 10th Man on REV1's forward decisions
+python -m scripts.v06 report --out <same>
+```
+
+| Path | What |
+| --- | --- |
+| `marketdata/nse_bhav.py`, `nse_ids.py` | NSE official bhavcopy (legacy and UDiFF) matched by ISIN first; `build_panel(open_source="exchange")` uses the exchange open with a continuity guard |
+| `accounting/tax_india.py` | FIFO lots; STCG/LTCG by sale date (15 %→20 %, exempt→10 %→12.5 % above ₹1–1.25 lakh); set-off, 8-year carry-forward, cess; post-tax NAV |
+| `intel/evidence.py` | Evidence Ledger. Every fact quotes a source verbatim. Tiers: 1 exchange filing … 8 anonymous; 9 = AuTrad data extract (never proof). All times compared in UTC |
+| `intel/sources.py`, `intel/claims.py` | NSE announcements and board meetings, PIT filings, news headlines (opt-in), and official X accounts (official API, verified handles only). Management-claim tracker with a reliability record |
+| `agents/company_intel.py` | Company Intelligence: a per-company dossier (identity, filings, reactions, announcements, scheduled meetings, news, claims, red flags, unknowns) |
+| `agents/tenth_man.py` | The 10th Man: an isolated adversarial reviewer. Sanitised request only; no reference to any agent, gate or broker. Its probability comes from a base-rate model, shown only if it beats the base rate out of sample. It may say "no material objection" |
+| `head/main_head.py` | Main Head: routes everything; SHADOW policy (memo of what a challenge-aware Head would do; targets unchanged); thesis template hashed |
+| `forward/shadow/` | Hash-chained shadow memos and the full message audit, separate from the frozen REV1 ledger |
+
+**Result (`reports/v0.6-r1_<ts>/report.md`, after an independent review):**
+
+- Exchange opens ≈ Yahoo opens (median difference 0.0002 bps). REV1 net excess changes from +2.26 %/yr to +2.22 %/yr. Costs are the problem, not prices.
+- **After Indian tax, REV1 trails the equal-weight NIFTY 50.** Before tax it was +1.6 %/yr ahead, after tax it is −0.6 %/yr; 17× turnover pays short-term gains tax every year.
+- **A bad-earnings veto adds no measurable information to REV1** (Fama–MacBeth t −0.3; REPLACE − REV1 +1.7 %/yr, t 1.15, negative in 2022–23). No REV2.
+- The 10th Man's flags do not predict which REV1 picks fail (Brier skill −0.005), so it shows the base rate only. First shadow memo (30 Sep picks): no material objection; findings and unknowns are listed per stock with sources.
 
 ## Promotion path
 

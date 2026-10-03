@@ -6,6 +6,8 @@ for ETFs / FX / crypto it means it had a price. Survivors-only panels exist only
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 from dataclasses import dataclass, field
 
 import numpy as np
@@ -66,7 +68,10 @@ def _klass(a: Asset) -> str:
 
 def build_panel(data_dir: str, assets: list[Asset], pit: PITUniverse | None = None, calendar: str = "nse",
                 survivors_only: bool = False, start: str = "2015-01-01", end: str | None = None,
-                profile_override: dict[str, str] | None = None, name: str = "panel", asof: str | None = None) -> Panel:
+                profile_override: dict[str, str] | None = None, name: str = "panel", asof: str | None = None,
+                open_source: str = "vendor") -> Panel:
+    """open_source="exchange": replace each stock's open by NSE's official open, carried onto the adjusted scale with
+    the same day's factor (O_x = NSE_open * C_adj / NSE_close); the vendor open is kept where NSE has no row."""
     store = DataStore(data_dir)
     data = store.load([a.symbol for a in assets], start, end, asof=asof)
     q = store.quality
@@ -80,6 +85,10 @@ def build_panel(data_dir: str, assets: list[Asset], pit: PITUniverse | None = No
     syms = [a.symbol for a in assets]
     mats = {k: pd.DataFrame({s: data[s][k] for s in syms}).reindex(dates)[syms].to_numpy(dtype=float)
             for k in ["open", "high", "low", "close", "volume"]}
+    open_stats = None
+    if open_source == "exchange":
+        stocks = {a.symbol for a in assets if a.asset_class == "equity"}           # ETFs keep vendor opens (see v0.6 report)
+        mats["open"], mats["high"], mats["low"], open_stats = _exchange_opens(data_dir, dates, syms, mats, asof, stocks)
     pit = pit if pit is not None else default_universe()
     pit_syms = set(pit.symbols())
     elig = ~np.isnan(mats["close"])
@@ -105,8 +114,61 @@ def build_panel(data_dir: str, assets: list[Asset], pit: PITUniverse | None = No
     profiles = [PROFILES[override.get(a.symbol, a.cost_profile)] for a in assets]
     klass = ["futures" if not p.cash_settled and a.asset_class != "fx" else _klass(a) for a, p in zip(assets, profiles, strict=True)]
     bench = bench_df["close"].reindex(dates).ffill() if bench_df is not None else pd.Series(np.nan, index=dates)
-    return Panel(dates, syms, mats["open"], mats["high"], mats["low"], mats["close"], mats["volume"], elig,
-                 [a.sector for a in assets], klass, profiles, bench, name, notes)
+    if open_stats is not None:
+        notes.append(f"opens: {open_stats['exchange']} exchange-anchored, {open_stats['vendor_fallback']} vendor fallback")
+    P = Panel(dates, syms, mats["open"], mats["high"], mats["low"], mats["close"], mats["volume"], elig,
+              [a.sector for a in assets], klass, profiles, bench, name, notes)
+    P.open_stats = open_stats
+    return P
+
+
+def _exchange_opens(data_dir: str, dates: pd.DatetimeIndex, syms: list[str], mats: dict, asof: str | None, stocks: set[str]):
+    from marketdata.nse_bhav import load as load_nse
+    from marketdata.nse_bhav import series_for
+    from marketdata.nse_ids import identity_sets
+
+    nse = load_nse(Path(data_dir).parent / "exchange")
+    if asof is not None:
+        nse = nse[nse["date"] <= pd.Timestamp(asof)]
+    ids = identity_sets()
+    O, H, L, C = mats["open"].copy(), mats["high"].copy(), mats["low"].copy(), mats["close"]
+    n_ex = n_fb = n_disc = 0
+    diffs = []
+    for j, s in enumerate(syms):
+        if s not in stocks:
+            continue
+        if s not in ids:
+            n_fb += int(np.isfinite(O[:, j]).sum())
+            continue
+        x = series_for(nse, *ids[s])
+        if x.empty:
+            n_fb += int(np.isfinite(O[:, j]).sum())
+            continue
+        x = x.reindex(dates)
+        with np.errstate(invalid="ignore", divide="ignore"):
+            ox = x["open"].to_numpy(float) * C[:, j] / x["close"].to_numpy(float)
+        ok = np.isfinite(ox) & (ox > 0) & np.isfinite(O[:, j])
+        # guard against a reused or wrongly matched symbol: the day's factor C_adj / NSE_close must stay within 25 % of
+        # its trailing 21-session median (a split moves it for a few days -> those days keep the vendor open)
+        with np.errstate(invalid="ignore", divide="ignore"):
+            ratio = pd.Series(C[:, j] / x["close"].to_numpy(float))
+        med = ratio.shift(1).rolling(21, min_periods=5).median().to_numpy()
+        jump = np.isfinite(med) & (np.abs(ratio.to_numpy() / med - 1) > 0.25)
+        n_disc += int((ok & jump).sum())
+        ok &= ~jump
+        diffs.append(np.abs(O[ok, j] / ox[ok] - 1))
+        O[ok, j] = ox[ok]
+        H[ok, j] = np.fmax(H[ok, j], ox[ok])
+        L[ok, j] = np.fmin(L[ok, j], ox[ok])
+        n_ex += int(ok.sum())
+        n_fb += int((np.isfinite(mats["open"][:, j]) & ~ok).sum())
+    d = np.concatenate(diffs) if diffs else np.array([])
+    stats = {"exchange": n_ex, "vendor_fallback": n_fb, "discontinuity_fallback": n_disc,
+             "etfs": "ETFs keep vendor opens: NSE's official ETF opens are often stray auction prints (see v0.6 report)",
+             "abs_diff_bps": {"median": float(np.median(d) * 1e4) if len(d) else None, "p90": float(np.quantile(d, 0.9) * 1e4) if len(d) else None,
+                              "p99": float(np.quantile(d, 0.99) * 1e4) if len(d) else None},
+             "share_above_10bps": float((d > 1e-3).mean()) if len(d) else None, "share_above_50bps": float((d > 5e-3).mean()) if len(d) else None}
+    return O, H, L, stats
 
 
 def india_equity_assets() -> list[Asset]:

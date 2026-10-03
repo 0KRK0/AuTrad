@@ -127,3 +127,38 @@ It is evaluated in v0.6 only on provenance coverage (100 % of facts resolved) an
 ## What v0.6 will not do
 
 No new price factors, no machine learning, no change to REV1, no live trading, no agent with order authority.
+
+---
+
+## Amendment 1 — 2026-10-03, after an independent review of the first run (no hypothesis, threshold or decision rule changes)
+
+The first run's hypothesis results (H1–H3, REV2 decision) are unaffected. These items are fixed, and the run is repeated as `v0.6-r1`:
+
+1. **Evidence tiers.** In the first run, AuTrad's own computed sentences were stored as tier-2 documents. That let a
+   10th-Man computation (a sector-wide move) count as a "tier-1/2 contradiction", and 9 of 16 names were challenged
+   because of it. Now:
+   - AuTrad writes only tier-9 *dataset extracts* (raw numbers).
+   - Statements built on them are DERIVED.
+   - A fact must quote its source verbatim.
+   - Only tier-1/2 *external* evidence (exchange filings, audited statements) can make a contradiction.
+2. **Time comparisons** are made on UTC instants. Before, news stamped in UTC could pass an IST cut-off: 29 documents
+   from after the close were labelled SOURCED.
+3. **The Head's REV1 thesis.** After the first memo, the thesis was changed to drop the "stock-specific overreaction"
+   claim, which removed every challenge. That was an edit to the 10th Man's input made after seeing its output, and it
+   is reverted:
+   - The original thesis is restored.
+   - The challenges are now governed by rule 1, not by wording.
+   - The thesis template is hashed in every memo, and changes to it are logged.
+4. **Tax corrections.**
+   - Exempt-era (pre-FY 2018-19) long-term results neither absorb short-term losses nor carry losses forward.
+   - "Long-term" means held for more than 12 calendar months.
+   - Post-tax results build lots from the whole history, so positions held at the start of the window keep their cost basis.
+5. **Execution prices.**
+   - ETFs keep vendor opens. NSE's official ETF opens differ by more than 50 bps on about 7 % of NIFTYBEES days, often
+     stray auction prints. The rule in section 1 applies to stocks.
+   - A continuity guard (the day's factor must stay within 25 % of its trailing 21-session median) protects against a
+     reused symbol.
+6. **Smaller items.**
+   - The 10th Man's news window is t − 19..t, the same as BAD20.
+   - The claims record is filtered as of the decision.
+   - The 10th Man reads its own copy of the external documents only.

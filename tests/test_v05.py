@@ -80,3 +80,19 @@ def test_scorecard_keeps_axes_separate():
     assert s == {"statistical": "✗", "economic": "✓", "tradable": "✓", "forward": "not started"}
     s = V.score_axes(stat_ok=True, stat_weak=True, econ_value=-0.01, econ_kind="portfolio", tradable={"net_positive": False}, forward="running")
     assert s["statistical"] == "✓" and s["economic"] == "✗" and s["tradable"] == "✗"
+
+
+def test_v06_replace_and_skip_variants():
+    from scripts.v06 import variants
+
+    P = _panel(T=300, N=30)
+    d = P.dates[250]
+    S = pd.DataFrame([pd.Series(np.arange(30, 0, -1, dtype=float), index=P.symbols)], index=[d])   # S0 best ... S29 worst
+    ev = pd.DataFrame({"symbol": ["S1", "S4", "S20"], "reaction_idx": [245, 200, 249], "bad": [1.0, 1.0, 1.0]})
+    rep, skp, nveto, flags = variants(S, P, ev, 20)
+    top = [f"S{i}" for i in range(10)]
+    assert nveto.iloc[0] == 1                                       # S1 vetoed; S4's event is older than 20 sessions; S20 not selected
+    assert sorted(rep.iloc[0][rep.iloc[0] > 0].index) == sorted([s for s in top if s != "S1"] + ["S10"])
+    assert sorted(skp.iloc[0][skp.iloc[0] > 0].index) == sorted(s for s in top if s != "S1")
+    assert abs(skp.iloc[0].sum() - 1) < 1e-12 and abs(rep.iloc[0].sum() - 1) < 1e-12
+    assert flags.loc[d, "S20"] == 1.0 and flags.loc[d, "S4"] == 0.0
