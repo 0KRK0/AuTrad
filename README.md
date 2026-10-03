@@ -8,7 +8,7 @@ Enterprise-grade AI trading **research and paper-trading** platform. AI proposes
 
 ```bash
 pip install -r requirements-dev.txt
-pytest -q                                   # 136 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, forward test, tax, advisory agents, API
+pytest -q                                   # 141 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, forward test, tax, advisory agents, company memory, gate, API
 python -m scripts.fetch_data                # v0.2: real India data (NSE, NIFTY, BTC/ETH INR, USD/GBP/EUR INR, gold/silver ETFs)
 python -m scripts.validate                  # v0.2: walk-forward validation + baselines + random traders + scorecard -> reports/
 python -m scripts.run_backtest              # synthetic data (mechanics only)
@@ -183,6 +183,33 @@ python -m scripts.v06 report --out <same>
 - **After Indian tax, REV1 trails the equal-weight NIFTY 50.** Before tax it was +1.6 %/yr ahead, after tax it is −0.6 %/yr; 17× turnover pays short-term gains tax every year.
 - **A bad-earnings veto adds no measurable information to REV1** (Fama–MacBeth t −0.3; REPLACE − REV1 +1.7 %/yr, t 1.15, negative in 2022–23). No REV2.
 - The 10th Man's flags do not predict which REV1 picks fail (Brier skill −0.005), so it shows the base rate only. First shadow memo (30 Sep picks): no material objection; findings and unknowns are listed per stock with sources.
+
+## v0.7 low-turnover programme, company memory, stricter 10th Man
+
+The reversal branch is **closed**: REV1 is a frozen benchmark and forward experiment, and every idea built on it is REV2+.
+
+```bash
+python -m scripts.v07 audit|study|register|report --out reports/v0.7_<ts>   # data audit, study 1, every candidate through the gate
+python -m scripts.intel_v07 transcripts --budget 150                         # NSE-filed earnings-call transcripts (pilot companies)
+python -m scripts.intel_v07 build --out <same>                               # evidence & claim graph + management-promise pilot
+python -m scripts.agents_v06 scorecard --out <same>                          # does the 10th Man improve decisions? (shadow)
+```
+
+| Path | What |
+| --- | --- |
+| `lab/gates.py` | Capital-efficiency gate, strictly in order: statistical → +2 %/yr after costs → after-tax estimate → 2× costs → capacity ₹1 Cr → ⅔ subperiods → forward test. Only then may the Head *consider* capital, with owner approval |
+| `marketdata/cashflow.py`, `lab/cfq.py` | Operating cash flow from NSE XBRL (from Mar 2021; checked against annual reports) and point-in-time cash-flow quality (accruals) |
+| `agents/tenth_man.py`, `head/scorecard.py` | Report in three parts: historical probability (statistical layer only), evidence challenge (MATERIAL/NONE, tier-1/2 only), if/then failure scenarios (no probabilities). Pre-registered shadow scorecard |
+| `intel/graph.py` | Evidence & claim graph (SQLite): documents (tiers 1–9), claims, metrics, events, decisions; tier-aware confidence that never rises by repetition; `trace()` answers "why did the Head buy X?" |
+| `intel/transcripts.py` | NSE-filed earnings-call transcripts. A rule-based extractor of dated, measurable management promises (verbatim quotes) |
+
+**Result (`reports/v0.7-r1_<ts>/report.md`, after an independent review):**
+
+- **No candidate passes the gate.** REV1 (2016–26) clears statistics, +2.2 %/yr and, barely, the after-tax estimate, then fails at 2× costs.
+- **Study 1, cash-flow quality, is rejected at the statistical step** (IC t 0.41; Fama–MacBeth coefficient negative), despite a portfolio that looked strong (+5.7 %/yr, 1.4× turnover). All its excess came in Dec 2022 – Jun 2024.
+- Insider, pledge and analyst-revision data are blocked by coverage (audited); there is no family to test next until the data exist.
+- The 10th Man found no material objection on the 30 Sep picks. The shadow scorecard is accumulating.
+- Company memory: 4,330 documents and 6,157 filed numbers. Promise pilot: 15 verbatim promises (UltraTech 14, TCS 1); none auto-scored, outcomes go to human review.
 
 ## Promotion path
 

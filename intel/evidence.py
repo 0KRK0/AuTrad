@@ -29,20 +29,25 @@ from forward.ledger import Ledger
 
 
 class Tier(IntEnum):
-    REGULATORY_FILING = 1        # exchange / regulator filing or announcement (NSE, BSE, SEBI, SEC)
-    AUDITED_FINANCIALS = 2
-    COMPANY_STATEMENT = 3        # press release, investor presentation, official IR site
-    EXECUTIVE_PUBLIC = 4         # CEO/CFO interview or post on a verified official account
-    JOURNALISM = 5               # reputable news organisation
-    ANALYST = 6
-    SOCIAL_MEDIA = 7
-    ANONYMOUS = 8
-    DATASET_EXTRACT = 9          # raw numbers copied from AuTrad's exchange-anchored datasets (reproducible, not evidence of tier 1-2)
+    """Evidence tiers v2 (research/preregistration_v0.7.md, section 3). Lower = more authoritative. Repetition never
+    upgrades a claim: ten tier-8 posts are still tier 8."""
+    REGULATORY = 1               # regulators, exchange filings and announcements, audited filings
+    COMPANY_DISCLOSURE = 2       # official company disclosures (IR site, annual report)
+    EXECUTIVE = 3                # direct executive statements (incl. verified official accounts)
+    PRIMARY_DOCUMENT = 4         # primary documents and transcripts not filed with a regulator
+    JOURNALISM = 5               # established financial journalism
+    SPECIALIST = 6               # specialist / third-party research and reconstructions
+    OTHER_MEDIA = 7
+    SOCIAL_UNVERIFIED = 8
+    AUTRAD_DERIVED = 9           # raw extracts of AuTrad's datasets and research outputs (reproducible, never proof)
+    # v0.6 names kept as aliases
+    REGULATORY_FILING = 1
+    DATASET_EXTRACT = 9
 
 
-TIER_NAMES = {1: "regulatory filing / exchange announcement", 2: "audited financials / audited dataset", 3: "company statement",
-              4: "executive public statement", 5: "journalism", 6: "analyst research / third-party reconstruction", 7: "social media",
-              8: "anonymous / unverified", 9: "AuTrad dataset extract"}
+TIER_NAMES = {1: "regulator / exchange / audited filing", 2: "official company disclosure", 3: "direct executive statement",
+              4: "primary document / transcript", 5: "established financial journalism", 6: "specialist research",
+              7: "other media", 8: "social media / unverified", 9: "AuTrad-derived (never proof)"}
 
 
 def utc(ts: str) -> pd.Timestamp:

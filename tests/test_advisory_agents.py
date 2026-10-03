@@ -120,10 +120,13 @@ def test_no_material_objection_is_allowed_and_bad_news_is_challenged():
     tm = TenthMan(ctx, EvidenceLedger(), BaseRateModel(), None)
     rep = tm.review(ChallengeRequest("d1", "BUY", "S5", 0.06, 21, asof, "REV1", th))
     assert rep.status == "NO_MATERIAL_OBJECTION" and rep.recommendation == "PROCEED"
-    ctx2 = _ctx(bad_symbol="S3")
-    rep2 = TenthMan(ctx2, EvidenceLedger(), BaseRateModel(), None).review(ChallengeRequest("d2", "BUY", "S3", 0.06, 21, asof, "REV1", th))
+    ctx2 = _ctx(bad_symbol="S1")                                   # results in the window AND profit falling (tier-1 numbers)
+    rep2 = TenthMan(ctx2, EvidenceLedger(), BaseRateModel(), None).review(ChallengeRequest("d2", "BUY", "S1", 0.06, 21, asof, "REV1", th))
     assert rep2.status == "MATERIAL_CHALLENGE" and rep2.severity == "high"
     assert any(f.attacks == "no_adverse_news" for f in rep2.findings)
+    ctx3 = _ctx(bad_symbol="S3")                                   # a bad market reaction alone (profit growing) is not evidence
+    rep3 = TenthMan(ctx3, EvidenceLedger(), BaseRateModel(), None).review(ChallengeRequest("d3", "BUY", "S3", 0.06, 21, asof, "REV1", th))
+    assert rep3.evidence_status == "NONE" and any(f.check == "results in the loss window" for f in rep3.findings)
 
 
 def test_probability_comes_from_a_model_only_if_it_beats_the_base_rate():
@@ -165,14 +168,45 @@ def test_dossier_facts_all_resolve_to_documents():
 
 
 def test_head_in_shadow_executes_the_strategy_unchanged_and_agents_hold_no_order_path():
-    ctx = _ctx(bad_symbol="S3")
+    ctx = _ctx(bad_symbol="S1")
     L = EvidenceLedger()
     cia = CompanyIntelligenceAgent(ctx, L)
     tm = TenthMan(ctx, L, BaseRateModel(), None)
     head = MainHead(cia, tm, "SHADOW")
-    targets = {"S3": 0.5, "S5": 0.5}
+    targets = {"S1": 0.5, "S5": 0.5}
     memo = head.deliberate(StrategyProposal("REV1 test", ctx.P.dates[-1], targets, {}, 21, {s: "it" for s in targets}))
     assert memo.final_targets == targets
-    assert "S3" not in memo.shadow_targets                    # a challenge-aware head would have dropped it
+    assert "S1" not in memo.shadow_targets                    # a challenge-aware head would have dropped it
     for agent in (cia, tm):
         assert not any(k in vars(agent) for k in ("gate", "broker", "head", "tenth", "cia"))
+
+
+def test_report_keeps_probability_evidence_and_scenarios_separate():
+    from agents.tenth_man import FailureScenario
+
+    ctx = _ctx()
+    asof = str(ctx.P.dates[-1].date())
+
+    class Confident(BaseRateModel):
+        def predict(self, x):
+            return 0.9
+
+    m = Confident()
+    m.base, m.n = 0.5, 1000
+    rep = TenthMan(ctx, EvidenceLedger(), m, 0.05).review(ChallengeRequest("d", "BUY", "S5", 0.06, 21, asof, "REV1"))
+    assert rep.historical.value == 0.9 and rep.historical.statistical_flag
+    assert rep.evidence_status == "NONE" and rep.recommendation == "PROCEED"       # a number never becomes an objection
+    assert not any("prob" in f for f in FailureScenario.__dataclass_fields__)
+
+
+def test_scorecard_waits_for_enough_evidence_then_tests():
+    from head.scorecard import evaluate
+
+    rng = np.random.default_rng(1)
+    rows = [{"month": f"m{k:02d}", "symbol": f"S{j}", "evidence_status": "MATERIAL" if j < 2 else "NONE",
+             "excess": (-0.02 if j < 2 else 0.0) + rng.normal(0, 0.01)} for k in range(30) for j in range(10)]
+    df = pd.DataFrame(rows)
+    assert evaluate(df.head(50))["status"].startswith("ACCUMULATING")
+    r = evaluate(df)
+    assert r["status"].startswith("PASS") and r["mean_diff_per_month"] < -0.01
+    assert evaluate(df.assign(excess=rng.normal(0, 0.01, len(df))))["status"] == "FAIL"

@@ -124,7 +124,7 @@ class NewsRSS:  # pragma: no cover - network
             src = (it.findtext("source") or "").strip()
             pub = it.findtext("pubDate")
             when = pd.Timestamp(pub).tz_convert("UTC").isoformat() if pub else ""
-            tier = int(Tier.JOURNALISM) if src in REPUTABLE else int(Tier.ANONYMOUS)
+            tier = int(Tier.JOURNALISM) if src in REPUTABLE else int(Tier.OTHER_MEDIA)
             out.append(Document(f"news: {src or 'unknown'}", tier, it.findtext("link") or "", when, [symbol], title, title, "Google News RSS"))
         return out
 
@@ -158,7 +158,7 @@ class XOfficialAPI:  # pragma: no cover - network
                 continue
             tw = requests.get(f"https://api.x.com/2/users/{u['id']}/tweets", headers=h, timeout=20,
                               params={"max_results": max_results, "tweet.fields": "created_at"}).json().get("data", [])
-            tier = int(Tier.EXECUTIVE_PUBLIC) if r.role != "company" else int(Tier.COMPANY_STATEMENT)
+            tier = int(Tier.EXECUTIVE)
             for t in tw:
                 out.append(Document(f"X @{r.handle}", tier, f"https://x.com/{r.handle}/status/{t['id']}", t["created_at"], [symbol],
                                     f"post by @{r.handle}", t["text"], "X API v2 (official)"))

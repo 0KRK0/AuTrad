@@ -67,7 +67,8 @@ class MainHead:
             return (ThesisClaim("Last month's loss is a stock-specific, liquidity-driven overreaction that tends to revert.",
                                 tuple(ident[-1].evidence) if ident else (), "idiosyncratic_overreaction"),
                     ThesisClaim("No adverse company news drove the loss.", (), "no_adverse_news"),
-                    ThesisClaim("Fundamentals are stable.", tuple(e for s in fin for e in s.evidence), "fundamentals_stable"))
+                    ThesisClaim("Fundamentals are stable.", tuple(e for s in fin for e in s.evidence)
+                                if d.metrics and d.metrics.get("net_profit", 0) >= 0 and d.metrics.get("revenue", 0) >= 0 else (), "fundamentals_stable"))
         return ()
 
     def deliberate(self, prop: StrategyProposal) -> DecisionMemo:
@@ -87,9 +88,9 @@ class MainHead:
                                    self._thesis(prop, sym, d), sec_w.get(prop.sector.get(sym, "?")))
             self._log("head->tenth_man", asdict(req))
             rep: ChallengeReport = self._tenth.review(req)
-            rj = json.loads(json.dumps(asdict(rep), default=str))
-            self._log("tenth_man->head", {"decision": did, "symbol": sym, "status": rep.status, "recommendation": rep.recommendation,
-                                          "p_fail": rep.p_fail})
+            rj = json.loads(json.dumps(asdict(rep), default=str)) | {"status": rep.status}
+            self._log("tenth_man->head", {"decision": did, "symbol": sym, "evidence_status": rep.evidence_status, "recommendation": rep.recommendation,
+                                          "historical_probability": rep.historical.value, "statistical_flag": rep.historical.statistical_flag})
             would = {"PROCEED": ("KEEP", w), "REDUCE_CONFIDENCE": ("HALVE", w / 2), "ABSTAIN": ("DROP", 0.0)}[rep.recommendation]
             shadow[sym] = would[1]
             items.append(MemoItem(sym, action, float(w), d.provenance_coverage(), rj, would[0], float(would[1])))

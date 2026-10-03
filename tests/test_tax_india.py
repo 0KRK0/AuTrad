@@ -73,3 +73,17 @@ def test_twelve_months_exactly_is_short_term():
     b.buy(T("2023-03-01"), "Y", 1000, 10)
     b.sell(T("2024-03-04"), "Y", 1100, 11)
     assert b.realised[1].long_term is True
+
+
+def test_capital_efficiency_gate_is_sequential():
+    from lab.gates import GateInput, capital_efficiency_gate
+
+    good = GateInput(True, 0.03, 0.15, 0.13, 0.01, 0.005, 0.0055, 0.029, [0.01, 0.02, -0.01])
+    r = capital_efficiency_gate(good)
+    assert r["verdict"] == "ELIGIBLE FOR A FROZEN FORWARD TEST" and r["steps"][-1]["result"] == "PENDING"
+    bad_tax = GateInput(True, 0.03, 0.12, 0.13, 0.01, 0.005, 0.0055, 0.029, [0.01, 0.02, 0.01])
+    r = capital_efficiency_gate(bad_tax)
+    assert r["verdict"] == "REJECTED at after_tax_estimate"
+    assert [s["result"] for s in r["steps"]][3:] == ["NOT REACHED"] * 4
+    assert capital_efficiency_gate(GateInput(False, 0.05, 0.2, 0.1, 0.04, 0.0, 0.0, 0.05, [1, 1, 1]))["verdict"] == "REJECTED at statistical"
+    assert capital_efficiency_gate(GateInput(True, 0.05, 0.2, 0.1, 0.04, 0.001, 0.001, 0.05, [1, 1, 1], "passed"))["verdict"].startswith("MAY BE")

@@ -56,20 +56,54 @@ class Finding:
 
 
 @dataclass
+class HistoricalProbability:
+    """Owned by the statistical layer, never by the reviewer's reasoning."""
+    value: float | None                  # shown probability of underperforming over the horizon
+    base_rate: float | None
+    model_skill: float | None            # out-of-sample Brier skill of the flag model
+    n_history: int
+    statistical_flag: bool               # model beats the base rate AND puts this pick >= 5 pp above it
+    note: str
+    source: str = "statistical layer: expanding logistic model vs base rate (agents.tenth_man.BaseRateModel)"
+
+
+@dataclass
+class FailureScenario:
+    condition: str                       # "If ..."
+    consequence: str                     # "... then ..."
+    evidence: list[str]
+    status: str                          # status of the statement it rests on (no probability is ever attached)
+
+
+@dataclass
 class ChallengeReport:
     decision_id: str
     symbol: str
     action: str
     objective: str
-    status: str                          # NO_MATERIAL_OBJECTION | MATERIAL_CHALLENGE
-    severity: str                        # none | medium | high
-    recommendation: str                  # PROCEED | REDUCE_CONFIDENCE | ABSTAIN  (advice to the Head only)
-    p_fail: float | None
-    base_rate: float | None
-    model_skill: float | None
-    probability_note: str
+    historical: HistoricalProbability
+    evidence_status: str                 # MATERIAL | NONE  (from evidence only)
+    severity: str                        # none | high
+    recommendation: str                  # PROCEED | ABSTAIN  (advice to the Head only, from the evidence status)
     findings: list[Finding] = field(default_factory=list)
+    scenarios: list[FailureScenario] = field(default_factory=list)
     missing_information: list[str] = field(default_factory=list)
+
+    @property
+    def status(self) -> str:
+        return "MATERIAL_CHALLENGE" if self.evidence_status == "MATERIAL" else "NO_MATERIAL_OBJECTION"
+
+
+SCENARIOS = {
+    "adverse company news": ("If the market keeps repricing the weaker results", "the loss does not revert"),
+    "fundamental deterioration": ("If profit keeps falling", "the price is repricing earnings, not overreacting"),
+    "scheduled binary event": ("If the results inside the holding month disappoint", "a fresh bad reaction lands while the position is held"),
+    "hostile regime": ("If NIFTY stays below its 200-session average", "market-wide selling can dominate stock-level reversal"),
+    "alternative explanation": ("If the sector repricing continues", "the loss does not revert"),
+    "tail risk": ("If the stock's high volatility persists", "a large adverse move within the holding month is possible"),
+    "data trust": ("If the unconfirmed decision-day price is wrong", "the selection itself may be an artefact of bad data"),
+    "concentration": ("If the sector falls as a block", "several positions lose together"),
+}
 
 
 # ----------------------------------------------------------------------------- base-rate model
@@ -198,22 +232,28 @@ class TenthMan:
         for d in fdocs.values():
             self.ev.add(d)
         if req.action in ("BUY", "HOLD"):
-            # 1. was the move news-driven? (attacks the reversal premise "no adverse news"); same window as BAD20
+            # 1. was the move news-driven? Results inside the BAD20 window are context; they contradict the premise
+            #    "no adverse company news" only if the released results themselves show a year-on-year profit decline
+            #    (tier-1 numbers). The size of the market reaction (tier-9 data, a statistical flag) never decides it.
             ev = ctx.events[(ctx.events["symbol"] == sym) & (ctx.events["reaction_idx"] <= t) & (ctx.events["reaction_idx"] >= t - 19)]
             if len(ev):
                 r = ev.iloc[-1]
                 i = int(r["reaction_idx"])
                 q = extract(sym, i, {f"adjusted close {ctx.P.dates[i - 1].date()}": float(C[i - 1, j]), f"adjusted close {ctx.P.dates[i].date()}": float(C[i, j]),
                                      f"NIFTY50 {ctx.P.dates[i - 1].date()}": float(ctx.P.bench.iloc[i - 1]), f"NIFTY50 {ctx.P.dates[i].date()}": float(ctx.P.bench.iloc[i])})
-                fd = f[pd.to_datetime(f["period_end"]) == pd.Timestamp(r["period_end"])]
-                if len(fd):
-                    dd = fdocs[str(fd.iloc[0]["xbrl"])]
-                    q[dd.doc_id] = filing_quotes(dd)["quarter ended"]
-                bad = r.get("bad", np.nan) == 1
-                F.append(Finding("news-driven move", "high" if bad else "info",
-                                 st(f"{sym} reported results within the last 20 sessions; market-adjusted reaction {r['ear']:+.1%} on {ctx.P.dates[i].date()}"
-                                    + (" — a bad reaction (lower third of all earlier ones): the move is news, which has tended to keep drifting." if bad else "."), q),
-                                 "no_adverse_news" if bad else ""))
+                F.append(Finding("results in the loss window", "info",
+                                 st(f"{sym} reported results within the last 20 sessions; market-adjusted reaction {r['ear']:+.1%} on {ctx.P.dates[i].date()}.", q)))
+                pe = pd.Timestamp(r["period_end"])
+                cur = f[pd.to_datetime(f["period_end"]) == pe]
+                prv = f[pd.to_datetime(f["period_end"]) == pe - pd.DateOffset(years=1)]
+                if len(cur) and len(prv) and pd.notna(cur.iloc[-1]["net_profit"]) and pd.notna(prv.iloc[-1]["net_profit"]) and prv.iloc[-1]["net_profit"] > 0:
+                    g0 = cur.iloc[-1]["net_profit"] / prv.iloc[-1]["net_profit"] - 1
+                    dc, dp = fdocs[str(cur.iloc[-1]["xbrl"])], fdocs[str(prv.iloc[-1]["xbrl"])]
+                    if g0 < 0 and "net profit" in filing_quotes(dc) and "net profit" in filing_quotes(dp):
+                        F.append(Finding("adverse company news", "high",
+                                         st(f"The results released in the loss window show net profit {g0:+.0%} year on year: the loss followed adverse company news.",
+                                            {dc.doc_id: [filing_quotes(dc)["net profit"], filing_quotes(dc)["quarter ended"]],
+                                             dp.doc_id: [filing_quotes(dp)["net profit"], filing_quotes(dp)["quarter ended"]]}), "no_adverse_news"))
             # 2. fundamentals (computed from two tier-1 filings)
             if len(f) >= 5:
                 last = f.iloc[-1]
@@ -276,18 +316,24 @@ class TenthMan:
             missing.append(f"Checks for {req.action} decisions are limited in v0.6 (objective recorded only).")
         missing.append("No analyst consensus, promoter pledge, insider trade or verified social-media feed is connected yet.")
 
+        # 1. historical probability: statistical layer only
         p = self.model.predict(features)
         base = self.model.base
         usable = self.skill is not None and self.skill > 0 and p is not None
         note = (f"calibrated: expanding logistic model on {self.model.n} past selections, out-of-sample Brier skill {self.skill:+.3f}" if usable else
                 f"flags not predictive (out-of-sample Brier skill {self.skill:+.3f} <= 0): base rate only" if self.skill is not None else "base rate only")
-        p_show = p if usable else base
-        # a contradiction counts only if it rests on tier-1/2 external evidence (exchange filings, audited statements):
-        # AuTrad's own computations (tier-9 extracts) can raise findings but never a contradiction on their own
+        hist = HistoricalProbability(p if usable else base, base, self.skill, self.model.n,
+                                     bool(usable and base is not None and p - base >= 0.05), note)
+        # 2. evidence challenge: a contradiction of a thesis claim resting on tier-1/2 external evidence; AuTrad's own
+        #    computations (tier 9) can raise findings and scenarios but never a contradiction on their own
         contradiction = any(fd.attacks and fd.attacks in {c.key for c in req.thesis} and fd.statement.status in ("SOURCED", "CORROBORATED", "DERIVED")
                             and (self.ev.min_external_tier(fd.statement) or 9) <= 2 for fd in F)
-        material = contradiction or (usable and base is not None and p - base >= 0.05)
-        sev = "none" if not material else ("high" if contradiction or (usable and p - base >= 0.10) else "medium")
-        rec = "PROCEED" if not material else ("ABSTAIN" if sev == "high" else "REDUCE_CONFIDENCE")
-        return ChallengeReport(req.decision_id, sym, req.action, OBJECTIVES.get(req.action, ""), "MATERIAL_CHALLENGE" if material else "NO_MATERIAL_OBJECTION",
-                               sev, rec, p_show, base, self.skill, note, F, missing)
+        # 3. failure scenarios: "if ... then ..." from the findings, citing their evidence, never with a probability
+        scen = []
+        for fd in F:
+            if fd.check in SCENARIOS and (fd.severity in ("medium", "high") or fd.check in ("scheduled binary event", "hostile regime")):
+                c_, q_ = SCENARIOS[fd.check]
+                scen.append(FailureScenario(c_, q_, list(fd.statement.evidence), fd.statement.status))
+        return ChallengeReport(req.decision_id, sym, req.action, OBJECTIVES.get(req.action, ""), hist,
+                               "MATERIAL" if contradiction else "NONE", "high" if contradiction else "none",
+                               "ABSTAIN" if contradiction else "PROCEED", F, scen, missing)

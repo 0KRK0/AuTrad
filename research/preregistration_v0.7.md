@@ -132,3 +132,60 @@ They are never called "actual investor after-tax return".
 
 No change to REV1. No new technical indicators. No machine learning. No more than one family tested. No agent with
 order authority.
+
+---
+
+## Amendment 1 — 2026-10-03, data audit before any v0.7 result (no definition changes)
+
+`research/data_audits/cashflow_coverage_2026-10-03.json`:
+
+| Input | First complete period |
+|---|---|
+| Operating cash flow | Mar 2021 (none before Sep 2020; Sep 2020 partial). Spot-checked against annual reports: TCS FY21 ₹38,802 cr, Infosys FY21 ₹23,224 cr, Infosys FY23 ₹22,467 cr, TCS FY25 ₹48,908 cr |
+| Total assets | **Sep 2022.** NSE's results XBRL carries no balance sheet before Sep 2022 |
+
+The definition (accruals scaled by total assets) is **kept unchanged**, so CFQ exists only from the Sep 2022 filings
+(public by mid-November 2022). The window becomes:
+
+- **Monthly IC and Fama–MacBeth:** from the first month-end with at least 15 scored stocks, about Nov 2022, to Aug 2026
+  (about 45 months).
+- **Semi-annual portfolio:** decisions from Dec 2022 (about 7 rebalances).
+- **Subperiods:** 2022-12..2024-06 and 2024-07..2026-09. The stability gate needs both positive (⅔ of 2 rounds up to 2).
+
+**Power is very low.** This is stated now, before any result. Two other sources are parsed only for this study and are
+never edited:
+- the 256 cash-flow values under undefined XBRL contexts, where the regulation fixes the period;
+- filings with a missing `bank` flag, treated as non-banks.
+
+## Amendment 2 — 2026-10-03, after an independent review of the first v0.7 run (no hypothesis, definition or threshold changes)
+
+The first run's statistical results (S1, S2, and the gate verdict "rejected at statistical") are not affected. The run
+is repeated as `v0.7-r1` with the following fixes:
+
+1. **A data gap the first audit missed.** The quarter ended June 2022 is missing from AuTrad's PIT filings for 15
+   non-financial companies (`data_audit_study1.json`), so they have no CFQ until the September 2023 data are usable.
+   - The pre-registered benchmark (all eligible non-financial members) is kept.
+   - A **descriptive** sensitivity is added, with the benchmark set to the stocks that had a score. It is not a decision input.
+   - Coverage is reported per rebalance.
+   - Half-year rows are excluded from quarterly net profit.
+2. **Candidate register.** Each candidate is measured over its *own* pre-registered window on one consistent source
+   (exchange opens, full costs, the same tax estimate):
+   - REV1 is recomputed over 2016-05..2026-09.
+   - REPLACE is recomputed over 2019-10..2026-09, against equal weight.
+   - Unmeasured inputs show as n/a.
+3. **10th Man evidence status.** Results released inside the loss window now count as a contradiction of "no adverse
+   company news" **only if the released results show a year-on-year profit decline** (tier-1 numbers). The size of the
+   market reaction is a statistical flag and never decides it. Scenarios carry no likelihood wording. The
+   news-results scenario appears only for adverse results.
+4. **The Head's "fundamentals are stable"** cites filings only when they show no year-on-year decline in revenue or
+   profit.
+5. **Persistence.**
+   - The documents the 10th Man cites are persisted (`data/intel/evidence_tenth_man.jsonl`).
+   - The September memo is re-run in the v0.7 report format. The old memo stays, marked superseded.
+   - The graph records findings whose evidence was not persisted, instead of dropping them silently.
+6. **Promise pilot.**
+   - The claim text is the verbatim quote.
+   - In "from X to Y" the target is Y, and megawatts are recognised.
+   - The status distinguishes "outcome window not yet covered by fetched transcripts" and "needs human review"
+     from "no outcome passage found".
+   - Outcome candidates link the matching *passage*, not the whole document.

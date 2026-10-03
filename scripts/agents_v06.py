@@ -144,7 +144,8 @@ def shadow(out: Path, news: bool, supersede: dict | None = None) -> None:
         nw = [a for a in nw if a.published_at and utc(a.published_at) <= cut]
         cia = CompanyIntelligenceAgent(ctx, ev_ledger, claims, announcements=ann, news=nw if news else None)
         model = BaseRateModel().fit(H, asof)
-        tenth = TenthMan(ctx, ev_ledger.external_view(), model, skill)       # its own copy: external documents only
+        tm_view = ev_ledger.external_view()                                  # its own copy: external documents only
+        tenth = TenthMan(ctx, tm_view, model, skill)
         head = MainHead(cia, tenth, "SHADOW", LedgerAudit(Path("forward/shadow/audit.jsonl")))
         prev = decs[k - 1]["weights"] if k else {}
         try:
@@ -152,6 +153,10 @@ def shadow(out: Path, news: bool, supersede: dict | None = None) -> None:
         except Exception as e:
             head.audit.write("run_aborted", {"month": d["month"], "error": repr(e)[:300]})
             raise
+        tm_store = EvidenceLedger("data/intel/evidence_tenth_man.jsonl")      # persist what the 10th Man cited (raw extracts + filings)
+        for doc in tm_view.docs.values():
+            if doc.doc_id not in ev_ledger.docs:
+                tm_store.add(doc)
         sh.append("memo", {"month": d["month"], "rev1_decision_hash": d["hash"],
                            "memo": json.loads(json.dumps(asdict(memo), default=str)), "evidence_docs": len(ev_ledger.docs)})
         md.append(render_memo(memo, head, ev_ledger, calib))
@@ -164,6 +169,23 @@ def shadow(out: Path, news: bool, supersede: dict | None = None) -> None:
     print(f"shadow memos written: {len(md)}; evidence documents: {len(ev_ledger.docs)}")
 
 
+def scorecard(out: Path) -> None:
+    from forward.rev1 import load_panel
+    from head.scorecard import evaluate, outcomes
+
+    sh, fl = Ledger("forward/shadow/ledger.jsonl"), Ledger("forward/rev1/ledger.jsonl")
+    P = load_panel(Path("data/forward/snap"), "2024-06-01")
+    df = outcomes(sh, fl, P)
+    done = {(r["month"], r["symbol"]) for r in sh.of_kind("outcome")}
+    for r in df.itertuples(index=False):
+        if (r.month, r.symbol) not in done:
+            sh.append("outcome", {"month": r.month, "symbol": r.symbol, "evidence_status": r.evidence_status, "excess": r.excess})
+    res = evaluate(df)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "shadow_scorecard.json").write_text(json.dumps(clean(res), indent=1))
+    print(res)
+
+
 def _pct(x) -> str:
     return "n/a" if x is None else f"{x:.0%}"
 
@@ -172,18 +194,22 @@ def render_memo(memo, head: MainHead, ev: EvidenceLedger, calib: dict) -> str:
     L = [f"# Main Head decision memo — REV1 forward, decision close {memo.asof[:7]}", "",
          f"Decision `{memo.decision_id}` · policy **{memo.policy}** (advisory only: REV1's frozen targets are executed unchanged) · "
          f"10th Man probability: {calib['verdict']}", "",
-         "| Stock | Action | Weight | 10th Man | Recommendation | P(underperform) | Base rate | Dossier provenance | Shadow |", "|---|---|---|---|---|---|---|---|---|"]
+         "| Stock | Action | Weight | Evidence challenge | Recommendation | Historical P(underperform) | Base rate | Dossier provenance | Shadow |", "|---|---|---|---|---|---|---|---|---|"]
     for it in memo.items:
         c = it.challenge
-        L.append(f"| {it.symbol} | {it.action} | {it.weight:.2%} | {c['status'].replace('_', ' ').lower()} ({c['severity']}) | {c['recommendation']} | "
-                 f"{_pct(c['p_fail'])} | {_pct(c['base_rate'])} | "
+        L.append(f"| {it.symbol} | {it.action} | {it.weight:.2%} | {c['evidence_status']} | {c['recommendation']} | "
+                 f"{_pct(c['historical']['value'])} | {_pct(c['historical']['base_rate'])} | "
                  f"{it.dossier_coverage:.0%} | {it.would_do} |")
     L += ["", f"Shadow portfolio (what a challenge-aware Head would hold): {len(memo.shadow_targets)} names; "
           f"final executed targets: {len(memo.final_targets)} names (unchanged).", ""]
     for it in memo.items:
         c = it.challenge
-        L += [f"## {it.symbol}", "", f"**10th Man** — {c['objective']} → **{c['status']}**, {c['probability_note']}.", ""]
+        L += [f"## {it.symbol}", "", f"**10th Man** — {c['objective']}", "",
+              f"- Historical probability (statistical layer): {_pct(c['historical']['value'])} — {c['historical']['note']}.",
+              f"- Evidence challenge: **{c['evidence_status']}** (a contradiction needs tier-1/2 evidence).", "", "Findings:"]
         L += [f"- [{f['severity']}] {f['check']}: {f['statement']['text']} ({f['statement']['status']})" for f in c["findings"]] or ["- No finding."]
+        if c["scenarios"]:
+            L += ["", "Failure scenarios (no probabilities):"] + [f"- {x['condition']}, then {x['consequence']}. ({x['status']})" for x in c["scenarios"]]
         if c["missing_information"]:
             L += ["", "Missing information: " + " ".join(c["missing_information"])]
         L += ["", head.dossiers[it.symbol].markdown(ev)]
@@ -192,13 +218,15 @@ def render_memo(memo, head: MainHead, ev: EvidenceLedger, calib: dict) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["calibrate", "shadow"])
+    ap.add_argument("step", choices=["calibrate", "shadow", "scorecard"])
     ap.add_argument("--out", required=True)
     ap.add_argument("--news", action="store_true", help="also read Google News RSS headlines (personal research use)")
     ap.add_argument("--supersede", nargs=2, metavar=("MONTH", "REASON"), help="re-run a month's memo; the old memo stays, marked superseded")
     a = ap.parse_args()
     if a.step == "calibrate":
         calibrate(Path(a.out))
+    elif a.step == "scorecard":
+        scorecard(Path(a.out))
     else:
         shadow(Path(a.out), a.news, {"month": a.supersede[0], "reason": a.supersede[1]} if a.supersede else None)
 

@@ -1,4 +1,8 @@
-"""Indian capital-gains tax on listed equity / equity ETFs (STT paid), for research P&L after tax.
+"""Indian capital-gains tax on listed equity / equity ETFs (STT paid): an AFTER-TAX ESTIMATE for research P&L,
+never an investor's actual after-tax return.
+
+Not modelled yet (ESTIMATE_LIMITS): dividends at slab rates (they sit inside total-return prices and are taxed here
+as capital gains), surcharge, deduction of non-STT transaction costs from gains, 2018 grandfathering.
 
 Rules (by date of sale; research/preregistration_v0.6.md section 2):
   * holding > 12 months = long-term
@@ -18,6 +22,9 @@ from dataclasses import dataclass, field
 
 import pandas as pd
 
+ESTIMATE_LIMITS = ["dividends are inside total-return prices and taxed as capital gains (in reality: slab-rate income)",
+                   "no surcharge", "non-STT transaction costs are not deducted from gains", "2018 grandfathering ignored"]
+LABEL = "after-tax estimate"
 D_2018 = pd.Timestamp("2018-04-01")
 D_2024 = pd.Timestamp("2024-07-23")
 
