@@ -10,3 +10,4 @@ redis>=5.0
 scipy>=1.11
 requests>=2.31
 yfinance>=0.2.40
+pypdf>=4.0

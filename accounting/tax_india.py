@@ -167,15 +167,18 @@ def post_tax_nav(nav: pd.Series, fills: list[dict], dates: pd.DatetimeIndex, sym
     r = nav / nav.shift(1)
     post = [nav.iloc[0]]
     scale = 1.0                                  # after-tax capital / pre-tax capital
+    wiped = False
     for d, g in r.iloc[1:].items():
         v = post[-1] * g
         if d in pay:
             v -= pay[d] * scale
+        if v <= 0 or wiped:                      # a tax bill larger than the account: wiped out (never a refund)
+            wiped, v = True, 0.0
         post.append(v)
-        scale = v / nav.loc[d]
+        scale = v / nav.loc[d] if nav.loc[d] > 0 else 0.0
     post_s = pd.Series(post, index=nav.index)
     paid = sum(pay.values())
     terminal_tax = (tax_all["tax"].sum() if len(tax_all) else 0.0) - paid
-    liquidation = post_s.iloc[-1] - max(terminal_tax, 0.0) * scale
+    liquidation = max(post_s.iloc[-1] - max(terminal_tax, 0.0) * scale, 0.0)
     return {"post_tax_nav": post_s, "tax_by_fy": tax_all, "tax_paid_along_the_way": paid,
             "terminal_tax": terminal_tax, "liquidation_value": liquidation}

@@ -1,0 +1,139 @@
+{
+ "dataset": "data/pit/bse/shareholding.csv",
+ "filings": 4042,
+ "quarterly": 3868,
+ "event_based": 174,
+ "companies": 89,
+ "first_period": "2016-03-31",
+ "last_period": "2026-06-30",
+ "pit_member_quarters": 2070,
+ "pit_member_quarters_covered": 0.9966,
+ "revised_only_share_of_covered": 0.0509,
+ "available_after_45d_share": 0.015,
+ "gaps": [
+  "GAIL 2016-03-31",
+  "BANKBARODA 2016-03-31",
+  "BHEL 2016-03-31",
+  "KOTAKBANK 2016-03-31",
+  "TMPV 2016-03-31",
+  "HDFCBANK 2016-03-31",
+  "NTPC 2016-03-31"
+ ],
+ "by_year": {
+  "2016": {
+   "member_quarters": 196,
+   "covered": 0.9643,
+   "median_lag_days": 19.0,
+   "late_over_45d": 0.0204
+  },
+  "2017": {
+   "member_quarters": 196,
+   "covered": 1.0,
+   "median_lag_days": 16.0,
+   "late_over_45d": 0.0102
+  },
+  "2018": {
+   "member_quarters": 196,
+   "covered": 1.0,
+   "median_lag_days": 17.0,
+   "late_over_45d": 0.051
+  },
+  "2019": {
+   "member_quarters": 196,
+   "covered": 1.0,
+   "median_lag_days": 18.0,
+   "late_over_45d": 0.0153
+  },
+  "2020": {
+   "member_quarters": 196,
+   "covered": 1.0,
+   "median_lag_days": 20.0,
+   "late_over_45d": 0.0306
+  },
+  "2021": {
+   "member_quarters": 196,
+   "covered": 1.0,
+   "median_lag_days": 19.0,
+   "late_over_45d": 0.0306
+  },
+  "2022": {
+   "member_quarters": 196,
+   "covered": 1.0,
+   "median_lag_days": 19.0,
+   "late_over_45d": 0.0
+  },
+  "2023": {
+   "member_quarters": 198,
+   "covered": 1.0,
+   "median_lag_days": 18.0,
+   "late_over_45d": 0.0
+  },
+  "2024": {
+   "member_quarters": 200,
+   "covered": 1.0,
+   "median_lag_days": 17.0,
+   "late_over_45d": 0.0
+  },
+  "2025": {
+   "member_quarters": 200,
+   "covered": 1.0,
+   "median_lag_days": 18.0,
+   "late_over_45d": 0.0
+  },
+  "2026": {
+   "member_quarters": 100,
+   "covered": 1.0,
+   "median_lag_days": 17.0,
+   "late_over_45d": 0.0
+  }
+ },
+ "promoter_pledge_any_share": 0.2288,
+ "companies_with_any_pledge": [
+  "ACC",
+  "ADANIENT",
+  "ADANIPORTS",
+  "AMBUJACEM",
+  "APOLLOHOSP",
+  "ASHOKLEY",
+  "ASIANPAINT",
+  "AUROPHARMA",
+  "BAJAJ-AUTO",
+  "BAJAJFINSV",
+  "BHARATFORG",
+  "DRREDDY",
+  "GRASIM",
+  "HEROMOTOCO",
+  "HINDALCO",
+  "INDUSINDBK",
+  "INDUSTOWER",
+  "JSWSTEEL",
+  "M&M",
+  "MAXHEALTH",
+  "MPHASIS",
+  "NCC",
+  "SAMMAANCAP",
+  "SUNPHARMA",
+  "TATACONSUM",
+  "TATAPOWER",
+  "TATASTEEL",
+  "TCS",
+  "TMPV",
+  "UPL",
+  "VEDL",
+  "YESBANK",
+  "ZEEL"
+ ],
+ "no_promoter_companies": [
+  "ETERNAL",
+  "FEDERALBNK",
+  "HDFC",
+  "HDFCBANK",
+  "ICICIBANK",
+  "ITC",
+  "LT",
+  "SAMMAANCAP",
+  "YESBANK"
+ ],
+ "pit_rule": "usable from BSE filing timestamp (IST); revised-only quarters from the revision timestamp; periods before Mar-2016 not used (BSE gives no timestamp)",
+ "made_at": "2026-10-03T19:52:59Z"
+}

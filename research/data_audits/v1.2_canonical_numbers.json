@@ -1,0 +1,472 @@
+{
+ "report_dir": "reports/v1.2-r1_20261004T135141Z",
+ "preregistration_sha256": "8883012b93d931c731f5a05825e75f755d5c84d8267e578ec3c591b55ef940ed",
+ "trials_before": 114,
+ "audit": {
+  "dividends": {
+   "ca_dividends_fo_symbols": 4368,
+   "linked_with_amount_match": 2613,
+   "link_rate": 0.5982142857142857,
+   "link_rate_by_year": {
+    "2015": 0.566,
+    "2016": 0.555,
+    "2017": 0.654,
+    "2018": 0.631,
+    "2019": 0.575,
+    "2020": 0.427,
+    "2021": 0.526,
+    "2022": 0.605,
+    "2023": 0.563,
+    "2024": 0.663,
+    "2025": 0.756,
+    "2026": 0.591
+   },
+   "no_announcement_in_window": 1338,
+   "share_announced_after_close": 0.6111748947569843,
+   "gap_t0_to_ex_days": {
+    "p10": 6.0,
+    "median": 17.0,
+    "p90": 92.80000000000018
+   },
+   "types": {
+    "interim": 1229,
+    "final": 919,
+    "null": 417,
+    "special": 48
+   },
+   "actions": {
+    "declared": 1327,
+    "recommended": 1161,
+    "approved": 87,
+    "null": 38
+   },
+   "payment_date_parsed_share": 0.011863758132414848
+  },
+  "index_changes": {
+   "press_releases_parsed": 209,
+   "nifty50_rows": 72,
+   "nifty50_announcements": 23,
+   "snapshot_changes": 61,
+   "snapshot_changes_found_in_press_releases": 57,
+   "snapshot_changes_not_found": [
+    [
+     "2025-09-30",
+     "include",
+     "ETERNAL"
+    ],
+    [
+     "2025-09-30",
+     "exclude",
+     "ZOMATO"
+    ],
+    [
+     "2026-03-30",
+     "include",
+     "TMPV"
+    ],
+    [
+     "2026-03-30",
+     "exclude",
+     "TATAMOTORS"
+    ]
+   ],
+   "events_in_window": {
+    "NIFTY50": 70,
+    "NIFTYNEXT50": 235
+   },
+   "missing_effective_date": 17
+  },
+  "fo_ban": {
+   "ban_rows": 9036,
+   "symbols": 140,
+   "days_covered": 2662,
+   "no_ban_file_days": 1,
+   "no_oi_file_days": 0
+  }
+ },
+ "results": {
+  "fields": {
+   "HD": {
+    "economic_mechanism": "futures should re-price by -D when a dividend becomes public; participants incorporate it at different speeds",
+    "economic_counterparty": "futures longs and quoting desks using stale dividend assumptions",
+    "mechanism_constraint": "information processing of unstructured, mostly after-close filings; cash-and-carry capital; STT on both cash legs",
+    "our_advantage": "timestamped parsing of every filing; automated fair value with known dividends; AEM cost-aware entry",
+    "failure_condition": "futures fully discount the dividend by the first close after the announcement, or the residual is below costs"
+   },
+   "HI": {
+    "economic_mechanism": "passive trackers must buy inclusions and sell exclusions at the rebalance close",
+    "economic_counterparty": "index funds and ETFs (and benchmarked funds) paying impact to minimise tracking error",
+    "mechanism_constraint": "mandate forces rebalance-close trading; liquidity providers need capital and bear event risk",
+    "our_advantage": "systematic parsing of press releases; execution at t0 close; futures for both directions",
+    "failure_condition": "the move is complete before t0 close, or front-running is so crowded that the R-close impact vanishes"
+   },
+   "HF": {
+    "economic_mechanism": "in an F&O ban no new derivative positions may be opened: arbitrage capital cannot enter and expiring positions cannot be rolled",
+    "economic_counterparty": "holders of expiring positions in banned stocks; hedgers",
+    "mechanism_constraint": "exchange rule (market-wide position limit)",
+    "our_advantage": "none during the ban for a retail trader (measurement only)",
+    "failure_condition": "no basis dislocation during bans and no abnormal open-interest unwinding at ban-at-expiry"
+   }
+  },
+  "HD1": {
+   "events": 1157,
+   "months": 120,
+   "mean_excess_m_bp": -6.517672806771876,
+   "t": -2.254594817762166,
+   "p": 0.9870060935201133,
+   "median_event_excess_m_bp": 4.177910625770831,
+   "mean_D_bp": 63.768798828125,
+   "share_positive": 0.5799481417458946,
+   "trimmed_mean_5_95_bp": -0.12060932833428614,
+   "by_type_mean_excess_m_bp": {
+    "final": -3.0,
+    "interim": -5.77,
+    "special": 4.36,
+    "unknown": -18.39
+   },
+   "incorporation_path": {
+    "t-1": {
+     "median_share_discounted": 0.866444219334009,
+     "n": 1150
+    },
+    "t0": {
+     "median_share_discounted": 0.9345086031987121,
+     "n": 1157
+    },
+    "t0+1": {
+     "median_share_discounted": 0.9490772182799007,
+     "n": 1148
+    },
+    "t0+5": {
+     "median_share_discounted": 0.965254547874442,
+     "n": 566
+    }
+   }
+  },
+  "HD2": {
+   "trips": 65,
+   "mean_month_excess_per_trip": 0.00028864729940635686,
+   "t": 0.3316802711197768,
+   "p": 0.3710833123602601,
+   "months": 35,
+   "mean_net_per_trip_bp": 56.10283947490816,
+   "mean_excess_per_trip_bp": 4.0832408339373405,
+   "ann_excess_on_deployed_capital": 0.005101363285158684,
+   "after_tax_ann_excess": -0.01328385443531273,
+   "tax_variants_after_tax_ann_excess": {
+    "carry_forward": -0.0026957682981263165,
+    "business_cf": 0.011546910383413949
+   },
+   "cost2x_ann_excess": -0.02728752506567501,
+   "capacity_ann_excess": 0.0034037810872851113,
+   "subperiods_ann_excess": {
+    "2015-18": -0.0013127339906222428,
+    "2019-22": 0.002542885210955406,
+    "2023-26": 0.011376252240842715
+   },
+   "beta_to_nifty": 0.024526040428127883,
+   "mean_days": 29.215384615384615,
+   "mean_locked_at_entry_bp": 87.17676082767092,
+   "mean_cost_bp": 31.109714973184328,
+   "descriptive_same_close_fill": {
+    "t0": {
+     "trips": 68,
+     "ann_excess_on_deployed_capital": 0.025008676204906346,
+     "t": 3.698063771211678,
+     "mean_locked_at_entry_bp": 111.99852605613826
+    },
+    "placebo_t0+1": {
+     "trips": 67,
+     "ann_excess_on_deployed_capital": 0.02406917813450143,
+     "t": 4.03386028509704,
+     "mean_locked_at_entry_bp": 108.13029625995436
+    },
+    "placebo_t0+3": {
+     "trips": 68,
+     "ann_excess_on_deployed_capital": 0.028443880730406906,
+     "t": 4.019538788874655,
+     "mean_locked_at_entry_bp": 106.70648767540146
+    },
+    "placebo_t0+5": {
+     "trips": 35,
+     "ann_excess_on_deployed_capital": 0.034308214853096056,
+     "t": 4.6004031225383955,
+     "mean_locked_at_entry_bp": 129.56085204003367
+    }
+   },
+   "descriptive_including_extraordinary": {
+    "trips": 168,
+    "ann_excess": -0.019364780214724524
+   }
+  },
+  "HI": {
+   "NIFTY50": {
+    "events": 70,
+    "inclusions": 35,
+    "exclusions": 35,
+    "HI1": {
+     "mean_signed_car": 0.003913553600961512,
+     "t_in_hypothesis_direction": 0.49884211044880405,
+     "p": 0.31153790731611736,
+     "announcements": 22,
+     "events": 68,
+     "inclusions_mean_car": -0.00205156964328477,
+     "exclusions_mean_car": -0.0059823750038544435
+    },
+    "HI2": {
+     "mean_signed_car": 0.008945386988339646,
+     "t_in_hypothesis_direction": -0.4308470644547388,
+     "p": 0.6644063291099243,
+     "announcements": 21,
+     "events": 64,
+     "inclusions_mean_car": 0.00209216952395299,
+     "exclusions_mean_car": -0.008058496253816022
+    },
+    "announcement_day_signed_car": 0.0009413370314766379,
+    "mean_days_t0_to_R": 31.185714285714287,
+    "sensitivity_without_corporate_event_exclusions": {
+     "announcements_dropped": [
+      "2017-08-28",
+      "2023-07-04",
+      "2026-08-10"
+     ],
+     "HI1": {
+      "mean_signed_car": 0.005357938638904639,
+      "t_in_hypothesis_direction": 0.5964744265309273,
+      "p": 0.2791430765477981,
+      "announcements": 19,
+      "events": 58,
+      "inclusions_mean_car": 0.006671455154126333,
+      "exclusions_mean_car": -0.0005037972012519168
+     },
+     "HI2": {
+      "mean_signed_car": 0.009840995402197775,
+      "t_in_hypothesis_direction": -0.42771566233468045,
+      "p": 0.6630342340919492,
+      "announcements": 19,
+      "events": 57,
+      "inclusions_mean_car": -0.0003979623651013596,
+      "exclusions_mean_car": -0.00948732871467623
+     }
+    }
+   },
+   "NIFTYNEXT50": {
+    "events": 235,
+    "inclusions": 121,
+    "exclusions": 114,
+    "HI1": {
+     "mean_signed_car": 0.011577510516966283,
+     "t_in_hypothesis_direction": 1.0303069247441417,
+     "p": 0.1551792786854046,
+     "announcements": 34,
+     "events": 235,
+     "inclusions_mean_car": 0.018609047290080977,
+     "exclusions_mean_car": -0.0037249049396558868
+    },
+    "HI2": {
+     "mean_signed_car": 0.007294986490318515,
+     "t_in_hypothesis_direction": -0.7835160238440633,
+     "p": 0.7804574388013235,
+     "announcements": 33,
+     "events": 226,
+     "inclusions_mean_car": 0.0034598579356825633,
+     "exclusions_mean_car": 0.009238440602814584
+    },
+    "announcement_day_signed_car": 0.0011706680946234208,
+    "mean_days_t0_to_R": 32.08085106382979,
+    "sensitivity_without_corporate_event_exclusions": {
+     "announcements_dropped": [
+      "2026-08-10"
+     ],
+     "HI1": {
+      "mean_signed_car": 0.011277740623385565,
+      "t_in_hypothesis_direction": 0.9735340324082826,
+      "p": 0.16879504645128085,
+      "announcements": 33,
+      "events": 226,
+      "inclusions_mean_car": 0.018881660436068492,
+      "exclusions_mean_car": -0.0025133060656365655
+     },
+     "HI2": {
+      "mean_signed_car": 0.007294986490318515,
+      "t_in_hypothesis_direction": -0.7835160238440633,
+      "p": 0.7804574388013235,
+      "announcements": 33,
+      "events": 226,
+      "inclusions_mean_car": 0.0034598579356825633,
+      "exclusions_mean_car": 0.009238440602814584
+     }
+    }
+   }
+  },
+  "HI_econ": {
+   "trips": 63,
+   "mean_net_per_trip_bp": -49.3159509389524,
+   "ann_excess_on_deployed_capital": -0.05851497893917495,
+   "after_tax_ann_excess": -0.10773779106540464,
+   "tax_variants_after_tax_ann_excess": {
+    "carry_forward": -0.08449885411190484,
+    "business_cf": -0.08449885411190484
+   },
+   "cost2x_ann_excess": -0.07299657918602333,
+   "capacity_ann_excess": -0.05851497893917495,
+   "subperiods_ann_excess": {
+    "2015-18": 0.14211802484266073,
+    "2019-22": -0.23745414325034067,
+    "2023-26": -0.4520286244628327
+   },
+   "beta_to_nifty": -0.3677620963865159,
+   "beta_note": "slope of the hedged trade's P&L on the NIFTY futures return over the same window",
+   "mean_days": 30.761904761904763,
+   "descriptive_NIFTYNEXT50": {
+    "trips": 144,
+    "mean_net_per_trip_bp": -27.370290433841614,
+    "ann_excess_on_deployed_capital": -0.031547861079006916,
+    "after_tax_ann_excess": -0.08049980476789369,
+    "tax_variants_after_tax_ann_excess": {
+     "carry_forward": -0.05064965780936268,
+     "business_cf": -0.05064965780936268
+    },
+    "cost2x_ann_excess": null,
+    "capacity_ann_excess": -0.04017273658631818,
+    "subperiods_ann_excess": {
+     "2015-18": 0.030342427354561382,
+     "2019-22": -0.21787202658328014,
+     "2023-26": 0.06535963632233718
+    },
+    "beta_to_nifty": -0.3994065049415155,
+    "beta_note": "slope of the hedged trade's P&L on the NIFTY futures return over the same window",
+    "mean_days": 31.666666666666668
+   }
+  },
+  "HF": {
+   "HF1": {
+    "mean_abs_resid_diff_bp": 14.055398320182487,
+    "t": 4.584707069014407,
+    "p": 2.478595522646135e-06,
+    "episodes": 1383,
+    "ban_episodes_total": 1715,
+    "median_episode_sessions": 4.0,
+    "robustness": {
+     "median_diff_bp": 0.47547987885782206,
+     "t_month_clustered": 2.134144389247994,
+     "p_month_clustered": 0.01739193986821827,
+     "months": 126,
+     "mean_without_top20_bp": 5.2145875408907605,
+     "signed_resid_diff_bp": -15.693485133036418,
+     "persist_next_session": {
+      "mean_bp": 5.397454865865322,
+      "t": 1.705813509605822,
+      "p": 0.044217937031885875,
+      "episodes": 791
+     },
+     "largest_episodes": [
+      [
+       "YESBANK",
+       "2020-03-05",
+       "1900.044688907142"
+      ],
+      [
+       "PCJEWELLER",
+       "2019-06-07",
+       "1262.4834437405689"
+      ],
+      [
+       "JETAIRWAYS",
+       "2019-05-03",
+       "852.703780696497"
+      ],
+      [
+       "JETAIRWAYS",
+       "2019-06-18",
+       "785.2109204087787"
+      ],
+      [
+       "DHFL",
+       "2019-08-14",
+       "764.869611038853"
+      ],
+      [
+       "RELCAPITAL",
+       "2019-06-11",
+       "733.1154765709593"
+      ],
+      [
+       "DHFL",
+       "2019-07-01",
+       "684.6840967801336"
+      ],
+      [
+       "JETAIRWAYS",
+       "2018-12-17",
+       "564.7160480677046"
+      ]
+     ]
+    }
+   },
+   "HF2": {
+    "mean_rel_oi_change": -0.04637172415516474,
+    "t_for_negative": 5.442814034911587,
+    "p": 3.318032692103124e-08,
+    "episodes": 976,
+    "median_rel_oi_change": -0.059490318167077366,
+    "robustness": {
+     "t_expiry_clustered": 2.6845543994339156,
+     "p_expiry_clustered": 0.004048381561334265,
+     "expiries": 148,
+     "level_matched_mean_rel": 0.0067816562375618596,
+     "level_matched_t_expiry_clustered": 0.5684681911141071,
+     "level_matched_p": 0.2852922467848924
+    },
+    "car_T-4_to_T": {
+     "mean": 0.008855860135842672,
+     "t": 3.4374751848907237,
+     "p_two_sided": 0.000611975997729356,
+     "n": 976,
+     "t_expiry_clustered": 3.3638988238425696,
+     "p_expiry_clustered": 0.0009801847783316375
+    }
+   }
+  },
+  "holm": {
+   "HF2": 2.6544261536824994e-07,
+   "HF1": 1.7350168658522944e-05,
+   "HI1-NN50": 0.9310756721124276,
+   "HI1-N50": 1.0,
+   "HD2": 1.0,
+   "HI2-N50": 1.0,
+   "HI2-NN50": 1.0,
+   "HD1": 1.0
+  },
+  "gate": {
+   "HD2": {
+    "holm_p": 1.0,
+    "steps": {
+     "statistical": false,
+     "excess_ge_1.5pct_and_mean_net_positive": false,
+     "after_tax_excess_ge_1pct": false,
+     "cost2x_excess_ge_0.75pct": false,
+     "beta_abs_lt_0.10": true,
+     "capacity": false,
+     "subperiods_2_of_3": true
+    },
+    "first_failed": "statistical",
+    "verdict": "REJECTED at statistical"
+   },
+   "HI_econ": {
+    "holm_p": 1.0,
+    "steps": {
+     "statistical": false,
+     "excess_ge_1.5pct_and_mean_net_positive": false,
+     "after_tax_excess_ge_1pct": false,
+     "cost2x_excess_ge_0.75pct": false,
+     "beta_abs_lt_0.10": false,
+     "capacity": false,
+     "subperiods_2_of_3": false
+    },
+    "first_failed": "statistical",
+    "verdict": "REJECTED at statistical"
+   }
+  }
+ }
+}

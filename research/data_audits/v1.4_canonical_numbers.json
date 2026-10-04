@@ -1,0 +1,37 @@
+{
+  "version": "v1.4",
+  "asof": "2026-10-04",
+  "tests_pass": 222,
+  "trial_count": 114,
+  "proven_alpha": 0,
+  "live_trading": "off",
+  "analyst": {
+    "snapshot_days": 2,
+    "names_today": 213,
+    "valid_today": 186,
+    "seal": "12 months and 24 cross-sections >=100 valid",
+    "earliest_open": "2028-10 end"
+  },
+  "promises": {
+    "queued": 35,
+    "companies": 16,
+    "candidate_passages": 83,
+    "with_local_text": 80,
+    "verdicts": 0
+  },
+  "depth": {
+    "recorded_days": 0,
+    "seal_days": 20,
+    "blocker": "Kite key"
+  },
+  "ban_expiry": {
+    "events": 0,
+    "seal": "24 months and 300 events",
+    "ledger_start": "2026-10-05"
+  },
+  "candidates": {
+    "C-013": "FORWARD / PRE-REGISTRATION REQUIRED",
+    "C-014": "FORWARD / LEDGER RUNNING"
+  },
+  "argo": "frozen"
+}

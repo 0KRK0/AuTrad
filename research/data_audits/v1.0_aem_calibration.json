@@ -1,0 +1,10 @@
+{
+ "crypto_btcusdt_perp": {
+  "source": "v1.0 M1, 7 M0 test days, 0.01 BTC parent orders, 300 ms latency, 60 s budget; adverse move after a passive fill from M2 (plain quotes, 5 s, sign: + = against us)",
+  "passive_fill_prob_60s": 0.8092757936507936,
+  "passive_price_vs_arrival_bp": -0.022945281145826724,
+  "unfilled_cross_cost_bp_ex_fee": 4.397109075860014,
+  "half_spread_bp": 0.011654644900852155,
+  "adverse_mid_move_after_passive_fill_5s_bp": 0.9033056943844358
+ }
+}

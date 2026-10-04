@@ -56,7 +56,8 @@ class EvidenceGraph:
                   due: str = "", metric: str = "", target: str = "", status: str = "", origin: str = "") -> str:
         cid = _id(kind, entity, text, made_at, quote, speaker)
         self.db.execute("INSERT INTO claims VALUES (?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(claim_id) DO UPDATE SET due=excluded.due, "
-                        "metric=excluded.metric, target=excluded.target, status=excluded.status, origin=excluded.origin",
+                        "metric=excluded.metric, target=excluded.target, origin=excluded.origin, "
+                        "status=CASE WHEN claims.status LIKE 'VERIFIED%' THEN claims.status ELSE excluded.status END",
                         (cid, kind, entity, speaker, text, quote, made_at, due, metric, target, status, origin))
         for s in sources:
             self.link(cid, "sourced_by", s)

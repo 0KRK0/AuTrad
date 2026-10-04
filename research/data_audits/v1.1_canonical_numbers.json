@@ -1,0 +1,481 @@
+{
+ "report_dir": "reports/v1.1-r1_20261004T112103Z",
+ "preregistration_sha256": "1dfd7f662ca51f674f96f149772eb30f3e560018e20b8515472e5220749e6d95",
+ "trials_before": 114,
+ "audit": {
+  "sessions_cash": 2911,
+  "sessions_fo": 2910,
+  "cash_sessions_without_fo": [
+   "2021-03-30"
+  ],
+  "stock_futures_symbols": 373,
+  "near_stock_join_to_cash": 0.997643536046769,
+  "expiry_settle_vs_cash_close_bp": {
+   "median": 0.0,
+   "p1": -1.0671374442987824,
+   "p99": 1.1807303671531608,
+   "abs_gt_50bp_share": 0.0014701899640190352,
+   "n": 25847
+  },
+  "index_basis_ann_by_fut": {
+   "BANKNIFTY": {
+    "mean": 0.0633,
+    "10%": -0.0264,
+    "50%": 0.0643,
+    "90%": 0.1523
+   },
+   "NIFTY": {
+    "mean": 0.0649,
+    "10%": -0.0046,
+    "50%": 0.0617,
+    "90%": 0.1378
+   }
+  },
+  "stock_days_with_adj_event_in_life_share": 0.00355
+ },
+ "stock_carry_by_year": {
+  "2015": {
+   "median_carry": 0.0722,
+   "repo": 0.0725,
+   "p10": -0.049,
+   "p90": 0.1412,
+   "n": 28286.0
+  },
+  "2016": {
+   "median_carry": 0.067,
+   "repo": 0.065,
+   "p10": -0.0413,
+   "p90": 0.1356,
+   "n": 31296.0
+  },
+  "2017": {
+   "median_carry": 0.071,
+   "repo": 0.0625,
+   "p10": -0.0161,
+   "p90": 0.1425,
+   "n": 37679.0
+  },
+  "2018": {
+   "median_carry": 0.0632,
+   "repo": 0.0625,
+   "p10": -0.0389,
+   "p90": 0.1346,
+   "n": 38228.0
+  },
+  "2019": {
+   "median_carry": 0.0657,
+   "repo": 0.0575,
+   "p10": -0.0791,
+   "p90": 0.1407,
+   "n": 32202.0
+  },
+  "2020": {
+   "median_carry": 0.0474,
+   "repo": 0.04,
+   "p10": -0.0859,
+   "p90": 0.1216,
+   "n": 26985.0
+  },
+  "2021": {
+   "median_carry": 0.0626,
+   "repo": 0.04,
+   "p10": -0.0087,
+   "p90": 0.1264,
+   "n": 30773.0
+  },
+  "2022": {
+   "median_carry": 0.0559,
+   "repo": 0.049,
+   "p10": -0.0503,
+   "p90": 0.1338,
+   "n": 37101.0
+  },
+  "2023": {
+   "median_carry": 0.0748,
+   "repo": 0.065,
+   "p10": -0.0185,
+   "p90": 0.1335,
+   "n": 35048.0
+  },
+  "2024": {
+   "median_carry": 0.0682,
+   "repo": 0.065,
+   "p10": -0.0166,
+   "p90": 0.1184,
+   "n": 35065.0
+  },
+  "2025": {
+   "median_carry": 0.0578,
+   "repo": 0.055,
+   "p10": -0.0264,
+   "p90": 0.1095,
+   "n": 41854.0
+  },
+  "2026": {
+   "median_carry": 0.0487,
+   "repo": 0.0525,
+   "p10": -0.0676,
+   "p90": 0.1179,
+   "n": 29867.0
+  }
+ },
+ "results": {
+  "HB1": {
+   "mean_cycle_excess": -0.0007609029165408596,
+   "t": -8.442531601189465,
+   "p": 0.9999999999999817,
+   "n": 140,
+   "cycles": 140,
+   "calendar_days": 4260.0,
+   "ann_excess": -0.009127262684328152,
+   "ann_return_while_in_cycles": 0.04717341811836041,
+   "ann_cash_while_in_cycles": 0.05766226058807661,
+   "after_tax_ann_excess": -0.015250971501721127,
+   "subperiods_ann_excess": {
+    "2015-18": -0.008449936580961017,
+    "2019-22": -0.009003755084177034,
+    "2023-26": -0.010020038673735653
+   },
+   "beta_to_nifty": -0.00244536610907846,
+   "share_cycles_invested": 0.7071428571428572,
+   "worst_cycle_excess": -0.005427109654731732,
+   "trips": 533,
+   "mean_locked_at_entry_bp": 61.715377629217386,
+   "mean_pnl_bp": 25.16824033396617,
+   "mean_cost_bp": 33.39477720681873,
+   "mean_days": 25.52157598499062,
+   "trips_with_dividend": 11,
+   "capacity_share_trips_capped": 0.001876172607879925,
+   "cost2x_ann_excess": -0.021836157308155517,
+   "capacity_ann_excess": -0.008352825653316489,
+   "tax_variants_after_tax_ann_excess": {
+    "carry_forward": -0.014556891207384357,
+    "business_cf": -0.006279556726817767
+   },
+   "descriptive": {
+    "m0_pledged": -0.007047604443909713,
+    "top5": -0.013011086370113946,
+    "top20": -0.005903677307194263,
+    "capital_based_selection": -0.0037971605410968483,
+    "liquid_fund_rate_2020_22": -0.008758157291203933
+   }
+  },
+  "HB2": {
+   "mean_month_excess_per_trip": -0.0012688093894392737,
+   "t": -7.825067485097827,
+   "p": 0.999999999999171,
+   "months": 129,
+   "trips": 652,
+   "ann_excess_on_deployed_capital": -0.0701690432137536,
+   "after_tax_ann_excess": -0.17082452600419454,
+   "tax_variants_after_tax_ann_excess": {
+    "carry_forward": -0.16651435246099447,
+    "business_cf": -0.05615041880397197
+   },
+   "cost2x_ann_excess": -0.23013477439029212,
+   "subperiods_ann_excess": {
+    "2015-18": -0.10332225050309099,
+    "2019-22": -0.0306758688247938,
+    "2023-26": -0.0780615217550406
+   },
+   "beta_to_nifty": 0.002331487083605604,
+   "capacity_ann_excess": -0.06984309814582274,
+   "mean_signal_e": 0.22183414836279486,
+   "median_decay_locked_over_signalled": 0.3930982835539547,
+   "mean_pnl_bp": -3.2241757563419577,
+   "mean_days": 6.526073619631902,
+   "trips_with_dividend": 6,
+   "capacity_share_trips_capped": 0.024539877300613498,
+   "descriptive": {
+    "threshold_0.05": {
+     "trips": 1819,
+     "ann_excess": -0.05282825528042273
+    },
+    "threshold_0.15": {
+     "trips": 375,
+     "ann_excess": -0.051122973521687765
+    }
+   }
+  },
+  "HB3": {
+   "NIFTY": {
+    "mean_cycle_excess": -0.0002973888462622633,
+    "t": -3.3156594318199937,
+    "p": 0.9994167753145895,
+    "n": 140,
+    "cycles": 140,
+    "calendar_days": 4260.0,
+    "ann_excess": -0.0035672699633806696,
+    "ann_return_while_in_cycles": 0.05356283516482286,
+    "ann_cash_while_in_cycles": 0.05766226058807661,
+    "after_tax_ann_excess": -0.00681650382723944,
+    "subperiods_ann_excess": {
+     "2015-18": -0.0028609796439820175,
+     "2019-22": -0.0027741307145203887,
+     "2023-26": -0.005205243658156077
+    },
+    "beta_to_nifty": -0.004778655960434382,
+    "share_cycles_invested": 0.22142857142857142,
+    "worst_cycle_excess": -0.006589948462098168,
+    "cycles_in_position": 31,
+    "cycles_data_missing": 0,
+    "cost2x_ann_excess": -0.0065004093064949114,
+    "capacity_ann_excess": -0.0035672699633806696,
+    "mean_signal_e_ann": -0.019800773547303824,
+    "mean_g_ann": 0.0543194977783207,
+    "mean_excess_when_in_bp": -13.43046402474737
+   },
+   "BANKNIFTY": {
+    "mean_cycle_excess": -0.00014448751725221036,
+    "t": -1.3174737892021822,
+    "p": 0.9050763260364694,
+    "n": 140,
+    "cycles": 140,
+    "calendar_days": 4260.0,
+    "ann_excess": -0.0017331718618751053,
+    "ann_return_while_in_cycles": 0.055713127784213765,
+    "ann_cash_while_in_cycles": 0.05769575725026853,
+    "after_tax_ann_excess": -0.008278058047735258,
+    "subperiods_ann_excess": {
+     "2015-18": -0.0014735461968565988,
+     "2019-22": -0.0007927010763219951,
+     "2023-26": -0.0030398211982188067
+    },
+    "beta_to_nifty": -0.00624071736136815,
+    "share_cycles_invested": 0.2785714285714286,
+    "worst_cycle_excess": -0.011400496653018961,
+    "cycles_in_position": 39,
+    "cycles_data_missing": 0,
+    "cost2x_ann_excess": -0.005433730159605936,
+    "capacity_ann_excess": -0.0017331718618751053,
+    "mean_signal_e_ann": -0.0233124483886741,
+    "mean_g_ann": 0.05079914103344502,
+    "mean_excess_when_in_bp": -5.186731388540885
+   }
+  },
+  "HB4": {
+   "NIFTY": {
+    "mean_diff_ann": -0.0004532292259696014,
+    "t": -0.5429232074862597,
+    "p": 0.5880459957018227,
+    "cycles": 141,
+    "mean_last": 0.04666706293452282,
+    "mean_base": 0.047120292160492426,
+    "roll_bp_per_cycle": -0.34768269389448886,
+    "share_positive": 0.475177304964539
+   },
+   "BANKNIFTY": {
+    "mean_diff_ann": -0.001631263830452188,
+    "t": -1.8208360976233737,
+    "p": 0.07076714188334203,
+    "cycles": 141,
+    "mean_last": 0.04654158919366517,
+    "mean_base": 0.04817285302411735,
+    "roll_bp_per_cycle": -1.251380472675651,
+    "share_positive": 0.46099290780141844
+   },
+   "STOCK_MEDIAN": {
+    "mean_diff_ann": 0.00364206194482481,
+    "t": 4.877812311889276,
+    "p": 2.85830851284115e-06,
+    "cycles": 142,
+    "mean_last": 0.05766343508888399,
+    "mean_base": 0.054021373144059186,
+    "roll_bp_per_cycle": 2.793910533016293,
+    "share_positive": 0.7323943661971831
+   }
+  },
+  "as_preregistered_signal": {
+   "HB1": {
+    "mean_cycle_excess": 0.0008590525237926406,
+    "t": 3.3315009585619233,
+    "p": 0.0005533533271851515,
+    "n": 140,
+    "cycles": 140,
+    "calendar_days": 4260.0,
+    "ann_excess": 0.010304597175071345,
+    "ann_return_while_in_cycles": 0.06950406904931318,
+    "ann_cash_while_in_cycles": 0.05766226058807661,
+    "after_tax_ann_excess": -0.002561968264250393,
+    "subperiods_ann_excess": {
+     "2015-18": 0.010867779369545525,
+     "2019-22": 0.016851480554238903,
+     "2023-26": 0.0026150915746942613
+    },
+    "beta_to_nifty": -0.002568567589200688,
+    "share_cycles_invested": 0.9357142857142857,
+    "worst_cycle_excess": -0.004186662361277104,
+    "trips": 865,
+    "mean_locked_at_entry_bp": 22.40619464238758,
+    "mean_pnl_bp": 66.5200730885944,
+    "mean_cost_bp": 32.79017743606255,
+    "mean_days": 26.048554913294797,
+    "trips_with_dividend": 481,
+    "capacity_share_trips_capped": 0.0023121387283236996,
+    "cost2x_ann_excess": -0.009947121860532815,
+    "capacity_ann_excess": 0.01105070804895421,
+    "tax_variants_after_tax_ann_excess": {
+     "carry_forward": -0.00044830716228418,
+     "business_cf": 0.007089562856449088
+    }
+   },
+   "HB2": {
+    "mean_month_excess_per_trip": 0.001454347190364925,
+    "t": 4.595989019004903,
+    "p": 4.891589891467435e-06,
+    "months": 136,
+    "trips": 911,
+    "ann_excess_on_deployed_capital": 0.04509048806026918,
+    "after_tax_ann_excess": -0.006875562257198475,
+    "tax_variants_after_tax_ann_excess": {
+     "carry_forward": -0.0017945150846991875,
+     "business_cf": 0.04384863985109097
+    },
+    "cost2x_ann_excess": -0.04484873341470466,
+    "subperiods_ann_excess": {
+     "2015-18": 0.06928310820567443,
+     "2019-22": 0.08320712002678657,
+     "2023-26": -0.008877888382535105
+    },
+    "beta_to_nifty": 0.004709988327791617,
+    "capacity_ann_excess": 0.045668344502299195,
+    "mean_signal_e": 0.21197493473069548,
+    "median_decay_locked_over_signalled": 0.2584676985826876,
+    "mean_pnl_bp": 37.65817427508401,
+    "mean_days": 11.376509330406147,
+    "trips_with_dividend": 265,
+    "capacity_share_trips_capped": 0.018660812294182216
+   },
+   "HB2_dividend_vs_no_dividend_ann_excess": {
+    "with_dividend": 0.1232314463259809,
+    "without_dividend": -0.07135118016749249
+   },
+   "holm": {
+    "HB2": 2.4457949457337174e-05,
+    "HB1": 0.002213413308740606,
+    "HB4": 1.0,
+    "HB3-BN": 1.0,
+    "HB3-N": 1.0
+   },
+   "gate": {
+    "HB1": {
+     "holm_p": 0.002213413308740606,
+     "steps": {
+      "statistical": true,
+      "excess_ge_1.5pct": false,
+      "after_tax_excess_ge_1pct": false,
+      "cost2x_excess_ge_0.75pct": false,
+      "beta_abs_lt_0.10": true,
+      "capacity": false,
+      "subperiods_2_of_3": true
+     },
+     "first_failed": "excess_ge_1.5pct",
+     "verdict": "REJECTED at excess_ge_1.5pct"
+    },
+    "HB2": {
+     "holm_p": 2.4457949457337174e-05,
+     "steps": {
+      "statistical": true,
+      "excess_ge_1.5pct": true,
+      "after_tax_excess_ge_1pct": false,
+      "cost2x_excess_ge_0.75pct": false,
+      "beta_abs_lt_0.10": true,
+      "capacity": true,
+      "subperiods_2_of_3": true
+     },
+     "first_failed": "after_tax_excess_ge_1pct",
+     "verdict": "REJECTED at after_tax_excess_ge_1pct"
+    }
+   }
+  },
+  "descriptive": {
+   "index_replication": {
+    "NIFTY": {
+     "cycles": 140,
+     "ann_advantage_futures_plus_cash_over_etf": -0.0015460118066868104,
+     "t": -0.3957440355350911,
+     "p_two_sided": 0.6929006201521473,
+     "note": "pre-tax; futures P&L is business income, ETF gains are capital gains (LTCG after 12 months)"
+    },
+    "BANKNIFTY": {
+     "cycles": 140,
+     "ann_advantage_futures_plus_cash_over_etf": 0.007947080391018053,
+     "t": 1.1807563492096356,
+     "p_two_sided": 0.2397160303886265,
+     "note": "pre-tax; futures P&L is business income, ETF gains are capital gains (LTCG after 12 months)"
+    }
+   },
+   "reverse_arbitrage_frequency": {
+    "stock_days": 404384,
+    "share_rev_e_gt_0": 0.11857294057133813,
+    "share_rev_e_gt_5pct": 0.07013630608530505,
+    "median_carry_minus_repo": 0.005438369209163733
+   }
+  },
+  "holm": {
+   "HB4": 1.0,
+   "HB3-BN": 1.0,
+   "HB3-N": 1.0,
+   "HB2": 1.0,
+   "HB1": 1.0
+  },
+  "gate": {
+   "HB1": {
+    "holm_p": 1.0,
+    "steps": {
+     "statistical": false,
+     "excess_ge_1.5pct": false,
+     "after_tax_excess_ge_1pct": false,
+     "cost2x_excess_ge_0.75pct": false,
+     "beta_abs_lt_0.10": true,
+     "capacity": false,
+     "subperiods_2_of_3": false
+    },
+    "first_failed": "statistical",
+    "verdict": "REJECTED at statistical"
+   },
+   "HB2": {
+    "holm_p": 1.0,
+    "steps": {
+     "statistical": false,
+     "excess_ge_1.5pct": false,
+     "after_tax_excess_ge_1pct": false,
+     "cost2x_excess_ge_0.75pct": false,
+     "beta_abs_lt_0.10": true,
+     "capacity": false,
+     "subperiods_2_of_3": false
+    },
+    "first_failed": "statistical",
+    "verdict": "REJECTED at statistical"
+   },
+   "HB3-N": {
+    "holm_p": 1.0,
+    "steps": {
+     "statistical": false,
+     "excess_ge_1.5pct": false,
+     "after_tax_excess_ge_1pct": false,
+     "cost2x_excess_ge_0.75pct": false,
+     "beta_abs_lt_0.10": true,
+     "capacity": false,
+     "subperiods_2_of_3": false
+    },
+    "first_failed": "statistical",
+    "verdict": "REJECTED at statistical"
+   },
+   "HB3-BN": {
+    "holm_p": 1.0,
+    "steps": {
+     "statistical": false,
+     "excess_ge_1.5pct": false,
+     "after_tax_excess_ge_1pct": false,
+     "cost2x_excess_ge_0.75pct": false,
+     "beta_abs_lt_0.10": true,
+     "capacity": false,
+     "subperiods_2_of_3": false
+    },
+    "first_failed": "statistical",
+    "verdict": "REJECTED at statistical"
+   }
+  }
+ }
+}

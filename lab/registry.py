@@ -59,7 +59,40 @@ class Registry:
     def experiments(self) -> list[dict]:
         return [r for r in (json.loads(x) for x in self.path.open() if x.strip()) if r.get("kind") == "experiment"]
 
+    SIX_QUESTIONS = ("economic_counterparty", "mechanism_constraint", "our_advantage", "failure_condition")
+
+    @staticmethod
+    def _version(r: dict) -> tuple[int, int] | None:
+        try:
+            major, minor = (int(x) for x in str(r["version"]).lstrip("v").split(".")[:2])
+            return major, minor
+        except (KeyError, ValueError):
+            return None
+
+    @classmethod
+    def _needs_mechanism(cls, r: dict) -> bool:
+        """From v1.1 every experiment row must state its economic_mechanism (why the edge should exist)."""
+        if r.get("kind") != "experiment":
+            return False
+        v = cls._version(r)                     # required unless the version is explicitly below v1.1
+        return v is None or v >= (1, 1)
+
+    @classmethod
+    def _needs_six(cls, r: dict) -> bool:
+        """From v1.2 the row must also name who pays, the constraint, AuTrad's advantage and what would kill it."""
+        if r.get("kind") != "experiment":
+            return False
+        v = cls._version(r)
+        return v is None or v >= (1, 2)
+
     def add(self, records: list[dict]) -> None:
+        for r in records:
+            if self._needs_mechanism(r) and not str(r.get("economic_mechanism", "")).strip():
+                raise ValueError(f"experiment {r.get('experiment_id')}: economic_mechanism is required from v1.1")
+            if self._needs_six(r):
+                missing = [k for k in self.SIX_QUESTIONS if not str(r.get(k, "")).strip()]
+                if missing:
+                    raise ValueError(f"experiment {r.get('experiment_id')}: {', '.join(missing)} required from v1.2")
         ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
         with self.path.open("a") as f:
             for r in records:

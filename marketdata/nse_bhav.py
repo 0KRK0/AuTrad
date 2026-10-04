@@ -71,8 +71,12 @@ def fetch_day(d: date, session, tries: int = 2) -> pd.DataFrame | None:  # pragm
     return None
 
 
-def keep(df: pd.DataFrame, isins: set[str], symbols: set[str]) -> pd.DataFrame:
-    df = df[df["series"].isin(SERIES) & (df["isin"].isin(isins) | df["symbol"].isin(symbols))].copy()
+def keep(df: pd.DataFrame, isins: set[str] | None, symbols: set[str] | None) -> pd.DataFrame:
+    """isins/symbols None = keep every EQ/BE/BZ security (the whole-market cache used for wider universes)."""
+    m = df["series"].isin(SERIES)
+    if isins is not None or symbols is not None:
+        m &= df["isin"].isin(isins or set()) | df["symbol"].isin(symbols or set())
+    df = df[m].copy()
     for c in ["open", "high", "low", "close", "prev_close", "volume", "value"]:
         df[c] = pd.to_numeric(df[c], errors="coerce")
     return df[COLS]

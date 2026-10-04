@@ -1,0 +1,40 @@
+{
+  "asof": "2026-10-04",
+  "analyst": {
+    "snapshot_days": 2,
+    "first": "2026-10-03",
+    "last": "2026-10-04",
+    "months": 0.0,
+    "cross_sections": 0,
+    "latest_names": 213,
+    "latest_valid": 186,
+    "threshold": ">= 12 months and >= 24 cross-sections with >= 100 valid stocks",
+    "unsealed": false
+  },
+  "depth": {
+    "symbols": 0,
+    "recorded_days_max": 0,
+    "sealed_days_max": 0,
+    "per_symbol_sealed": {},
+    "threshold": ">= 20 sealed days per symbol",
+    "unsealed": false,
+    "blocker": "recorder not running: needs the owner's Kite Connect API key and access token"
+  },
+  "promises": {
+    "reviewed_claims": 0,
+    "verdicts": {},
+    "queue": 35,
+    "threshold": "none fixed; a study needs its own pre-registration"
+  },
+  "ban_expiry": {
+    "events": 0,
+    "evaluable": false,
+    "threshold": ">= 24 months and >= 300 events"
+  },
+  "candidates": {
+    "C-013": "FORWARD / PRE-REGISTRATION REQUIRED",
+    "C-014": "FORWARD / LEDGER RUNNING"
+  },
+  "proven_alpha": 0,
+  "live_trading": "off"
+}

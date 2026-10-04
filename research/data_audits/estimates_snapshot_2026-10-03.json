@@ -1,0 +1,75 @@
+{
+ "snapshot_days": [
+  "2026-10-03"
+ ],
+ "snapshots": 50,
+ "with_errors": 0,
+ "rows": 200,
+ "fy0_coverage": 50,
+ "fy0_median_analysts": 27.0,
+ "fy0_few_analysts": 0,
+ "fy0_trend_mismatch": 6,
+ "fy0_trend_mismatch_symbols": [
+  "INDIGO",
+  "JSWSTEEL",
+  "KOTAKBANK",
+  "LT",
+  "NTPC",
+  "RELIANCE"
+ ],
+ "q0_coverage": 47,
+ "vendor_actual_vs_filed_eps": {
+  "matched": 188,
+  "within_5pct": 0.6117,
+  "worst": [
+   {
+    "symbol": "INDIGO",
+    "quarter": "2025-12-31",
+    "eps_actual": "53.2116",
+    "eps_basic": "14.22"
+   },
+   {
+    "symbol": "HINDUNILVR",
+    "quarter": "2025-12-31",
+    "eps_actual": "30.2163",
+    "eps_basic": "9.03"
+   },
+   {
+    "symbol": "ADANIENT",
+    "quarter": "2026-06-30",
+    "eps_actual": "11.3948",
+    "eps_basic": "-8.91"
+   },
+   {
+    "symbol": "HINDALCO",
+    "quarter": "2026-03-31",
+    "eps_actual": "25.7748",
+    "eps_basic": "11.7"
+   },
+   {
+    "symbol": "DRREDDY",
+    "quarter": "2026-03-31",
+    "eps_actual": "5.7418",
+    "eps_basic": "2.65"
+   },
+   {
+    "symbol": "HINDALCO",
+    "quarter": "2025-12-31",
+    "eps_actual": "17.707",
+    "eps_basic": "9.23"
+   },
+   {
+    "symbol": "JSWSTEEL",
+    "quarter": "2026-03-31",
+    "eps_actual": "8.9794",
+    "eps_basic": "67.07"
+   },
+   {
+    "symbol": "ADANIENT",
+    "quarter": "2025-09-30",
+    "eps_actual": "3.6906",
+    "eps_basic": "27.38"
+   }
+  ]
+ }
+}

@@ -8,7 +8,7 @@ Enterprise-grade AI trading **research and paper-trading** platform. AI proposes
 
 ```bash
 pip install -r requirements-dev.txt
-pytest -q                                   # 141 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, forward test, tax, advisory agents, company memory, gate, API
+pytest -q                                   # 185 tests: risk, no-look-ahead, costs, ledger, stats, walk-forward, lab judge, corporate actions, PIT fundamentals, factors, forward test, tax, advisory agents, company memory, gate, v0.8 data layer, API
 python -m scripts.fetch_data                # v0.2: real India data (NSE, NIFTY, BTC/ETH INR, USD/GBP/EUR INR, gold/silver ETFs)
 python -m scripts.validate                  # v0.2: walk-forward validation + baselines + random traders + scorecard -> reports/
 python -m scripts.run_backtest              # synthetic data (mechanics only)
@@ -210,6 +210,225 @@ python -m scripts.agents_v06 scorecard --out <same>                          # d
 - Insider, pledge and analyst-revision data are blocked by coverage (audited); there is no family to test next until the data exist.
 - The 10th Man found no material objection on the 30 Sep picks. The shadow scorecard is accumulating.
 - Company memory: 4,330 documents and 6,157 filed numbers. Promise pilot: 15 verbatim promises (UltraTech 14, TCS 1); none auto-scored, outcomes go to human review.
+
+## v0.8 data + company-intelligence expansion
+
+v0.8 is a data version: it computes no returns. Run it on your own machine; the exchange and company sites are not
+reachable from the cloud.
+
+```bash
+python -m scripts.fetch_bse_shp --budget 160                   # BSE shareholding & pledge history (resumable; repeat until todo 0)
+python -m scripts.v08_data shp-build|shp-audit|shp-validate|shp-crosscheck|shp-events
+python -m scripts.v08_transcripts nse|web|links --budget 160   # NSE + company-website transcripts (resumable)
+python -m scripts.v08_transcripts audit
+python -m scripts.fetch_estimates --budget 160                 # daily consensus snapshot (run once a day); --audit
+python -m scripts.intel_v08 build --out reports/v0.8_<ts>      # Company Memory + promise review queue
+python -m scripts.intel_v08 apply --csv <filled queue>         # human-verified promise verdicts
+```
+
+| Path | What |
+| --- | --- |
+| `marketdata/bse_shp.py` | BSE shareholding pattern from Mar 2016: promoter holding, pledged and encumbered shares, institutional mix. Usable from BSE's filing time. Uses as-filed XBRL whenever BSE's feed serves a later version |
+| `intel/company_ir.py` | Company-website transcripts. Collectors for Maruti, L&T and Tata Steel, plus links followed from NSE cover letters. Dated by the company's NSE *transcript* notice, otherwise first-seen only |
+| `scripts/v08_numbers.py` | Single source of truth for the v0.8 headline numbers (regenerated from the audits; checks the report and README) |
+| `marketdata/estimates.py` | Daily consensus snapshots (tier 6). The vendor's look-back columns are labelled as the vendor's claim |
+| `intel/promise_review.py` | Promise → due → outcome evidence → human verdict (MET / PARTIAL / MISSED / UNRESOLVABLE). Requires a named reviewer and a verbatim quote from a later document |
+
+**Result (`reports/v0.8-r1_<ts>/report.md`, after an independent review):**
+
+- **Shareholding & pledges accepted:** 4,042 filings, 99.66 % of PIT member-quarters (347 read from the as-filed XBRL), 99.14 % agreement with NSE.
+  It is too sparse inside the NIFTY 50 for a pledge study (16 events across 7 companies, against 100/30 required).
+  That study needs the NIFTY 200/500.
+- **Transcripts:** 572 distinct usable transcripts for the current NIFTY 50 (Company Memory only). 14 companies are
+  still mostly cover-letter-only.
+- **Consensus: not accepted.** No free point-in-time history exists, so the snapshot clock starts now. The vendor's
+  EPS basis matches filed EPS only 61 % of the time.
+- **Promises:** 209 verbatim promises, 86 due for human review. None are scored by the machine.
+- Proven alpha: still none. Live trading stays disabled. The pre-live checklist is in the report, §6.
+
+## v0.8.1 wider universe (TOP100/200/500), pledge study, crypto (all coins)
+
+```bash
+python -m scripts.fetch_nse_all --years 2015-2026 --budget 160              # whole-market NSE bhavcopy (resumable)
+python -m scripts.v081_universe build|audit                                 # corporate-action-adjusted total returns + PIT TOP100/200/500
+python -m scripts.v081_bse_map                                              # ISIN -> BSE code for every TOP500 member
+python -m scripts.fetch_bse_shp --wide --parts promoter --shard 0/2         # promoter/pledge filings for the wide universe (repeat; both shards)
+python -m scripts.v081_study2 data|run --out reports/v0.8.1_<ts>            # audit + power count, then Study 2 (only if both pass)
+python -m scripts.fetch_crypto --budget 160                                 # every Binance USDT coin, incl. delisted
+python -m scripts.v081_crypto audit|run --out <same>                        # crypto C1/C2 with Indian crypto tax
+```
+
+| Path | What |
+| --- | --- |
+| `marketdata/nse_corp_actions.py` | NSE corporate actions for every company → split/bonus/consolidation/rights factors and cash. NSE's archived prev_close is *not* split-adjusted |
+| `marketdata/nse_universe.py` | Whole-market panel (ISIN-linked securities), adjusted total returns with flags, point-in-time liquidity universes |
+| `marketdata/crypto_binance.py`, `accounting/tax_crypto_india.py` | All Binance USDT pairs from the public archive (delisted included); Indian crypto tax: 31.2 % per transfer, no loss set-off, 1 % TDS, never a refund |
+
+**Result (`reports/v0.8.1-r1_<ts>/report.md`, after an independent review; numbers in `research/data_audits/v0.8.1_canonical_numbers.json`):**
+
+- **Nothing passed. Proven alpha is still 0.**
+- **Pledge study (TOP500, 317 events across 187 companies):** sharp pledge increases are followed by −2.50 % over 63
+  sessions (t −1.76, Holm p 0.167, not significant). Encumbrance level predicts nothing (t −0.18). Avoiding pledged
+  names: +1.10 %/yr net, but only +0.62 %/yr gross.
+- **Crypto (658 coins, 194 delisted):**
+  - The BTC and ETH 140-day trend rules cut drawdowns but are not statistically better than holding (t −0.66 and
+    −0.18).
+  - Weekly top-50 momentum lost 48.9 %/yr; after Indian tax it was wiped out.
+
+## v0.9 market microstructure & execution alpha lab (study M0)
+
+```bash
+python -m scripts.v09_micro sample                       # pre-registered sample of archive days (seed 2026)
+python -m scripts.v09_micro fetch --day N                # download + process one day (BTCUSDT perp book + trades + spot; raw deleted)
+python -m scripts.v09_micro audit|run --out reports/v0.9_<ts>
+python -m scripts.record_nse_depth                       # record NSE depth forward (your Kite Connect key); then: v09_micro nse-grid
+```
+
+| Path | What |
+| --- | --- |
+| `marketdata/micro_binance.py` | Binance public archive -> 100 ms grid; event-level order-flow imbalance; raw files sorted per hour (some interleave two time streams) |
+| `scripts/v09_analysis.py` | 11 microstructure hypotheses (test-day hours, Holm), training-day OLS model, queue-aware execution simulator (market and limit orders), latency curve, microstructure gate |
+| `marketdata/nse_depth_recorder.py` | NSE depth recorder (Kite full mode, 5 levels) and converter to the same grid; NSE index-futures cost (~5.9 bp round trip) |
+
+**Result (`reports/v0.9-r1_20261004T044028Z/report.md`, after an independent review):**
+
+- **Order flow is predictable, but not profitably.** All 11 hypotheses are significant out of sample (for example,
+  order-book imbalance IC 0.34 and order-flow imbalance IC 0.19 for the next 5 s), but the predictable move is
+  under 1 bp.
+- Market orders never trigger: the predicted move never exceeds the 3.4–10 bp round trip.
+- Queue-aware limit orders lose 7.9 bp per trade at retail fees and 2.6 bp at best-case fees. After a fill the mid
+  drifts 0.93 bp against the order (adverse selection), more than the 0.37 bp spread captured. This holds at every
+  latency from 0 to 5,000 ms.
+- **REJECTED at the economic step. Proven alpha is still 0.**
+
+## v1.0 Monetisation Lab (M1 execution alpha, M2 market making, M3 funding carry, AEM)
+
+```bash
+python -m scripts.v10_micro m1 --day N                   # M1 parent orders on M0 test day N (P0 cross / P1 post-then-cross / P2 AEM-timed)
+python -m scripts.v10_micro m2 --day N --variant plain   # M2 market-making loop (plain | skew | plain_q0.5 | plain_q0)
+python -m scripts.v10_micro results --out reports/v1.0_<ts>
+python -m scripts.v10_m3 reports/v1.0_<ts>               # M3 funding/basis carry, BTC & ETH 2020-2026
+```
+
+| Path | What |
+| --- | --- |
+| `lab/aem.py` | Alpha Economics Model: gross -> net edge (spread, fees, adverse selection, impact, latency, tax without set-off, opportunity) -> EXECUTE / WAIT / ABANDON |
+| `scripts/v10_micro.py` | M1 implementation-shortfall study and M2 queue-aware market-making simulator on the M0 grids |
+| `marketdata/crypto_perp.py`, `scripts/v10_m3.py` | Binance funding rates + perpetual bars; carry with costs, Indian tax, subperiods |
+
+**Result (`reports/v1.0-r1_20261004T100818Z/report.md`, after an independent review):**
+
+- **M1:** posting and crossing only at a 60 s deadline cuts BTC-perpetual execution cost from 5.01 to 3.39 bp at
+  retail fees. Adding the microstructure trigger makes it worse (+0.10 bp), because crossing pays the 3 bp
+  taker–maker fee gap. REJECTED.
+- **M2:** market making needs a rebate: the break-even maker fee is −0.96 bp (−0.09 bp even at the front of the
+  queue). The mid moves 0.90 bp against us within 5 s of a fill. REJECTED.
+- **M3:** funding carry earns +4.0 %/yr (BTC) and +5.2 %/yr (ETH) before tax (t ≈ 6.5), below the 8 % hurdle. It is
+  negative after Indian tax without set-off. REJECTED.
+- **Proven alpha is still 0.** The edges belong to fee tier, queue priority and tax treatment. Next: the NSE
+  cash–futures basis, where set-off applies.
+
+## v1.1 Indian Basis & Relative-Value Lab (cash–futures carry, index carry, roll-window forced flow)
+
+```bash
+python -m marketdata.nse_fo --years 2015-2026            # NSE F&O bhavcopy (futures only) + index closes, resumable
+python -m scripts.v11_basis audit|run --out reports/v1.1_<ts>
+python -m scripts.research_dashboard                     # research/dashboard.md: tested / rejected / surviving, mechanisms
+python -m scripts.record_nse_depth --seal                # QC + seal recorded NSE depth days (immutable archive)
+```
+
+| Path | What |
+| --- | --- |
+| `marketdata/nse_fo.py` | NSE F&O bhavcopy (legacy + UDiFF), futures only; `ind_close_all` index closes |
+| `scripts/v11_basis.py` | HB1 monthly stock cash-and-carry, HB2 one-day dislocations, HB3 index carry via ETF, HB4 roll window; retail costs with dated STT, Indian tax (business income + STCG, set-off rules), capital incl. margin, excess over RBI repo |
+| `lab/aem.py` (`Opportunity`, `price`, `allocate`) | Opportunity Pricing Engine: EV per unit of capital per day after costs, tax and the after-tax cash alternative; capital allocator with capacity and risk-group caps |
+| `lab/registry.py` | from v1.1 every experiment row must state its `economic_mechanism` |
+
+**Result (`reports/v1.1-r1_20261004T112103Z/report.md`, after an independent review):**
+
+- **The NSE cash–futures basis is efficiently priced for retail.** Stock-futures carry is about repo + 0.5 %. A retail
+  round trip costs about 33 bp, most of it the 0.1 % STT on each cash leg. The monthly cash-and-carry book returns
+  −0.91 %/yr against cash.
+- One-day dislocations fade: 39 % of the signalled carry is left the next day, and the strategy returns −7 %/yr on
+  deployed capital.
+- Index futures trade slightly below repo carry, so there is no ETF carry trade (NIFTY −0.36 %/yr, BANKNIFTY
+  −0.17 %/yr).
+- **Forced flow:** the NIFTY roll window shows nothing. Stock futures' calendar spread rises 0.36 %/yr in the last 3
+  sessions (t 4.9), about 3 bp per roll; the execution layer should roll early.
+- **Disclosed:** the pre-registered signal (+1.0 %/yr) relied on dividend ex-dates that were probably not yet
+  announced at the signal date, so it was removed (Amendment 1). The next lead is "do futures underprice *announced*
+  dividends?", which needs announcement timestamps.
+- **Proven alpha is still 0.**
+
+## v1.2 Forced Flow & Events (dividend announcements, index changes, F&O bans)
+
+```bash
+python -m marketdata.nse_events div --shard 0/3      # timestamped dividend announcements (NSE), resumable
+python -m marketdata.nse_events ban                  # F&O ban lists + MWPL / open interest
+python -m marketdata.index_changes                   # NSE Indices press releases -> data/events/index_changes.csv
+python -m scripts.v12_events audit|run --out reports/v1.2_<ts>
+```
+
+| Path | What |
+| --- | --- |
+| `scripts/v12_events.py` | HD dividend-incorporation event study and trade, HI NIFTY 50 / NEXT 50 inclusion-exclusion, HF ban measurement |
+| `lab/registry.py` | from v1.2: economic_counterparty, mechanism_constraint, our_advantage, failure_condition required |
+| `lab/aem.py` `allocate()` | objective (E[P&L] - after-tax cash)/(capital x time); capacity, concentration, drawdown, margin, fill-probability limits |
+| `lab/execution_rules.py` | research results that become execution rules (stock-futures roll window; F&O ban) |
+
+**Result (`reports/v1.2-r1_20261004T135141Z/report.md`, after an independent review):**
+
+- **Dividends:** futures had priced 87 % of a dividend before the filing and 93 % by the first close after it. The
+  trade earns +0.5 %/yr (t 0.3), and being first is worth nothing (same-close placebos match). This settles the v1.1
+  "+1 %" as look-ahead.
+- **Index changes:** announcement-to-rebalance drift is +0.4 % for NIFTY 50 (t 0.5) and +1.2 % for NEXT 50 (t 1.0),
+  with no reversal. The hedged futures trade loses 49 bp per trip.
+- **F&O bans:** futures go to a discount in distressed names only (median +0.5 bp). The open-interest "forced
+  unwinding" disappears when compared with stocks at the same OI level. Measurement only.
+- **Proven alpha is still 0.**
+
+## v1.3 Information Advantage Lab (results-news diffusion outside NIFTY 50; forward-only analyst, depth and ban studies)
+
+```bash
+python -m scripts.v13_data index|xbrl [--needed] --shard 0/3        # NSE results index + XBRL facts (stock-futures names)
+python -m scripts.v13_info audit|run --out reports/v1.3_<ts>        # Part A
+python -m scripts.fetch_estimates --universe fo                       # Part B: daily consensus snapshot, 213 names (schedule = your decision)
+python -m scripts.v13_depth status                                     # Part C: sealed until 20 recorded NSE depth days
+python -m forward.ban_expiry update|status                             # Part D: forward-only ledger (no backfill)
+```
+
+**Result (`reports/v1.3-r1_20261004T162648Z/report.md`, after an independent review):**
+
+- **Bad results do not keep drifting outside NIFTY 50.** Over 1,562 events, CAR20 is +0.74 % (wrong sign) and the
+  hedged futures short loses 93 bp per trade, mostly because it is a short-midcap bet (slope −0.99). REJECTED.
+- **v0.5's −107 bp NIFTY 50 drift does not survive either.** It was about half the equal-weight benchmark and half the
+  first day after the reaction. Only a one-day continuation (−33 bp) is robust, and it has not been tested.
+- **HM1b (XBRL deterioration) was not testable at this run:** NSE throttled downloads.
+- **What remains needs forward data:** analyst revisions (daily snapshot), NSE depth (your Kite key) and human verdicts
+  on Company Memory promises.
+- **Proven alpha is still 0.**
+
+## v1.4 Data acquisition & forward research (no new backtest)
+
+```bash
+python -m scripts.fetch_estimates --universe fo          # daily 213-name analyst snapshot (scheduling = your decision)
+python -m forward.data_clock                              # what each sealed study is waiting for (counts only)
+python -m scripts.import_promise_reviews --from <dir>     # Promise Review Desk verdicts -> apply_reviews (re-validated)
+set KITE_API_KEY=... & set KITE_ACCESS_TOKEN=... & python -m scripts.record_nse_depth   # NSE depth (your Kite key)
+```
+
+**Status (`reports/v1.4_20261004T165216Z/report.md`):**
+
+- **Analyst snapshots:** 213 of 213 names today (186 valid). Sealed until ≥ 12 months and ≥ 24 monthly cross-sections
+  with ≥ 100 valid stocks, which is the end of October 2028 at the earliest.
+- **Company Memory:** 35 promises (16 companies, 83 candidate passages) are on the Promise Review Desk for human
+  verdicts. Nothing is scored automatically; imports are re-checked by `apply_reviews`.
+- **NSE depth:** recorder ready, not running until your Kite key is set. Sealed until 20 QC-passed days.
+- **Candidate ledger** (`research/candidates.jsonl`): C-013 one-day post-results continuation (FORWARD /
+  PRE-REGISTRATION REQUIRED) and C-014 ban at expiry (FORWARD / LEDGER RUNNING). Candidates are not strategies and
+  cannot be traded.
+- **ARGO is frozen** (`argo/FROZEN.md`; hashes pinned in `tests/test_v14.py`). Its later role is the risk layer.
+- **Proven alpha is still 0.** Live trading stays off.
 
 ## Promotion path
 

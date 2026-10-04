@@ -1,0 +1,133 @@
+{
+ "rule": "first as-filed quarterly filing per period; encumbrance >= 5.0pp above the max of the previous four quarterly filings (Amendment 1); PIT NIFTY 50 member; from 2016-05-01",
+ "events": 16,
+ "companies": 7,
+ "by_company": {
+  "INDUSINDBK": 5,
+  "ZEEL": 4,
+  "ADANIPORTS": 3,
+  "HEROMOTOCO": 1,
+  "SAMMAANCAP": 1,
+  "UPL": 1,
+  "YESBANK": 1
+ },
+ "events_list": [
+  {
+   "symbol": "ADANIPORTS",
+   "period_label": "June 2016",
+   "available_at": "2016-07-20 13:21:47+05:30",
+   "encumbered_pct_of_promoter": "39.17887026003358",
+   "dE": "5.255840086851258"
+  },
+  {
+   "symbol": "ADANIPORTS",
+   "period_label": "September 2018",
+   "available_at": "2018-10-16 17:28:43+05:30",
+   "encumbered_pct_of_promoter": "47.81325349903533",
+   "dE": "9.51365441848273"
+  },
+  {
+   "symbol": "ADANIPORTS",
+   "period_label": "March 2020",
+   "available_at": "2020-04-29 18:07:01+05:30",
+   "encumbered_pct_of_promoter": "58.24785775973968",
+   "dE": "15.933025668214384"
+  },
+  {
+   "symbol": "HEROMOTOCO",
+   "period_label": "September 2016",
+   "available_at": "2016-10-21 09:01:49+05:30",
+   "encumbered_pct_of_promoter": "7.546474874780388",
+   "dE": "7.546474874780388"
+  },
+  {
+   "symbol": "INDUSINDBK",
+   "period_label": "September 2016",
+   "available_at": "2016-10-18 17:31:24+05:30",
+   "encumbered_pct_of_promoter": "26.837662721936194",
+   "dE": "26.837662721936194"
+  },
+  {
+   "symbol": "INDUSINDBK",
+   "period_label": "March 2021",
+   "available_at": "2021-04-19 17:48:47+05:30",
+   "encumbered_pct_of_promoter": "36.36144726152632",
+   "dE": "10.027004418282392"
+  },
+  {
+   "symbol": "INDUSINDBK",
+   "period_label": "June 2021",
+   "available_at": "2021-07-19 15:58:52+05:30",
+   "encumbered_pct_of_promoter": "45.47624617275552",
+   "dE": "9.114798911229201"
+  },
+  {
+   "symbol": "INDUSINDBK",
+   "period_label": "June 2023",
+   "available_at": "2023-07-11 17:09:57.807000+05:30",
+   "encumbered_pct_of_promoter": "100.0",
+   "dE": "54.52375382724448"
+  },
+  {
+   "symbol": "INDUSINDBK",
+   "period_label": "December 2024",
+   "available_at": "2025-01-10 20:13:49.340000+05:30",
+   "encumbered_pct_of_promoter": "50.85566809152217",
+   "dE": "5.379421918766646"
+  },
+  {
+   "symbol": "SAMMAANCAP",
+   "period_label": "June 2018",
+   "available_at": "2018-07-19 16:33:08+05:30",
+   "encumbered_pct_of_promoter": "17.935795006342044",
+   "dE": "5.460098536364313"
+  },
+  {
+   "symbol": "UPL",
+   "period_label": "March 2020",
+   "available_at": "2020-04-28 16:32:59+05:30",
+   "encumbered_pct_of_promoter": "7.957914155486994",
+   "dE": "5.633839707043913"
+  },
+  {
+   "symbol": "YESBANK",
+   "period_label": "September 2019",
+   "available_at": "2020-01-28 11:27:26+05:30",
+   "encumbered_pct_of_promoter": "35.04648070479847",
+   "dE": "31.4085504329589"
+  },
+  {
+   "symbol": "ZEEL",
+   "period_label": "March 2018",
+   "available_at": "2018-04-11 17:40:07+05:30",
+   "encumbered_pct_of_promoter": "52.55242860437546",
+   "dE": "5.913798506446135"
+  },
+  {
+   "symbol": "ZEEL",
+   "period_label": "September 2018",
+   "available_at": "2018-10-18 14:12:43+05:30",
+   "encumbered_pct_of_promoter": "59.27070250803249",
+   "dE": "6.718273903657035"
+  },
+  {
+   "symbol": "ZEEL",
+   "period_label": "March 2019",
+   "available_at": "2019-04-13 11:12:12+05:30",
+   "encumbered_pct_of_promoter": "66.17755920680736",
+   "dE": "6.804724973869739"
+  },
+  {
+   "symbol": "ZEEL",
+   "period_label": "September 2019",
+   "available_at": "2019-10-11 18:25:49+05:30",
+   "encumbered_pct_of_promoter": "96.00247758058867",
+   "dE": "29.824918373781315"
+  }
+ ],
+ "required_by_preregistration": {
+  "events": 100,
+  "companies": 30
+ },
+ "study2_powered": false
+}

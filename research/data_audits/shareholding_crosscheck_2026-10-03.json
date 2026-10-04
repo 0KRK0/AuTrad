@@ -1,0 +1,140 @@
+{
+ "matched_filings": 1744,
+ "symbols": 89,
+ "promoter_pct_abs_diff_le_0.05pp_share": 0.9914,
+ "window": "periods from 2021-09-30 (NSE master coverage)",
+ "mismatches": 15,
+ "mismatches_nse_record_is_revised": 15,
+ "mismatches_matched_by_a_bse_revision": 15,
+ "mismatches_unexplained": 0,
+ "all_mismatches": [
+  {
+   "symbol": "BHARATFORG",
+   "period_end": "2021-09-30",
+   "promoter_pct": "44.76",
+   "nse_promoter_pct": "45.25",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2021-09-30",
+   "promoter_pct": "27.96",
+   "nse_promoter_pct": "28.12",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "BHARATFORG",
+   "period_end": "2021-12-31",
+   "promoter_pct": "44.76",
+   "nse_promoter_pct": "45.25",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2021-12-31",
+   "promoter_pct": "28.24",
+   "nse_promoter_pct": "28.41",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2022-03-31",
+   "promoter_pct": "28.45",
+   "nse_promoter_pct": "28.62",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2022-06-30",
+   "promoter_pct": "28.96",
+   "nse_promoter_pct": "29.13",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2022-09-30",
+   "promoter_pct": "28.96",
+   "nse_promoter_pct": "29.13",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2022-12-31",
+   "promoter_pct": "30.74",
+   "nse_promoter_pct": "30.91",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2023-03-31",
+   "promoter_pct": "32.35",
+   "nse_promoter_pct": "32.52",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2023-06-30",
+   "promoter_pct": "32.35",
+   "nse_promoter_pct": "32.52",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2023-09-30",
+   "promoter_pct": "32.35",
+   "nse_promoter_pct": "32.52",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2023-12-31",
+   "promoter_pct": "32.35",
+   "nse_promoter_pct": "32.52",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2024-03-31",
+   "promoter_pct": "32.35",
+   "nse_promoter_pct": "32.52",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "UPL",
+   "period_end": "2024-06-30",
+   "promoter_pct": "32.35",
+   "nse_promoter_pct": "32.52",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  },
+  {
+   "symbol": "BHARTIARTL",
+   "period_end": "2026-06-30",
+   "promoter_pct": "48.87",
+   "nse_promoter_pct": "50.07",
+   "nse_revised": "Revised",
+   "bse_any_version_matches": "True"
+  }
+ ],
+ "bse_minus_nse_hours_quantiles": {
+  "0.01": -8507.14,
+  "0.1": -1600.61,
+  "0.5": -0.07,
+  "0.9": 0.03,
+  "0.99": 4.61
+ },
+ "bse_later_than_nse_by_24h_share": 0.0034
+}

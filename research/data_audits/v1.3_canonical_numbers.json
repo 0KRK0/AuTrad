@@ -1,0 +1,175 @@
+{
+ "report_dir": "reports/v1.3-r1_20261004T162648Z",
+ "preregistration_sha256": "5562c9dc7400ae703b7d3f3538c5ad67f636a05daad41a75ebca5dfad4c3e820",
+ "trials_before": 114,
+ "audit": {
+  "symbols_with_index": 342,
+  "announcements_2016_2026": 11250,
+  "share_filed_after_close": 0.6363057324840764,
+  "events_out_of_n50": 4625,
+  "events_bad_after_burn_in": 1562,
+  "events_by_year": {
+   "2016": 219,
+   "2017": 414,
+   "2018": 392,
+   "2019": 376,
+   "2020": 238,
+   "2021": 362,
+   "2022": 490,
+   "2023": 505,
+   "2024": 494,
+   "2025": 664,
+   "2026": 471
+  },
+  "membership_check_2026_09_30": 50,
+  "xbrl_filings_parsed": 2803,
+  "xbrl_net_profit_share": 0.9960756332500892
+ },
+ "results": {
+  "fields": {
+   "economic_mechanism": "bad results news is incorporated slowly: pessimists cannot easily short Indian cash equities, long-only institutions sell over days, analyst downgrades lag",
+   "economic_counterparty": "early dip-buyers and slow sellers (long-only holders trimming over several sessions, investors anchored to the pre-results price)",
+   "mechanism_constraint": "short-sale constraints in cash; institutional participation limits; analyst and attention lag outside the most-covered names",
+   "our_advantage": "short side via stock futures; timestamped processing of every results filing across less-covered F&O names; AEM-priced entry",
+   "failure_condition": "no drift outside NIFTY 50, or futures already discount it, or costs/tax/capacity remove it, or it lives only in distressed names"
+  },
+  "events_tested": 4319,
+  "bad_events": 1562,
+  "HM1_drift_robust_inference": {
+   "t_month_clustered": -1.3184592079753445,
+   "p_month_clustered": 0.9043957989647592,
+   "months": 79,
+   "t_nw20_by_date": -1.4442528748863663,
+   "p_nw20": 0.9254171148637063,
+   "mean_of_date_means": 0.006037952098850984
+  },
+  "HM1_drift": {
+   "mean_car20": 0.007381508174394591,
+   "median_car20": -0.0009671182148525137,
+   "t_negative": -1.8364264416968523,
+   "p": 0.9666168202476537,
+   "dates": 630,
+   "events": 1562,
+   "by_subperiod": {
+    "2016-18": 0.003120429693289945,
+    "2019-22": 0.007154860812676881,
+    "2023-26": 0.008872478965019179
+   },
+   "descriptive_day_r0+1_mean": -0.0023486780034186047,
+   "descriptive_benchmark_sensitivity": {
+    "NIFTY MIDCAP 150": {
+     "mean_car20": -0.0036207787791126284,
+     "t_negative": 1.5871364338243958,
+     "events": 1562
+    },
+    "NIFTY MIDCAP 100": {
+     "mean_car20": -0.0028336096211368546,
+     "t_negative": 1.358434003602358,
+     "events": 1562
+    },
+    "NIFTY 500": {
+     "mean_car20": 0.004275588252637781,
+     "t_negative": -1.1818812779253767,
+     "events": 1562
+    },
+    "equal_weight_universe": {
+     "mean_car20": -0.001075455649408885,
+     "t_negative": 0.5013507768177852,
+     "events": 1562
+    }
+   }
+  },
+  "descriptive_n50_method_check": {
+   "bad_events": 641,
+   "mean_car20_from_r0+1_close": 0.0018398680353349918,
+   "t_negative": -0.9251018201714531,
+   "mean_day_r0+1": -0.001302070228800767,
+   "note": "v0.5 measured from the r0+1 OPEN with an equal-weight benchmark, 2018-2026"
+  },
+  "partE_promise_pilot": {
+   "promises": 209,
+   "companies": 33,
+   "by_metric": {
+    "launch_or_completion": 86,
+    "other": 69,
+    "capacity": 42,
+    "margin": 6,
+    "revenue_growth": 4,
+    "debt": 1,
+    "capex": 1
+   },
+   "due_by_2026_09": 86,
+   "status_of_due": {
+    "DUE: candidate outcome passages found": 34,
+    "DUE: needs human review": 27,
+    "DUE: outcome window not yet covered by the transcripts": 22,
+    "DUE: no outcome passage found": 2,
+    "DUE: SUGGESTED MISSED from filed revenue": 1
+   },
+   "human_verdicts": {},
+   "auto_checkable_revenue_promises": 4
+  },
+  "HM1_trade": {
+   "trades": 1279,
+   "mean_net_bp": -93.18700160048567,
+   "mean_gross_bp": -79.61134323078211,
+   "t_date_clustered": -2.509399195317285,
+   "p": 0.9938179242226758,
+   "dates": 583,
+   "ann_excess_on_deployed_capital": -0.1168303627998784,
+   "after_tax_ann_excess": -0.12377060139458375,
+   "after_tax_carry_forward": -0.11841863111715563,
+   "cost2x_ann_excess": -0.13385043067779384,
+   "capacity_ann_excess": -0.11578044923248876,
+   "beta_to_nifty": -0.10319072351469717,
+   "subperiods_ann_excess": {
+    "2016-18": -0.026146126687713885,
+    "2019-22": -0.06178951838003772,
+    "2023-26": -0.21070842720113228
+   },
+   "mean_net_without_10_worst_names_bp": -47.043745902812574,
+   "worst_10_names": [
+    "IDEA",
+    "VOLTAS",
+    "JINDALSTEL",
+    "TATAPOWER",
+    "INDIACEM",
+    "MUTHOOTFIN",
+    "TATACHEM",
+    "CGPOWER",
+    "SIEMENS",
+    "CDSL"
+   ],
+   "descriptive_midcap_exposure": {
+    "slope_on_midcap_minus_nifty": -0.9920160045104862,
+    "intercept_gross_bp": 32.37544694477788,
+    "mean_spread_bp": 112.88808816226732,
+    "n": 1279
+   }
+  },
+  "HM1b": {
+   "coverage": 0.17157490396927016,
+   "events_with_both": 268,
+   "testable": false
+  },
+  "holm": {
+   "HM1-drift": 1.0,
+   "HM1-trade": 1.0,
+   "HM1b": 1.0
+  },
+  "gate": {
+   "steps": {
+    "statistical": false,
+    "excess_ge_1.5pct_and_mean_net_positive": false,
+    "after_tax_ge_1pct": false,
+    "cost2x_ge_0.75pct": false,
+    "beta_abs_lt_0.10": false,
+    "capacity": false,
+    "subperiods_2_of_3": false,
+    "distress_check_without_10_worst_names": false
+   },
+   "first_failed": "statistical",
+   "verdict": "REJECTED at statistical"
+  }
+ }
+}

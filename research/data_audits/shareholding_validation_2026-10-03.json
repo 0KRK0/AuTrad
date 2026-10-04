@@ -1,0 +1,28 @@
+{
+ "sample": {
+  "n": 60,
+  "design": "random own-version filings (structured record authorised within 5 min of the filing)",
+  "seed": 8,
+  "promoter_pct_agree": 60,
+  "encumbered_shares_agree": 60,
+  "sample_with_nonzero_encumbrance": 11
+ },
+ "xbrl_scan": {
+  "files": 421,
+  "with_pledge_elements": 151,
+  "taxonomies": {
+   "2022-09-30": 265,
+   "2020-09-30": 97,
+   "2025-10-31": 13,
+   "2019-06-30": 6,
+   "2025-05-31": 19,
+   "2016-06-23": 11,
+   "2018-03-31": 10
+  }
+ },
+ "as_filed_rows": 347,
+ "as_filed_rows_encumbrance_unknown": 0,
+ "pct_out_of_range_rows": 0,
+ "structured_rows_rescaled_x100": 1,
+ "made_at": "2026-10-03T19:54:42Z"
+}

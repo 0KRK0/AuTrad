@@ -120,6 +120,8 @@ def filings_index(root: Path, symbol: str, client: Client | None = None) -> pd.D
     if df.empty:
         return df
     df["period_end"] = pd.to_datetime(df["period_end"], format="mixed", dayfirst=True)
+    for c in ("published_at", "disseminated_at"):            # all-missing columns arrive as object/float
+        df[c] = pd.to_datetime(df[c], utc=True).dt.tz_convert("Asia/Kolkata")
     df["available_at"] = df[["published_at", "disseminated_at"]].max(axis=1)
     return df.sort_values(["period_end", "consolidated", "available_at"]).reset_index(drop=True)
 

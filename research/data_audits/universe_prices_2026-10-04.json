@@ -1,0 +1,739 @@
+{
+ "sessions": 2912,
+ "first": "2015-01-01",
+ "last": "2026-10-01",
+ "securities": 3293,
+ "rows": 5097277,
+ "corporate_action_days_with_price_factor": 1047,
+ "dividend_days": 15136,
+ "flags": {
+  "unexplained_extreme": 875,
+  "unrecorded_split": 255,
+  "unpriced_action": 156
+ },
+ "unexplained_extremes_sample": [
+  {
+   "date": "2015-02-09",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-02-11",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-02-16",
+   "symbol": "GENUSPAPER",
+   "cc": "-0.7318436"
+  },
+  {
+   "date": "2015-02-18",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-02-19",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-02-23",
+   "symbol": "BIRLAPOWER",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-02-23",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-02-24",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-02-27",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-02-28",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-03-03",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-03-04",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-03-12",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-03-13",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-03-16",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-03-19",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-03-20",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-03-24",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-03-25",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-03-30",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-03-30",
+   "symbol": "MANAKSTEEL",
+   "cc": "-0.8562874"
+  },
+  {
+   "date": "2015-03-30",
+   "symbol": "MANAKCOAT",
+   "cc": "-0.8562874"
+  },
+  {
+   "date": "2015-03-30",
+   "symbol": "MANAKINDST",
+   "cc": "-0.8570858"
+  },
+  {
+   "date": "2015-03-30",
+   "symbol": "MANAKALUCO",
+   "cc": "-0.8562874"
+  },
+  {
+   "date": "2015-03-30",
+   "symbol": "VISESHINFO",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-03-31",
+   "symbol": "VISESHINFO",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-06-19",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-06-22",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  },
+  {
+   "date": "2015-06-24",
+   "symbol": "BIRLACOT",
+   "cc": "-0.5"
+  },
+  {
+   "date": "2015-06-25",
+   "symbol": "BIRLACOT",
+   "cc": "1.0"
+  }
+ ],
+ "abs_daily_return_gt_50pct_after_adjustment": 569,
+ "universe_month_ends": 135,
+ "universe_first": "2015-07-31",
+ "universe_size_min": {
+  "top100": 100,
+  "top200": 200,
+  "top500": 500
+ },
+ "distinct_members": {
+  "top100": 277,
+  "top200": 497,
+  "top500": 1267
+ },
+ "members_later_delisted_top500": 126,
+ "top500_member_days_flagged": {
+  "count": 91,
+  "by_flag": {
+   "unpriced_action": 74,
+   "unrecorded_split": 9,
+   "unexplained_extreme": 5,
+   "none(|r|>50%)": 3
+  },
+  "list": [
+   {
+    "date": "2015-09-11",
+    "symbol": "AMTEKAUTO",
+    "cc": "0.53934425",
+    "flag": ""
+   },
+   {
+    "date": "2015-09-16",
+    "symbol": "AEGISCHEM",
+    "cc": "-0.010557328",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2015-09-29",
+    "symbol": "IDFC",
+    "cc": "-0.0021551724",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2015-10-01",
+    "symbol": "IDFC",
+    "cc": "-0.12725958",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2015-10-06",
+    "symbol": "CADILAHC",
+    "cc": "0.02260715",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2016-01-20",
+    "symbol": "ABIRLANUVO",
+    "cc": "-0.11252515",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-01-27",
+    "symbol": "MAX",
+    "cc": "0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-03-15",
+    "symbol": "CROMPGREAV",
+    "cc": "-0.16981132",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-03-16",
+    "symbol": "SPARC",
+    "cc": "-0.007849829",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-03-16",
+    "symbol": "TIDEWATER",
+    "cc": "-0.029611655",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2016-03-21",
+    "symbol": "WELSPUNIND",
+    "cc": "0.039161436",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2016-05-11",
+    "symbol": "FRL",
+    "cc": "-0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-08-08",
+    "symbol": "SINTEX",
+    "cc": "0.015753424",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-08-25",
+    "symbol": "JINDALSAW",
+    "cc": "0.008298756",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-08-26",
+    "symbol": "TCI",
+    "cc": "-0.02425",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2016-09-12",
+    "symbol": "MINDAIND",
+    "cc": "-0.044786908",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2016-10-10",
+    "symbol": "8KMILES",
+    "cc": "0.019624466",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2017-05-25",
+    "symbol": "SINTEX",
+    "cc": "0.4441341",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2017-06-12",
+    "symbol": "OMKARCHEM",
+    "cc": "-0.049921177",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2017-07-19",
+    "symbol": "GRASIM",
+    "cc": "-0.018737443",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2017-08-31",
+    "symbol": "INFIBEAM",
+    "cc": "0.017819492",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2017-09-05",
+    "symbol": "RELCAPITAL",
+    "cc": "0.09077035",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2017-10-17",
+    "symbol": "IIFL",
+    "cc": "0.011258278",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2017-11-29",
+    "symbol": "FRETAIL",
+    "cc": "0.014513275",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-01-11",
+    "symbol": "ORIENTPPR",
+    "cc": "-0.049954586",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-01-31",
+    "symbol": "TATASTEEL",
+    "cc": "-0.041400407",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-02-01",
+    "symbol": "SUNDARMFIN",
+    "cc": "0.0153732225",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-04-05",
+    "symbol": "ADANIENT",
+    "cc": "0.11165413",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-04-06",
+    "symbol": "STAR",
+    "cc": "0.049486168",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-04-19",
+    "symbol": "PHILIPCARB",
+    "cc": "0.049844928",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2018-05-17",
+    "symbol": "RCOM",
+    "cc": "0.5619048",
+    "flag": ""
+   },
+   {
+    "date": "2018-06-15",
+    "symbol": "MCDOWELL-N",
+    "cc": "-0.019983793",
+    "flag": "unrecorded_split"
+   },
+   {
+    "date": "2018-09-06",
+    "symbol": "ADANIENT",
+    "cc": "0.09133333",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-09-21",
+    "symbol": "DHFL",
+    "cc": "-0.42584556",
+    "flag": "unexplained_extreme"
+   },
+   {
+    "date": "2018-09-28",
+    "symbol": "INFIBEAM",
+    "cc": "-0.70826054",
+    "flag": "unexplained_extreme"
+   },
+   {
+    "date": "2018-10-25",
+    "symbol": "COX&KINGS",
+    "cc": "0.04682081",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-10-30",
+    "symbol": "CESC",
+    "cc": "0.06040119",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-11-19",
+    "symbol": "VIKASECO",
+    "cc": "0.048582997",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2018-11-28",
+    "symbol": "ARVIND",
+    "cc": "-0.0077661034",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-01-24",
+    "symbol": "KPIT",
+    "cc": "-0.044814814",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-04-23",
+    "symbol": "PRAKASH",
+    "cc": "0.030839896",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-05-30",
+    "symbol": "IIFL",
+    "cc": "-0.049773756",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-06-18",
+    "symbol": "JETAIRWAYS",
+    "cc": "-0.40789473",
+    "flag": "unexplained_extreme"
+   },
+   {
+    "date": "2019-06-20",
+    "symbol": "JETAIRWAYS",
+    "cc": "0.89879155",
+    "flag": "unexplained_extreme"
+   },
+   {
+    "date": "2019-07-03",
+    "symbol": "AARTIIND",
+    "cc": "0.016519824",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-08-06",
+    "symbol": "GFLLIMITED",
+    "cc": "-0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-08-19",
+    "symbol": "HSIL",
+    "cc": "-0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-09-17",
+    "symbol": "TATACOMM",
+    "cc": "0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-10-11",
+    "symbol": "CENTURYTEX",
+    "cc": "0.009871795",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-12-05",
+    "symbol": "THOMASCOOK",
+    "cc": "-0.049356222",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-12-20",
+    "symbol": "ABB",
+    "cc": "-0.046827793",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2019-12-24",
+    "symbol": "KESORAMIND",
+    "cc": "0.0018691589",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2020-01-21",
+    "symbol": "SUVEN",
+    "cc": "0.049342107",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2020-03-04",
+    "symbol": "TATACHEM",
+    "cc": "-0.00015873015",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2020-03-06",
+    "symbol": "YESBANK",
+    "cc": "-0.5611413",
+    "flag": "unexplained_extreme"
+   },
+   {
+    "date": "2020-03-17",
+    "symbol": "YESBANK",
+    "cc": "0.5808625",
+    "flag": ""
+   },
+   {
+    "date": "2020-06-30",
+    "symbol": "ABFRL",
+    "cc": "-0.024143303",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2020-08-21",
+    "symbol": "FAIRCHEM",
+    "cc": "0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2020-09-21",
+    "symbol": "PANACEABIO",
+    "cc": "0.009473684",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2020-12-10",
+    "symbol": "INFIBEAM",
+    "cc": "-0.019886363",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2021-02-04",
+    "symbol": "JUBILANT",
+    "cc": "0.014325842",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2022-01-11",
+    "symbol": "GMRINFRA",
+    "cc": "0.025142858",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2022-01-14",
+    "symbol": "MOTHERSUMI",
+    "cc": "-0.04821749",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2022-05-13",
+    "symbol": "DHAMPURSUG",
+    "cc": "-0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2022-08-30",
+    "symbol": "PEL",
+    "cc": "0.00805649",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2022-09-08",
+    "symbol": "BEML",
+    "cc": "0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2022-10-19",
+    "symbol": "AARTIIND",
+    "cc": "0.05114598",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2022-10-27",
+    "symbol": "NMDC",
+    "cc": "0.13062331",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-03-29",
+    "symbol": "MIRZAINT",
+    "cc": "0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-03-31",
+    "symbol": "SCI",
+    "cc": "0.0",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-04-06",
+    "symbol": "GHCL",
+    "cc": "0.013235294",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-04-18",
+    "symbol": "ALLCARGO",
+    "cc": "0.049961567",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-06-02",
+    "symbol": "EDELWEISS",
+    "cc": "0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-06-08",
+    "symbol": "NIITLTD",
+    "cc": "0.04991861",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-06-15",
+    "symbol": "VAKRANGEE",
+    "cc": "0.048543688",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2023-07-20",
+    "symbol": "RELIANCE",
+    "cc": "0.015445736",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2024-07-11",
+    "symbol": "RAYMOND",
+    "cc": "0.05",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2024-09-11",
+    "symbol": "INFIBEAM",
+    "cc": "0.01",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2024-12-06",
+    "symbol": "STAR",
+    "cc": "0.049996153",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-01-06",
+    "symbol": "ITC",
+    "cc": "-0.028424056",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-04-07",
+    "symbol": "SIEMENS",
+    "cc": "0.14793877",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-05-14",
+    "symbol": "RAYMOND",
+    "cc": "0.049904764",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-05-22",
+    "symbol": "ABFRL",
+    "cc": "-0.08316327",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-07-18",
+    "symbol": "DBREALTY",
+    "cc": "-0.022205882",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-08-25",
+    "symbol": "TVSMOTOR",
+    "cc": "-0.0076435045",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-10-14",
+    "symbol": "TATAMOTORS",
+    "cc": "-0.011375",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2025-12-05",
+    "symbol": "HINDUNILVR",
+    "cc": "-0.034434352",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2026-04-30",
+    "symbol": "VEDL",
+    "cc": "-0.062003456",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2026-07-02",
+    "symbol": "GUJENERGY",
+    "cc": "0.034655172",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2026-07-31",
+    "symbol": "INOXGREEN",
+    "cc": "-0.02362069",
+    "flag": "unpriced_action"
+   },
+   {
+    "date": "2026-09-07",
+    "symbol": "HEG",
+    "cc": "0.04692308",
+    "flag": "unpriced_action"
+   }
+  ]
+ },
+ "validation_vs_nifty50_panel": "see v0.8.1 report: 99.26% of 193,110 stock-days within 10 bp of the vendor-corrected NIFTY 50 panel",
+ "made_at": "2026-10-04T00:01:28Z"
+}

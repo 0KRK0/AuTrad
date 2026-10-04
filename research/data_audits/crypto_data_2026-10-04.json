@@ -1,0 +1,28 @@
+{
+ "coins": 658,
+ "split_series": [
+  "LUNA#2",
+  "VEN#2"
+ ],
+ "days": 3334,
+ "first": "2017-08-17",
+ "last": "2026-10-02",
+ "delisted_before_end": 194,
+ "coins_with_internal_gaps": 13,
+ "internal_gap_days": 548,
+ "daily_moves_beyond_3x": 31,
+ "eligible_coins_by_year": {
+  "2017": 6,
+  "2018": 22,
+  "2019": 84,
+  "2020": 186,
+  "2021": 302,
+  "2022": 341,
+  "2023": 368,
+  "2024": 416,
+  "2025": 473,
+  "2026": 513
+ },
+ "made_at": "2026-10-04T00:01:23Z",
+ "accepted": true
+}

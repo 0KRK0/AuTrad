@@ -1,0 +1,24 @@
+{
+ "coins": 662,
+ "days": 3334,
+ "first": "2017-08-17",
+ "last": "2026-10-02",
+ "delisted_before_end": 195,
+ "coins_with_internal_gaps": 15,
+ "internal_gap_days": 652,
+ "daily_moves_beyond_3x": 32,
+ "eligible_coins_by_year": {
+  "2017": 6,
+  "2018": 21,
+  "2019": 84,
+  "2020": 188,
+  "2021": 302,
+  "2022": 340,
+  "2023": 371,
+  "2024": 418,
+  "2025": 475,
+  "2026": 516
+ },
+ "made_at": "2026-10-03T22:35:04Z",
+ "accepted": true
+}

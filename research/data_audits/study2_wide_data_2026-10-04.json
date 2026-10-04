@@ -1,0 +1,42 @@
+{
+ "filings": 47585,
+ "companies": 1251,
+ "quarterly_first_filings": 42459,
+ "sources": {
+  "bse_api": 42832,
+  "bse_xbrl_as_filed": 4753
+ },
+ "member_quarters": 20500,
+ "covered_all_members": 0.9924,
+ "covered_mapped_members": 0.9962,
+ "by_year_covered": {
+  "2016": 0.9953,
+  "2017": 0.994,
+  "2018": 0.9925,
+  "2019": 0.9935,
+  "2020": 0.994,
+  "2021": 0.995,
+  "2022": 0.993,
+  "2023": 0.991,
+  "2024": 0.988,
+  "2025": 0.99,
+  "2026": 0.99
+ },
+ "filing_lag_days_median": 17.0,
+ "filed_after_45_days_share": 0.0188,
+ "pct_out_of_range": 0,
+ "encumbrance_unknown_with_promoter": 45,
+ "power": {
+  "rule": "Amendment 1 H2a events among TOP500 members (previous month-end), from 2016-05-01",
+  "events": 317,
+  "companies": 187,
+  "required": {
+   "events": 100,
+   "companies": 30
+  },
+  "powered": true
+ },
+ "high_encumbrance_member_quarters": 1869,
+ "made_at": "2026-10-04T00:00:52Z",
+ "accepted": true
+}
